@@ -6,20 +6,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <form className="form">
+          <input className="question" type="text" placeholder="Enter Question Here..."/>
+          <input className="answer correct" type="text" placeholder="Enter CORRECT Answer Here..."/>
+          <input className="answer" type="text" placeholder="Enter Answer Here..."/>
+          <input className="answer" type="text" placeholder="Enter Answer Here..."/>
+          <input className="answer" type="text" placeholder="Enter Answer Here..."/>
+        </form>
       </div>
     );
   }
