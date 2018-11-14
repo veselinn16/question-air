@@ -13,20 +13,23 @@
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+
+  border-radius: 5px;
+  background: #58695e;
 }
 
 .question {
   border-radius: 5px;
-  border: 2px solid cyan;
+  border: 2px solid #b0d2bd;
 }
 
 .answer {
   border-radius: 5px;
-  border: 2px solid red;
+  border: 2px solid #bc1a0e;
 }
 
 .correct {
-  border: 2px solid green;
+  border: 2px solid #72965f;
 }
 
 .question {
