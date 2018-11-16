@@ -63,7 +63,7 @@ class App extends Component {
   hideWarning = () => {
     // removes warning if there is any
     const warning = document.querySelector('.warning');
-    warning.parentElement.removeChild(warning);
+    warning && warning.parentElement.removeChild(warning);
   }
 
   render() {
