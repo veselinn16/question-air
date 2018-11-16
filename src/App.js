@@ -11,6 +11,15 @@ class App extends Component {
     question: ''
   }
 
+  validateForm = array => {
+    let result;
+    array.forEach(element => {
+      result += (element.length > 0 ? ' 0 ' : ' -1 ');
+    });
+    console.log(result);
+    console.log(result.includes('-1') ? 'Please make sure to fill out all the form elements' : 'All set to go!');
+  }
+
   getData = e => {
     // prevent default behabior of submit button
     e.preventDefault();
@@ -18,20 +27,22 @@ class App extends Component {
     // extract text from HTML nodes
     let question = document.querySelector('.question').value;
     let answer = document.querySelector('.correct').value;
-    let answerArr1 = [].slice.call(document.querySelectorAll('.answer')); // convert nodelist to array
-    let answerArr = answerArr1.map(ans => ans.value); // extract text
-    
-    let questionObj = {
-        question,
-        answer,
-        answerArr            
-    }
+    let answerArray = [].slice.call(document.querySelectorAll('.answer')); // convert nodelist to array
+    let answersArray = answerArray.map(answer => answer.value); // extract text
 
-    this.setState({question: questionObj});
+    this.validateForm([question, ...answersArray])
     
-    console.log(`Question: ${questionObj.question}`);
-    console.log(`Correct: ${questionObj.answer}`);
-    console.log(`Answer array: ${questionObj.answerArr[0]}`);
+    // let questionObj = {
+    //   question,
+    //   answer,
+    //   answersArray            
+    // }
+
+    // this.setState({question: questionObj});
+    
+    // console.log(`Question: ${questionObj.question}`);
+    // console.log(`Correct: ${questionObj.answer}`);
+    // console.log(`Answer array: ${questionObj.answerArr[0]}`);
   }
 
   render() {
