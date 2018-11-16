@@ -11,13 +11,34 @@ class App extends Component {
     question: ''
   }
 
-  validateForm = array => {
+  displayWarning = () => {
+    // create warning and prepend it to the form
+    const warning = document.createElement('p')
+    warning.className = 'warning';
+    const warningText = document.createTextNode('Please make sure to fill out all the form elements');
+    warning.appendChild(warningText);
+    document.querySelector('.index').prepend(warning)
+  }
+
+  registerQuestion = question => {
+    this.setState({question: question});
+    this.displayButton(); // make question button visible
+  }
+
+  displayButton = () => {
+    const questionButton = document.querySelector('.btn-question');
+    questionButton.style.opacity = '1';
+  }
+
+  validateQuestion = question => {
     let result;
+    const array = [question.question, ...question.answersArray];
     array.forEach(element => {
       result += (element.length > 0 ? ' 0 ' : ' -1 ');
     });
-    console.log(result);
-    console.log(result.includes('-1') ? 'Please make sure to fill out all the form elements' : 'All set to go!');
+    console.log(question);
+
+    result.includes('-1') ? this.displayWarning() : this.registerQuestion(question); // prepend warning or register question
   }
 
   getData = e => {
@@ -30,25 +51,25 @@ class App extends Component {
     let answerArray = [].slice.call(document.querySelectorAll('.answer')); // convert nodelist to array
     let answersArray = answerArray.map(answer => answer.value); // extract text
 
-    this.validateForm([question, ...answersArray])
-    
-    // let questionObj = {
-    //   question,
-    //   answer,
-    //   answersArray            
-    // }
+    let questionObj = {
+      question,
+      answer,
+      answersArray            
+    }
 
-    // this.setState({question: questionObj});
-    
-    // console.log(`Question: ${questionObj.question}`);
-    // console.log(`Correct: ${questionObj.answer}`);
-    // console.log(`Answer array: ${questionObj.answerArr[0]}`);
+    this.validateQuestion(questionObj)  
+  }
+
+  hideWarning = () => {
+    // removes warning if there is any
+    const warning = document.querySelector('.warning');
+    warning.parentElement.removeChild(warning);
   }
 
   render() {
     return (
       <div className="App">
-        <Route exact path="/" render={() => <Form getData={this.getData} />} />
+        <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
         <Route path='/question' render={() => <Question question={this.state.question} />}/>
       </div>
     );
