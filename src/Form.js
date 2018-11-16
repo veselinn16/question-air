@@ -10,7 +10,7 @@ class Form extends Component {
             <input className="answer" type="text" placeholder="Enter Answer Here..."/>
             <input className="answer" type="text" placeholder="Enter Answer Here..."/>
             <input className="answer" type="text" placeholder="Enter Answer Here..."/>
-            <input type="submit" value="Submit"/>
+            <input className="submit" type="submit" value="Submit"/>
         </form>
         )
     }
