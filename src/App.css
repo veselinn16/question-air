@@ -92,11 +92,19 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   font-size: 2rem;
   height: 50vh;
 }
 
 .answers {
+  width: 80%;
   display: flex;
   justify-content: space-evenly;
+}
+
+.answer-btn {
+  width: 40%;
+  justify-self: flex-end;
+  padding: .5rem;
 }
