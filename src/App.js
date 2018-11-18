@@ -36,10 +36,20 @@ class App extends Component {
     array.forEach(element => {
       result += (element.length > 0 ? ' 0 ' : ' -1 ');
     });
-    console.log(question);
 
     result.includes('-1') ? this.displayWarning() : this.registerQuestion(question); // prepend warning or register question
   }
+
+  shuffleAnswers = array => {
+    // shuffles the order of the elements of the answers array
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  } 
 
   getData = e => {
     // prevent default behabior of submit button
@@ -49,7 +59,8 @@ class App extends Component {
     let question = document.querySelector('.question').value;
     let answer = document.querySelector('.correct').value;
     let answerArray = [].slice.call(document.querySelectorAll('.answer')); // convert nodelist to array
-    let answersArray = answerArray.map(answer => answer.value); // extract text
+    let answersArr = answerArray.map(answer => answer.value); // extract text
+    let answersArray = this.shuffleAnswers(answersArr); // randomize order of answers
 
     let questionObj = {
       question,
@@ -63,7 +74,7 @@ class App extends Component {
   hideWarning = () => {
     // removes warning if there is any
     const warning = document.querySelector('.warning');
-    warning && warning.parentElement.removeChild(warning);
+    warning && warning.parentElement.removeChild(warning); // if there is a warning, remove it
   }
 
   render() {
