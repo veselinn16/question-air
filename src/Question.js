@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 
 class Question extends Component {
     state = {
-        answer: ''
+        score: 0
+    }
+
+    displayResults = result => {
+        // checks value of radios against correct answer and updates score
+        result === this.props.questions[0].answer && this.setState(prevState => {
+            prevState.score ++
+        })
+        this.props.questions.shift();
+        console.log(this.props.questions);
     }
 
     getRadioVal = () => {
@@ -18,17 +27,18 @@ class Question extends Component {
                 break; // and break out of for loop
             }
         }
-        console.log(val === this.props.question.answer ? true : false); // checks value of radios against correct answer
+
+        this.displayResults(val);
     }
 
     render() {
-        const {question} = this.props // unpack question from props object
+        const {questions} = this.props // unpack question from props object
         return(                
-            question.answersArray ?
+            questions.length > 0 ?
             <div className="question-container"> 
-                <h1 className="question">{question.question}</h1>
+                <h1 className="question">{questions[0].question}</h1>
                 <form className="answers">
-                    {question.answersArray.map((answer, i) => {
+                    {questions[0].answersArray.map((answer, i) => {
                     return (
                     <label>
                         <input className="ans" type="radio" key={i} name="answer" defaultValue={answer}/>
