@@ -8,12 +8,12 @@ import Question from './Question';
 
 class App extends Component {
   state = {
-    question: ''
+    questions: []
   }
 
   displayWarning = () => {
     // create warning and prepend it to the form
-    const warning = document.createElement('p')
+    const warning = document.createElement('p'); // CHANGE WITH REACT.CREATEELEMENT() !!!!!!!!
     warning.className = 'warning';
     const warningText = document.createTextNode('Please make sure to fill out all the form elements');
     warning.appendChild(warningText);
@@ -21,7 +21,12 @@ class App extends Component {
   }
 
   registerQuestion = question => {
-    this.setState({question: question});
+    this.setState( prevState => ({
+      questions: [...prevState.questions, question]
+    }));
+
+    console.log(this.state)
+
     this.displayButton(); // make question button visible
   }
 
@@ -70,8 +75,6 @@ class App extends Component {
     let answersArr = answerArray.map(answer => answer.value); // extract text
     let answersArray = this.shuffleAnswers(answersArr); // randomize order of answers
 
-
-
     let questionObj = {
       question,
       answer,
@@ -91,7 +94,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
-        <Route path='/question' render={() => <Question question={this.state.question} />}/>
+        <Route path='/question' render={() => <Question questions={this.state.questions} />}/>
       </div>
     );
   }
