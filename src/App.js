@@ -28,6 +28,8 @@ class App extends Component {
   displayButton = () => {
     const questionButton = document.querySelector('.btn-question');
     questionButton.style.opacity = '1';
+
+    this.emptyFormFields();
   }
 
   validateQuestion = question => {
@@ -41,7 +43,7 @@ class App extends Component {
   }
 
   shuffleAnswers = array => {
-    // shuffles the order of the elements of the answers array
+    // shuffles the order of the elements of the answers array using the Durstenfeld shuffle algorithm
     for (let i = array.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       let temp = array[i];
@@ -49,7 +51,13 @@ class App extends Component {
       array[j] = temp;
     }
     return array;
-  } 
+  }
+
+  emptyFormFields = () => {
+    let question = document.querySelector('.question');
+    let answerArray = [].slice.call(document.querySelectorAll('.answer'));
+    [question, ...answerArray].forEach(el => el.value = '');
+  }
 
   getData = e => {
     // prevent default behabior of submit button
@@ -61,6 +69,8 @@ class App extends Component {
     let answerArray = [].slice.call(document.querySelectorAll('.answer')); // convert nodelist to array
     let answersArr = answerArray.map(answer => answer.value); // extract text
     let answersArray = this.shuffleAnswers(answersArr); // randomize order of answers
+
+
 
     let questionObj = {
       question,
