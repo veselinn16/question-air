@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 
 class Form extends Component {
     render() {
-        // const {props} = this.props
+        const {props} = this.props
         return(
         <div className="index">
-            <form className="form" onChange={this.props.hideWarning}>
+            <form className="form" onChange={props.hideWarning}>
                 <h2 className="title">?uestion-air</h2>
                 <input className="question" type="text" placeholder="Enter Question Here..."/>
                 <input className="answer correct" type="text" placeholder="Enter CORRECT Answer Here..."/>
                 <input className="answer" type="text" placeholder="Enter Answer Here..."/>
                 <input className="answer" type="text" placeholder="Enter Answer Here..."/>
                 <input className="answer" type="text" placeholder="Enter Answer Here..."/>
-                <input className="submit" type="submit" value="Submit" onClick={this.props.getData}/>
+                <input className="submit" type="submit" value="Submit" onClick={props.getData}/>
             </form>
             <Link className="btn-question" to='/question'>Show Question</Link>
         </div>
