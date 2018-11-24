@@ -83,10 +83,19 @@ class App extends Component {
     this.validateQuestion(questionObj)  
   }
 
+  removeQuestion = () => {    
+    this.setState(prevState => ({
+      questions: prevState.questions.shift()
+    }))
+    console.log('s')
+  }
+
   increaseScore = () => {
     this.setState(prevState => ({
       score: prevState.score++
     }))
+
+    this.removeQuestion();
   }
 
   hideWarning = () => {
@@ -99,7 +108,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
-        <Route path='/:question' render={() => <Question questions={this.state.questions} evaluateResults={this.evaluateResults}/>}/>
+        <Route path='/question-1' render={() => <Question questions={this.state.questions} increaseScore={this.increaseScore}/>}/>
       </div>
     );
   }

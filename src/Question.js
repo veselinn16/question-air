@@ -2,38 +2,31 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Question extends Component {
-    state = {
-        score: 0
-    }
-
-    // componentDidMount() {
-    //     // console.log(this.props.match.params.question);
-    // }
-
-    displayResults = result => {
-        // checks value of radios against correct answer and updates score
-        result === this.props.questions[0].answer && this.setState(prevState => {
-            prevState.score ++
-        })
-        this.props.questions.shift();
+    componentDidMount() {
+        console.log(this.props.questions);
     }
 
     getRadioVal = () => {
         // REFAAAAAAAAAAAAAAAACCCCCCTOOOOOOOORRR!
-        let val;
+        let answer;
         // get list of radio buttons with specified name
         let radios = document.querySelector('.answers').elements['answer'];
         
         // loop through list of radio buttons
         for (let i=0, len=radios.length; i<len; i++) {
             if ( radios[i].checked ) { // radio checked?
-                val = radios[i].value; // if so, hold its value in val
+                answer = radios[i].value; // if so, hold its value in answer
                 break; // and break out of for loop
             }
         }
 
-        this.displayResults(val);
+        this.checkAnswer(answer); // the aswer submitted by the user (string)
     }
+
+    checkAnswer = answer => {
+        // checks value of radios against correct answer and updates score
+        answer === this.props.questions[0].answer && this.props.increaseScore()
+    } 
 
     render() {
         const {questions} = this.props // unpack question from props object
@@ -51,7 +44,7 @@ class Question extends Component {
                     )                
                 })}
                 </form>
-                <Link className="answer-btn" onClick={this.getRadioVal} to='/question-2'>Submit Answer</Link> 
+                <button className="answer-btn" onClick={this.getRadioVal}>Submit Answer</button> 
             </div> : <h1>Please Enter a Question!</h1>            
         )
         // return (
