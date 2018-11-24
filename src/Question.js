@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Question extends Component {
     state = {
         score: 0
     }
+
+    // componentDidMount() {
+    //     // console.log(this.props.match.params.question);
+    // }
 
     displayResults = result => {
         // checks value of radios against correct answer and updates score
@@ -11,7 +16,6 @@ class Question extends Component {
             prevState.score ++
         })
         this.props.questions.shift();
-        console.log(this.props.questions);
     }
 
     getRadioVal = () => {
@@ -47,7 +51,7 @@ class Question extends Component {
                     )                
                 })}
                 </form>
-                <button className="answer-btn" onClick={this.getRadioVal}>Submit Answer</button> 
+                <Link className="answer-btn" onClick={this.getRadioVal} to='/question-2'>Submit Answer</Link> 
             </div> : <h1>Please Enter a Question!</h1>            
         )
         // return (
