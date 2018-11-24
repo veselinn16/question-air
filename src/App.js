@@ -8,7 +8,8 @@ import Question from './Question';
 
 class App extends Component {
   state = {
-    questions: []
+    questions: [],
+    score: 0
   }
 
   displayWarning = () => {
@@ -24,8 +25,6 @@ class App extends Component {
     this.setState( prevState => ({
       questions: [...prevState.questions, question]
     }));
-
-    console.log(this.state)
 
     this.displayButton(); // make question button visible
   }
@@ -84,6 +83,12 @@ class App extends Component {
     this.validateQuestion(questionObj)  
   }
 
+  increaseScore = () => {
+    this.setState(prevState => ({
+      score: prevState.score++
+    }))
+  }
+
   hideWarning = () => {
     // removes warning if there is any
     const warning = document.querySelector('.warning');
@@ -94,7 +99,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
-        <Route path='/question' render={() => <Question questions={this.state.questions} />}/>
+        <Route path='/:question' render={() => <Question questions={this.state.questions} evaluateResults={this.evaluateResults}/>}/>
       </div>
     );
   }
