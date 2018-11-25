@@ -84,19 +84,17 @@ class App extends Component {
   }
 
   removeQuestion = () => {
-    console.log(this.state.questions);
+    console.log('Removing first question from questions array');
     let newQuestions = [...this.state.questions];
     newQuestions.splice(0,1);
     this.setState({ questions: newQuestions });
-    console.log('Removing first question from questions array');
-    console.log(`Score is ${this.state.score}`);
   }
 
   increaseScore = () => {
+    console.log('Adding score');
     let newScore = this.state.score
     newScore++
     this.setState({ score: newScore });
-    console.log('Adding score');
 
     this.removeQuestion();
   }
@@ -111,7 +109,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
-        <Route path='/question-1' render={() => <Question questions={this.state.questions} increaseScore={this.increaseScore}/>}/>
+        <Route path='/question-1' render={() => <Question questions={this.state.questions} score={this.state.score} increaseScore={this.increaseScore} removeQuestion={this.removeQuestion}/>}/>
       </div>
     );
   }

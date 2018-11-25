@@ -7,10 +7,10 @@ class Question extends Component {
     }
     
     componentWillMount() {
-        this.setState({
-            questions: this.props.questions
-        })
-        // console.log()
+        // this.setState({
+        //     questions: this.props.questions
+        // })
+        // console.log('Component is mounting');
     }
 
     getRadioVal = () => {
@@ -31,15 +31,16 @@ class Question extends Component {
     }
 
     checkAnswer = answer => {
-        // checks value of radios against correct answer and updates score
-        answer === this.state.questions[0].answer && this.props.increaseScore()
+        // checks value of radios against correct answer and updates score and/or removes question
+        answer === this.props.questions[0].answer ? this.props.increaseScore() : this.props.removeQuestion()
     } 
 
     render() {
-        const {questions} = this.state // unpack question from state object
+        const {questions} = this.props // unpack question from state object
         return(                
             questions.length > 0 ?
-            <div className="question-container"> 
+            <div className="question-container">
+                <p>{this.props.score}</p> 
                 <h1 className="question">{questions[0].question}</h1>
                 <form className="answers">
                     {questions[0].answersArray.map((answer, i) => {
