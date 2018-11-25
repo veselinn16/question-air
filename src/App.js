@@ -110,7 +110,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
-        <Route path='/arrange-questions' render={() => <Arrange/>}/>
+        <Route path='/arrange-questions' render={() => <Arrange questions={this.state.questions}/>}/>
         <Route path='/question-1' render={() => <Question questions={this.state.questions} score={this.state.score} increaseScore={this.increaseScore} removeQuestion={this.removeQuestion}/>}/>
       </div>
     );
