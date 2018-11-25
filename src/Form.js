@@ -16,6 +16,7 @@ class Form extends Component {
                 <input className="submit" type="submit" value="Submit" onClick={this.props.getData}/>
             </form>
             <Link className="btn-question" to='/question-1'>Show Question</Link>
+            <Link className="btn-question" to='/arrange-questions'>Arrange Questions</Link>
         </div>
         )
     }

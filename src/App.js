@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 
 import Form from './Form';
 import Question from './Question';
+import Arrange from './Arrange';
 
 class App extends Component {
   state = {
@@ -30,8 +31,8 @@ class App extends Component {
   }
 
   displayButton = () => {
-    const questionButton = document.querySelector('.btn-question');
-    questionButton.style.opacity = '1';
+    const questionButton = [].slice.call(document.querySelectorAll('.btn-question'));
+    questionButton.forEach(el => el.style.opacity = '1');
 
     this.emptyFormFields();
   }
@@ -109,6 +110,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
+        <Route path='/arrange-questions' render={() => <Arrange/>}/>
         <Route path='/question-1' render={() => <Question questions={this.state.questions} score={this.state.score} increaseScore={this.increaseScore} removeQuestion={this.removeQuestion}/>}/>
       </div>
     );
