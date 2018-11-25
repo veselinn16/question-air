@@ -83,18 +83,19 @@ class App extends Component {
     this.validateQuestion(questionObj)  
   }
 
-  removeQuestion = () => {    
-    this.setState(prevState => ({
-      questions: prevState.questions.shift()
-    }))
+  removeQuestion = () => {
+    console.log(this.state.questions);
+    let newQuestions = [...this.state.questions];
+    newQuestions.splice(0,1);
+    this.setState({ questions: newQuestions });
     console.log('Removing first question from questions array');
     console.log(`Score is ${this.state.score}`);
   }
 
   increaseScore = () => {
-    this.setState(prevState => ({
-      score: prevState.score++
-    }))
+    let newScore = this.state.score
+    newScore++
+    this.setState({ score: newScore });
     console.log('Adding score');
 
     this.removeQuestion();
