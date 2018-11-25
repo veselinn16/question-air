@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Question extends Component {
-    componentDidMount() {
-        console.log(this.props.questions);
+    state = {
+        questions: []
+    }
+    
+    componentWillMount() {
+        this.setState({
+            questions: this.props.questions
+        })
+        // console.log()
     }
 
     getRadioVal = () => {
@@ -25,11 +32,11 @@ class Question extends Component {
 
     checkAnswer = answer => {
         // checks value of radios against correct answer and updates score
-        answer === this.props.questions[0].answer && this.props.increaseScore()
+        answer === this.state.questions[0].answer && this.props.increaseScore()
     } 
 
     render() {
-        const {questions} = this.props // unpack question from props object
+        const {questions} = this.state // unpack question from state object
         return(                
             questions.length > 0 ?
             <div className="question-container"> 

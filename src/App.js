@@ -87,13 +87,15 @@ class App extends Component {
     this.setState(prevState => ({
       questions: prevState.questions.shift()
     }))
-    console.log('s')
+    console.log('Removing first question from questions array');
+    console.log(`Score is ${this.state.score}`);
   }
 
   increaseScore = () => {
     this.setState(prevState => ({
       score: prevState.score++
     }))
+    console.log('Adding score');
 
     this.removeQuestion();
   }
