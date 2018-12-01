@@ -59,9 +59,12 @@ class App extends Component {
   }
 
   emptyFormFields = () => {
+    // deletes text from form fields
     let question = document.querySelector('.question');
     let answerArray = [].slice.call(document.querySelectorAll('.answer'));
     [question, ...answerArray].forEach(el => el.value = '');
+
+    question.focus(); // set focus on question field after emptying text
   }
 
   getData = e => {
