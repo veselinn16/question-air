@@ -2,6 +2,8 @@ import TweenLite from "gsap";
 import Draggable  from "gsap/Draggable";
 
 const sortables = [];
+let rowSize = null;
+let total = null;
 
 function clamp(value, a, b) {
   // clamps a value to a min/max
@@ -27,30 +29,17 @@ function changeIndex(item, to, container) {
   } else {
     let i = item.index > to ? to : to + 1; // sets i based on whether the question's index is bigger than the old index or lower
     container.insertBefore(item.element, container.children[i]); // inserts the question before the index of the question which has to be after it
-  }
-  console.log(sortables);
-  console.log(typeof sortables);    
+  }    
       
   // Set index for each sortable
   sortables.forEach((sortable, index) => sortable.setIndex(index));
 }
 
 export default {
-  // setVal(container, total, sortables, rowSize) {
-  //   return {
-  //     container,
-  //     total,
-  //     sortables,
-  //     rowSize
-  //   }
-  // },
-  
-  // returnVal(val) {
-
-  //   return object.val
-  // }
-  total: null,
-  rowSize: null,
+  setVal(size, number) {
+    rowSize = size;
+    total = number;
+  },
 
   Sortable(element, index, container) {
     console.log('(2) Sortable() is running.');
@@ -80,7 +69,7 @@ export default {
       setIndex
     };
     
-    TweenLite.set(element, { y: index * 100 }); // sets the position of the item based on its index. F.ex.: for the first question el is 0 * 100 = 0 / ROWSIZE SHOULD BE USEEEEEED!!!!!!
+    TweenLite.set(element, { y: index * rowSize }); // sets the position of the item based on its index. F.ex.: for the first question el is 0 * 100 = 0 
         
     function setIndex(index) {
       console.log('(3) setIndex() is running.');
@@ -101,7 +90,7 @@ export default {
         // called every single time the mouse moves during drag
         console.log('(5) dragAction() is running.');
         // Calculate the current index based on element's position
-        let index = clamp(Math.round(this.y / 100), 0, 2 - 1); // returns the index where the element should be placed among the order of questions ROWSIZE SHOULD BE USED!!!!!!!
+        let index = clamp(Math.round(this.y / rowSize), 0, total - 1); // returns the index where the element should be placed among the order of questions ROWSIZE SHOULD BE USED!!!!!!!
         
         if (index !== sortable.index) { // if index is modified e.g. element is moved
           changeIndex(sortable, index, container); // change its index
@@ -118,7 +107,7 @@ export default {
     function layout() {
       // creates a TweenLite instance, which animates the question element's specified values - y
       console.log('(7) layout() is running.');    
-      TweenLite.to(element, 0.3, { y: sortable.index * 100 }); // rowSize instead of 100  
+      TweenLite.to(element, 0.3, { y: sortable.index * rowSize }); // rowSize instead of 100  
     }
         
     sortables.push(sortable);

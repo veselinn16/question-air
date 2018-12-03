@@ -15,7 +15,7 @@ class Arrange extends Component {
     componentDidMount() {
         if (this.dom.listQuestions.length > 0) {
             animation.container = this.dom.container
-            animation.rowSize = 100;
+            animation.setVal(100, this.dom.listQuestions.length);
             this.dom.listQuestions.map((el, i) => animation.Sortable(el, i, this.dom.container, this.dom.listQuestions));
             // animation.sortables = sortables;
             // animation.total = animation.sortables.length;
