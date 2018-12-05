@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { Route } from 'react-router-dom';
 
@@ -30,6 +30,10 @@ class App extends Component {
     this.displayButton(); // make question button visible
   }
 
+  arrangeQuestions = questions => {
+    this.setState({questions})
+  }
+
   displayButton = () => {
     const questionButton = [].slice.call(document.querySelectorAll('.btn-question'));
     questionButton.forEach(el => el.style.opacity = '1');
@@ -39,9 +43,9 @@ class App extends Component {
 
   validateQuestion = question => {
     let result;
-    const array = [question.question, ...question.answersArray];
+    const array = [question.question, ...question.answersArray]; // add question to array of questions
     array.forEach(element => {
-      result += (element.length > 0 ? ' 0 ' : ' -1 ');
+      result += (element.length > 0 ? ' 0 ' : ' -1 '); // if there is an empty form field return -1 and display warning later
     });
 
     result.includes('-1') ? this.displayWarning() : this.registerQuestion(question); // prepend warning or register question
@@ -113,7 +117,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
-        <Route path='/arrange-questions' render={() => <Arrange questions={this.state.questions}/>}/>
+        <Route path='/arrange-questions' render={() => <Arrange questions={this.state.questions} arrangeQuestions={this.arrangeQuestions}/>}/>
         <Route path='/question-1' render={() => <Question questions={this.state.questions} score={this.state.score} increaseScore={this.increaseScore} removeQuestion={this.removeQuestion}/>}/>
       </div>
     );

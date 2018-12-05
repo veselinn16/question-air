@@ -2,28 +2,29 @@ import TweenLite from "gsap";
 import Draggable  from "gsap/Draggable";
 
 const sortables = [];
-let rowSize = null;
-let total = null;
+let rowSize = null; // determines the height of a row
+let total = null; // length of questions array
+let questions = null; // original array of questions
 
 function clamp(value, a, b) {
   // clamps a value to a min/max
   // maybe clamp is not the best name, place is better
-  console.log('(9) outside of Sortable() clamp() is running.');    
   return value < a ? a : (value > b ? b : value); // value is the row, based on the location of the question element, and compares it with 0(first row) and value(the final row)
 }
 
-function arrayMove(array, from, to) {
+function arrayMove(array1, array2, from, to) {
   // changes an elements's position in array
-  console.log('(8) outside of Sortable arrayMove() is running.');
-  array.splice(to, 0, array.splice(from, 1)[0]);
+  array1.splice(to, 0, array1.splice(from, 1)[0]);
+
+  console.log(array2);
+  array2.splice(to, 0, array2.splice(from, 1)[0]);
 }
 
 function changeIndex(item, to, container) {
-  console.log('(1) changeIndex() is running.');
-  // Change position in array
-  arrayMove(sortables, item.index, to);
+  // change position in array
+  arrayMove(sortables, questions, item.index, to);
 
-  // Change element's position in DOM. Not always necessary. Just showing how.
+  // change element's position in DOM
   if (to === 2 - 1) {
     container.appendChild(item.element); // if the question's index is equal to the total length of the questions array append the question to the container at the bottom
   } else {
@@ -31,18 +32,22 @@ function changeIndex(item, to, container) {
     container.insertBefore(item.element, container.children[i]); // inserts the question before the index of the question which has to be after it
   }    
       
-  // Set index for each sortable
+  // set index for each sortable
   sortables.forEach((sortable, index) => sortable.setIndex(index));
 }
 
 export default {
-  setVal(size, number) {
+  setVal(size, number, questionsArray) {
     rowSize = size;
     total = number;
+    questions = questionsArray
+  },
+
+  getOrderedQuestions () {
+    return questions;
   },
 
   Sortable(element, index, container) {
-    console.log('(2) Sortable() is running.');
     let content = element.querySelector(".item-content");
     let order   = element.querySelector(".order");
     
@@ -61,7 +66,7 @@ export default {
       type: "y"
     });
     
-    // Public properties and methods.
+    // properties and methods of each sortable
     let sortable = {
       dragger,
       element,
@@ -72,7 +77,6 @@ export default {
     TweenLite.set(element, { y: index * rowSize }); // sets the position of the item based on its index. F.ex.: for the first question el is 0 * 100 = 0 
         
     function setIndex(index) {
-      console.log('(3) setIndex() is running.');
       sortable.index = index; // sets the new index of the question  
       order.textContent = index + 1; // sets the text of the order element based on index of question
       
@@ -80,17 +84,15 @@ export default {
     }
     
     function downAction() {
-      // Called as soon as mouse moves 2px(dragging has begun)
-      console.log('(4) downAction() is running.');
+      // called as soon as mouse moves 2px(dragging has begun)
       animation.play(); // animates box-shadow, scale, translate3d(), paused
       this.update(); // updates the question(Draggable instance)'s y property to reflect its modified position
     }
     
     function dragAction() {
         // called every single time the mouse moves during drag
-        console.log('(5) dragAction() is running.');
-        // Calculate the current index based on element's position
-        let index = clamp(Math.round(this.y / rowSize), 0, total - 1); // returns the index where the element should be placed among the order of questions ROWSIZE SHOULD BE USED!!!!!!!
+        // calculate the current index based on element's position
+        let index = clamp(Math.round(this.y / rowSize), 0, total - 1); // returns the index where the element should be placed among the order of questions
         
         if (index !== sortable.index) { // if index is modified e.g. element is moved
           changeIndex(sortable, index, container); // change its index
@@ -99,15 +101,13 @@ export default {
     
     function upAction() {
       // called when the dragging ends
-      console.log('(6) upAction() is running.');
       animation.reverse();
       layout();
     }
     
     function layout() {
       // creates a TweenLite instance, which animates the question element's specified values - y
-      console.log('(7) layout() is running.');    
-      TweenLite.to(element, 0.3, { y: sortable.index * rowSize }); // rowSize instead of 100  
+      TweenLite.to(element, 0.3, { y: sortable.index * rowSize });  
     }
         
     sortables.push(sortable);
