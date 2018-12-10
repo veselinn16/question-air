@@ -109,7 +109,16 @@ html {
   padding: .5rem;
 }
 
-/* for arrange questions route */
+/* /////// Arrange Questions Route /////// */
+.route {
+  width: 100%;
+  height: 100%;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-content: space-between;
+}
+
 .container-arrange {
   position: relative;  
   /* top: 50%;
@@ -117,6 +126,7 @@ html {
   /* display: flex;
   flex-direction: column; */
   width: 320px;
+  display: table;
   height: 350px;
   opacity: 0;
   visibility: hidden;
@@ -127,6 +137,7 @@ html {
   position: absolute;
   /* top: -50%;
   left: -50%;   */
+  display: table-row;
   height: 90px;
   width: 100%;  
   /* height: 25%; */
@@ -147,4 +158,33 @@ html {
   font-weight: 400;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0,0,0,0.2) 0px 1px 2px 0px;
+}
+
+.btn-questio {
+  position: fixed;
+  z-index: 9999;
+}
+
+/* /////// Questions Route /////// */
+.questions_original {
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.questions_heading {
+  font-size: 2.5rem;
+  flex-basis: 10%;
+}
+
+.questions {
+  flex-basis: 85%;
+  text-align: center;
+  list-style: none;
+  font-size: 2rem;
+}
+
+.item {
+  
 }
