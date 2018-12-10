@@ -12,17 +12,16 @@ function clamp(value, a, b) {
   return value < a ? a : (value > b ? b : value); // value is the row, based on the location of the question element, and compares it with 0(first row) and value(the final row)
 }
 
-function arrayMove(array1, array2, from, to) {
+function arrayMove(array, from, to) {
   // changes an elements's position in array
-  array1.splice(to, 0, array1.splice(from, 1)[0]);
-
-  console.log(array2);
-  array2.splice(to, 0, array2.splice(from, 1)[0]);
+  array.splice(to, 0, array.splice(from, 1)[0]);
 }
 
 function changeIndex(item, to, container) {
   // change position in array
-  arrayMove(sortables, questions, item.index, to);
+  arrayMove(sortables, item.index, to); // modifies the sortables array
+  arrayMove(questions, item.index, to); // modifies the original questions array
+  
 
   // change element's position in DOM
   if (to === 2 - 1) {
@@ -37,14 +36,14 @@ function changeIndex(item, to, container) {
 }
 
 export default {
+  setAnimation(element) {
+    TweenLite.to(element, 0.5, { autoAlpha: 1 }); // sets animation Tween to the cointainer
+  },
+  
   setVal(size, number, questionsArray) {
     rowSize = size;
     total = number;
-    questions = questionsArray
-  },
-
-  getOrderedQuestions () {
-    return questions;
+    questions = questionsArray;
   },
 
   Sortable(element, index, container) {

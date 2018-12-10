@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import TweenLite from "gsap/TweenLite";
+// import TweenLite from "gsap/TweenLite";
 import animation from './sample';
+import Questions from './Questions';
 
 class Arrange extends Component {
     constructor(props) {
@@ -16,9 +17,8 @@ class Arrange extends Component {
         if (this.dom.listQuestions.length > 0) {
             animation.container = this.dom.container;
             animation.setVal(100, this.dom.listQuestions.length, this.props.questions);
+            animation.setAnimation(this.dom.container); // sets Tween to animation container
             this.dom.listQuestions.map((el, i) => animation.Sortable(el, i, this.dom.container));
-
-            TweenLite.to(this.dom.container, 0.5, { autoAlpha: 1 }); // try to move in sample.js
         }
     }
 
@@ -42,6 +42,7 @@ class Arrange extends Component {
                                 </div>
                             </div>})}
                 </div>
+                <Questions questions={this.props.questions}></Questions>
                 <Link className="btn-questio" to='/question-1'>Show Question</Link>            
             </div>
             : <h1>Enter questions please!</h1>
