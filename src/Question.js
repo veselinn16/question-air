@@ -5,6 +5,11 @@ class Question extends Component {
         questions: []
     }
 
+    emptyOutRadios = radios => {
+        // unchecks all radio buttons
+        radios.forEach(el => el.checked = false);
+    }
+
     getRadioVal = () => {
         let answer;
         // get list of radio buttons with specified name
@@ -12,14 +17,8 @@ class Question extends Component {
         radios.forEach(el => {
             (el.checked) && (answer = el.value) // sets the answer variable equal to the value of the checked by the user radio
         });
-        
-        // loop through list of radio buttons
-        // for (let i=0, len=radios.length; i<len; i++) {
-        //     if ( radios[i].checked ) { // radio checked?
-        //         answer = radios[i].value; // if so, hold its value in answer
-        //         break; // and break out of for loop
-        //     }
-        // }
+
+        this.emptyOutRadios(radios);
 
         this.checkAnswer(answer); // the answer submitted by the user (string)
     }
@@ -46,7 +45,7 @@ class Question extends Component {
                     )                
                 })}
                 </form>
-                <button className="answer-btn" onClick={this.getRadioVal}>Submit Answer</button> 
+                {questions.length > 1 ? <button className="answer-btn" onClick={this.getRadioVal}>Submit Answer</button> : <button className="answer-btn2" onClick={this.getRadioVal}>Submit Answer and See Results</button>}
             </div> : <h1>Please Enter a Question!</h1>            
         )
         // return (
