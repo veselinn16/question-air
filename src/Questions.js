@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Questions extends Component {
     render() {
         return (
-            <div className="questions_original">
+            <div className="menu">
                 <h2 className="questions_heading">Original Question Order</h2>
                 <ul className="questions">
                     {this.props.questions.map((q, i) => {

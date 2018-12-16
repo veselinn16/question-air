@@ -12,10 +12,6 @@ class Question extends Component {
         radios.forEach(el => el.checked = false);
     }
 
-    submitAnswer = (question, answer) => {
-        this.props.questions[question].response = answer;
-    }
-
     getRadioVal = () => {
         let answer;
         // get list of radio buttons with specified name
@@ -24,18 +20,17 @@ class Question extends Component {
             (el.checked) && (answer = el.value) // sets the answer variable equal to the value of the checked by the user radio
         });
 
-        this.emptyOutRadios(radios);
-        this.submitAnswer(this.state.numberOfQuestion, answer);
+        this.emptyOutRadios(radios); // removes checked radio buttons
 
+        this.props.submitAnswer(this.state.numberOfQuestion, answer); // submits answer into state object's questions array
+        
         this.checkAnswer(answer); // the answer submitted by the user (string)
     }
 
     changeQuestion = () => {
-        console.log(this.state.numberOfQuestion);
         this.setState( prevState => ({
             numberOfQuestion: prevState.numberOfQuestion + 1
         }));
-        console.log(this.state.numberOfQuestion);
     }
 
     checkAnswer = answer => {

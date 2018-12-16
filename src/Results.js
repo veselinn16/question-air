@@ -1,9 +1,6 @@
 import React , { Component } from 'react';
 
 class Results extends Component {
-    componentDidMount() {
-        console.log(this.props.questions);
-    }
     render() {
         return (
             <div>

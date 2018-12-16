@@ -86,26 +86,32 @@ class App extends Component {
     let questionObj = {
       question,
       answer,
-      answersArray            
+      answersArray,
+      response: null // user's answer
     }
 
     this.validateQuestion(questionObj)  
   }
 
-  removeQuestion = () => {
-    console.log('Removing first question from questions array');
-    let newQuestions = [...this.state.questions];
-    newQuestions.splice(0,1);
-    this.setState({ questions: newQuestions });
+  submitAnswer = (index, answer) => {
+    let questionsCopy = this.state.questions;
+    questionsCopy[index].response = answer;
+
+    this.setState({ questions: questionsCopy});
   }
+
+  // removeQuestion = () => {
+  //   console.log('Removing first question from questions array');
+  //   let newQuestions = [...this.state.questions];
+  //   newQuestions.splice(0,1);
+  //   this.setState({ questions: newQuestions });
+  // }
 
   increaseScore = () => {
     console.log('Adding score');
     let newScore = this.state.score
     newScore++
     this.setState({ score: newScore });
-
-    this.removeQuestion();
   }
 
   hideWarning = () => {
@@ -119,8 +125,8 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
         <Route path='/arrange-questions' render={() => <Arrange questions={this.state.questions} arrangeQuestions={this.arrangeQuestions}/>}/>
-        <Route path='/question-1' render={() => <Question questions={this.state.questions} score={this.state.score} increaseScore={this.increaseScore} removeQuestion={this.removeQuestion}/>}/>
-        <Route path='/results' render={() => <Results score={this.state.score}/>}/>
+        <Route path='/question-1' render={() => <Question questions={this.state.questions} score={this.state.score} increaseScore={this.increaseScore} submitAnswer={this.submitAnswer}/>}/>
+        <Route path='/results' render={() => <Results score={this.state.score} questions={this.state.questions}/>}/>
       </div>
     );
   }
