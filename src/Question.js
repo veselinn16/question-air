@@ -42,14 +42,14 @@ class Question extends Component {
 
     render() {
         const {questions} = this.props // unpack question from state object
-        // const {numberOfQuestion} = this.state;
+        const {numberOfQuestion} = this.state;
         return(                
             questions.length > 0 ?
             <div className="question-container">
                 <p>{this.props.score}</p> 
-                <h1 className="question">{questions[this.state.numberOfQuestion].question}</h1>
+                <h1 className="question">{questions[numberOfQuestion].question}</h1>
                 <form className="answers" ref="answers">
-                    {questions[this.state.numberOfQuestion].answersArray.map((answer, i) => {
+                    {questions[numberOfQuestion].answersArray.map((answer, i) => {
                     return (
                     <label>
                         <input className="ans" type="radio" key={i} name="answer" defaultValue={answer}/>
@@ -58,7 +58,7 @@ class Question extends Component {
                     )                
                 })}
                 </form>
-                {questions.length > 1 ? <button className="answer-btn" onClick={this.getRadioVal}>Submit Answer</button> : <Link className="answer-btn2" onClick={this.getRadioVal} to="/results">Submit Answer and See Results</Link>}
+                {questions.length === numberOfQuestion + 1 ? <Link className="answer-btn2" onClick={this.getRadioVal} to="/results">Submit Answer and See Results</Link> : <button className="answer-btn" onClick={this.getRadioVal}>Submit Answer</button>}
             </div> : <h1>Please Enter a Question!</h1>            
         )
         // return (
