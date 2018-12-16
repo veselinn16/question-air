@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import Form from './Form';
 import Question from './Question';
 import Arrange from './Arrange';
+import Results from './Results';
 
 class App extends Component {
   state = {
@@ -119,6 +120,7 @@ class App extends Component {
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
         <Route path='/arrange-questions' render={() => <Arrange questions={this.state.questions} arrangeQuestions={this.arrangeQuestions}/>}/>
         <Route path='/question-1' render={() => <Question questions={this.state.questions} score={this.state.score} increaseScore={this.increaseScore} removeQuestion={this.removeQuestion}/>}/>
+        <Route path='/results' render={() => <Results score={this.state.score}/>}/>
       </div>
     );
   }

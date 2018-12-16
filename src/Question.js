@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Question extends Component {
     state = {
@@ -45,7 +46,7 @@ class Question extends Component {
                     )                
                 })}
                 </form>
-                {questions.length > 1 ? <button className="answer-btn" onClick={this.getRadioVal}>Submit Answer</button> : <button className="answer-btn2" onClick={this.getRadioVal}>Submit Answer and See Results</button>}
+                {questions.length > 1 ? <button className="answer-btn" onClick={this.getRadioVal}>Submit Answer</button> : <Link className="answer-btn2" onClick={this.getRadioVal} to="/results">Submit Answer and See Results</Link>}
             </div> : <h1>Please Enter a Question!</h1>            
         )
         // return (
