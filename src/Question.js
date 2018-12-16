@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Question extends Component {
     state = {
+        numberOfQuestion: 0,
         questions: []
     }
 
@@ -24,20 +25,31 @@ class Question extends Component {
         this.checkAnswer(answer); // the answer submitted by the user (string)
     }
 
+    changeQuestion = () => {
+        console.log(this.state.numberOfQuestion);
+        this.setState( prevState => ({
+            numberOfQuestion: prevState.numberOfQuestion + 1
+        }));
+        console.log(this.state.numberOfQuestion);
+    }
+
     checkAnswer = answer => {
         // checks value of radios against correct answer and updates score and/or removes question
-        answer === this.props.questions[0].answer ? this.props.increaseScore() : this.props.removeQuestion()
+        (answer === this.props.questions[this.state.numberOfQuestion].answer) && this.props.increaseScore();
+        
+        this.changeQuestion();
     } 
 
     render() {
         const {questions} = this.props // unpack question from state object
+        // const {numberOfQuestion} = this.state;
         return(                
             questions.length > 0 ?
             <div className="question-container">
                 <p>{this.props.score}</p> 
-                <h1 className="question">{questions[0].question}</h1>
+                <h1 className="question">{questions[this.state.numberOfQuestion].question}</h1>
                 <form className="answers" ref="answers">
-                    {questions[0].answersArray.map((answer, i) => {
+                    {questions[this.state.numberOfQuestion].answersArray.map((answer, i) => {
                     return (
                     <label>
                         <input className="ans" type="radio" key={i} name="answer" defaultValue={answer}/>
