@@ -22,6 +22,7 @@ class Arrange extends Component {
     }
 
     render() {
+        const { questions } = this.props // props object destructuring
         return (
             // this.props.questions.length > 0 ?
             //  <div className="q_container">
@@ -31,17 +32,17 @@ class Arrange extends Component {
             //         })}
             //     </ol>                
             // </div> : <h1>Enter questions please!</h1>
-            this.props.questions.length > 0 ?
+            questions.length > 0 ?
             <div className="route">
                 <div className="container-arrange" ref={container => this.dom.container = container}>
-                    {this.props.questions.map((question, i) => {
+                    {questions.map((question, i) => {
                     return <div className="list-item" key={i} ref={question => this.dom.listQuestions[i] = question}>
                                 <div className="item-content">
                                     <span className='order'>{i + 1}</span>. {question.question}
                                 </div>
                             </div>})}
                 </div>
-                <Questions questions={this.props.questions}></Questions>
+                <Questions questions={questions}></Questions>
                 <Link className="btn-questio" to='/question-1'>Show Question</Link>            
             </div>
             : <h1>Enter questions please!</h1>

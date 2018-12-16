@@ -41,8 +41,8 @@ class Question extends Component {
     } 
 
     render() {
-        const {questions} = this.props // unpack question from state object
-        const {numberOfQuestion} = this.state;
+        const {questions} = this.props // props object destructuring
+        const {numberOfQuestion} = this.state; // state object destructuring
         return(                
             questions.length > 0 ?
             <div className="question-container">

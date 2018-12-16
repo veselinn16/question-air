@@ -2,10 +2,13 @@ import React , { Component } from 'react';
 
 class Results extends Component {
     render() {
+        const {questions, score} = this.props// props object destructuring
+
         return (
+            questions.length > 0 ?
             <div>
-                <p>Your score is {this.props.score}</p>
-                {this.props.questions.map(el => {
+                <p>Your score is {score}</p>
+                {questions.map(el => {
                     return(
                     <div>
                         <p>Question: {el.question}</p>
@@ -14,6 +17,7 @@ class Results extends Component {
                     </div>)
                 })}
             </div>
+            : <h1>Please answer questions first!</h1>
             )
     }
 }

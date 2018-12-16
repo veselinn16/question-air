@@ -31,10 +31,6 @@ class App extends Component {
     this.displayButton(); // make question button visible
   }
 
-  arrangeQuestions = questions => {
-    this.setState({questions})
-  }
-
   displayButton = () => {
     const questionButton = [].slice.call(document.querySelectorAll('.btn-question'));
     questionButton.forEach(el => el.style.opacity = '1');
@@ -100,15 +96,7 @@ class App extends Component {
     this.setState({ questions: questionsCopy});
   }
 
-  // removeQuestion = () => {
-  //   console.log('Removing first question from questions array');
-  //   let newQuestions = [...this.state.questions];
-  //   newQuestions.splice(0,1);
-  //   this.setState({ questions: newQuestions });
-  // }
-
   increaseScore = () => {
-    console.log('Adding score');
     let newScore = this.state.score
     newScore++
     this.setState({ score: newScore });
@@ -121,12 +109,13 @@ class App extends Component {
   }
 
   render() {
+    const {questions, score} = this.state // state object destructuring
     return (
       <div className="App">
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
-        <Route path='/arrange-questions' render={() => <Arrange questions={this.state.questions} arrangeQuestions={this.arrangeQuestions}/>}/>
-        <Route path='/question-1' render={() => <Question questions={this.state.questions} score={this.state.score} increaseScore={this.increaseScore} submitAnswer={this.submitAnswer}/>}/>
-        <Route path='/results' render={() => <Results score={this.state.score} questions={this.state.questions}/>}/>
+        <Route path='/arrange-questions' render={() => <Arrange questions={questions}/>}/>
+        <Route path='/question-1' render={() => <Question questions={questions} score={score} increaseScore={this.increaseScore} submitAnswer={this.submitAnswer}/>}/>
+        <Route path='/results' render={() => <Results score={score} questions={questions}/>}/>
       </div>
     );
   }
