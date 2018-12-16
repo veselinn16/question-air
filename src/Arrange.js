@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import TweenLite from "gsap/TweenLite";
 import animation from './sample';
 import Questions from './Questions';
 
@@ -15,10 +14,10 @@ class Arrange extends Component {
 
     componentDidMount() {
         if (this.dom.listQuestions.length > 0) {
-            animation.container = this.dom.container;
+            animation.container = this.dom.container; // the container of the animation
             animation.setVal(100, this.dom.listQuestions.length, this.props.questions);
             animation.setAnimation(this.dom.container); // sets Tween to animation container
-            this.dom.listQuestions.map((el, i) => animation.Sortable(el, i, this.dom.container));
+            this.dom.listQuestions.map((el, i) => animation.Sortable(el, i, this.dom.container)); // converts nodes to Sortables
         }
     }
 
