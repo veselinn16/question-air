@@ -62,7 +62,7 @@ class Question extends Component {
             <div className="question-container" ref='question'>
                 <p>{this.props.score}</p> 
                 <h1 className="question">{questions[numberOfQuestion].question}</h1>
-                <form className="answers" ref="answers">
+                <form className="answers" ref="answers" onClick={this.props.hideWarning}>
                     {questions[numberOfQuestion].answersArray.map((answer, i) => {
                     return (
                     <label>
