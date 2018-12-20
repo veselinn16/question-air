@@ -23,7 +23,7 @@ class Question extends Component {
     }
 
     showWarning = () => {
-        (document.querySelector('.warning')) ? console.log('kur') : this.refs.question.prepend(this.createWarning());
+        (!document.querySelector('.warning')) && this.refs.question.prepend(this.createWarning()); // if there is a warning do nothing. If not, create and display warning
     }
 
     getRadioVal = () => {
