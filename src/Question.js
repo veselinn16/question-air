@@ -44,7 +44,7 @@ class Question extends Component {
         const {questions} = this.props // props object destructuring
         const {numberOfQuestion} = this.state; // state object destructuring
         return(                
-            questions.length > 0 ?
+            questions.length > 0 ? questions[numberOfQuestion] ?
             <div className="question-container" ref='question'>
                 <p>{this.props.score}</p> 
                 <h1 className="question">{questions[numberOfQuestion].question}</h1>
@@ -58,8 +58,8 @@ class Question extends Component {
                     )                
                 })}
                 </form>
-                {questions.length === numberOfQuestion + 1 ? <Link className="answer-btn2" onClick={this.getRadioVal} to="/results">Submit Answer and See Results</Link> : <button className="answer-btn" onClick={this.getRadioVal}>Submit Answer</button>}
-            </div> : <h1>Please Enter a Question!</h1>            
+                <button className="answer-btn" onClick={this.getRadioVal}>Submit Answer</button>
+            </div> : <Link to="/results" className="answer-btn2">See Results</Link> : <h1>Please Enter a Question!</h1>            
         )
         // return (
         //  <div className="question-container">
