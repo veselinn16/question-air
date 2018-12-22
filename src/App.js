@@ -14,13 +14,18 @@ class App extends Component {
     score: 0
   }
 
-  displayWarning = () => {
-    // create warning and prepend it to the form
+  createWarning = (text, el) => {
     const warning = document.createElement('p'); // CHANGE WITH REACT.CREATEELEMENT() !!!!!!!!
-    warning.className = 'warning';
-    const warningText = document.createTextNode('Please make sure to fill out all the form elements');
-    warning.appendChild(warningText);
-    document.querySelector('.index').prepend(warning)
+    warning.className = 'warning'
+
+    const warningText = document.createTextNode(text)
+    warning.appendChild(warningText)
+
+    document.querySelector(el).prepend(warning);
+  }
+
+  showWarning = (text, el) => {
+    (!document.querySelector('.warning')) && this.createWarning(text, el); // If there is no warning on the page, create and display warning
   }
 
   registerQuestion = question => {
@@ -45,7 +50,7 @@ class App extends Component {
       result += (element.length > 0 ? ' 0 ' : ' -1 '); // if there is an empty form field return -1 and display warning later
     });
 
-    result.includes('-1') ? this.displayWarning() : this.registerQuestion(question); // prepend warning or register question
+    result.includes('-1') ? this.showWarning('Please make sure to fill out all the form elements', '.index') : this.registerQuestion(question); // prepend warning or register question
   }
 
   shuffleAnswers = array => {
@@ -114,7 +119,7 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
         <Route path='/arrange-questions' render={() => <Arrange questions={questions}/>}/>
-        <Route path='/question-1' render={() => <Question questions={questions} score={score} increaseScore={this.increaseScore} submitAnswer={this.submitAnswer}/>}/>
+        <Route path='/question-1' render={() => <Question questions={questions} score={score} increaseScore={this.increaseScore} submitAnswer={this.submitAnswer} showWarning={this.showWarning} hideWarning={this.hideWarning}/>}/>
         <Route path='/results' render={() => <Results score={score} questions={questions}/>}/>
       </div>
     );

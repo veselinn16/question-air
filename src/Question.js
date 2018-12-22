@@ -12,20 +12,6 @@ class Question extends Component {
         radios.forEach(el => el.checked = false);
     }
 
-    createWarning = () => {
-        const warning = document.createElement('p'); // CHANGE WITH REACT.CREATEELEMENT() !!!!!!!!
-        warning.className = 'warning'
-
-        const warningText = document.createTextNode('Please select an answer!')
-        warning.appendChild(warningText)
-
-        return warning;
-    }
-
-    showWarning = () => {
-        (!document.querySelector('.warning')) && this.refs.question.prepend(this.createWarning()); // if there is a warning do nothing. If not, create and display warning
-    }
-
     getRadioVal = () => {
         let answer;
         // get list of radio buttons with specified name
@@ -34,7 +20,7 @@ class Question extends Component {
             (el.checked) && (answer = el.value) // sets the answer variable equal to the value of the checked by the user radio
         });
         
-        (!answer) ? this.showWarning() : this.checkAnswer(answer); // the answer submitted by the user (string)
+        (!answer) ? this.props.showWarning('Please select an answer!', '.question-container') : this.checkAnswer(answer); // show warning or check answer submitted by the user (string)
         
         this.emptyOutRadios(radios); // removes checked radio buttons
     }

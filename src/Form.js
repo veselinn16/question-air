@@ -5,7 +5,7 @@ class Form extends Component {
     render() {
         const {hideWarning, getData} = this.props // props object destructuring
         return(
-        <div className="index">
+        <div className="index" ref="index">
             <form className="form" onChange={hideWarning}>
                 <h2 className="title">?uestion-air</h2>
                 <input className="question" type="text" placeholder="Enter Question Here..."/>
