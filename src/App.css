@@ -44,14 +44,21 @@ body {
   display: grid;
   grid-template-rows: 1fr repeat(5, 1.5fr);
   grid-template-columns: repeat(2, 1fr);
-  border: var(--color-border);
+  grid-column-gap: .5rem;
+  grid-row-gap: .5rem;
+  /* border: var(--color-border); */
   border-radius: .5rem;
   box-shadow: 6px 6px 5px 2px rgba(188,26,14,0.4);
   padding: .5rem;
 }
 
 .form > * {
-  background: #866397;
+  /* background: #866397; */
+  border-radius: .5rem;
+}
+
+.form > *::placeholder {
+  color: #52206A;
 }
 
 .title {
@@ -60,35 +67,92 @@ body {
   margin: 0;
   padding: 15px;
   text-align: center;
-  border-bottom: var(--color-border);
+  /* border-bottom: var(--color-border); */
   /* border-radius: 1rem; */
 }
 
 .question {
   grid-area: 2 / 1 / -1 / 1;
   border: none;
+  text-align: center;
+}
+
+.submit {
+  transition: 0.5s ease-in-out;
+  text-align: center;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  color: #fff;
+  padding: 1.3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.submit:before, .submit:after {
+  transition: 0.5s ease-in-out;
+  /* z-index: -1; */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.submit:before {
+  right: -5rem;
+  border-right: 5rem solid transparent;
+  border-bottom: 5rem solid rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+}
+
+.submit:after {
+  left: -5rem;
+  border-left: 5rem solid transparent;
+  border-top: 5rem solid rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+}
+
+.submit:hover {
+  color: #fff;
+}
+
+.submit:hover:before {
+  transform: translateX(-50%);
+}
+
+.submit:hover:after {
+  transform: translateX(50%);
+}
+
+.question::placeholder {
+  text-align: center;
 }
 
 .answer {
   border: none;
-  border-left: var(--color-border);
-  border-bottom: var(--color-border);
+  /* border-left: var(--color-border); */
+  /* border-bottom: var(--color-border); */
 }
 
 .correct {
   grid-area: 2 / 2 / 3 / -1;
   border: none;
-  border-left: var(--color-border);
-  border-bottom: var(--color-border);
+  /* border-left: var(--color-border); */
+  /* border-bottom: var(--color-border); */
 }
 
-.submit {
+/* .submit {
   background: #52206A;
   color: #fff;
   border: none;
   border-left: var(--color-border);
   cursor: pointer;
-}
+} */
 
 .btn-question {
   opacity: 0;
