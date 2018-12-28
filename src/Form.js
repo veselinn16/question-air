@@ -13,7 +13,7 @@ class Form extends Component {
                 <input className="answer" type="text" placeholder="Enter Answer Here..."/>
                 <input className="answer" type="text" placeholder="Enter Answer Here..."/>
                 <input className="answer" type="text" placeholder="Enter Answer Here..."/>
-                <input className="submit" type="submit" value="Submit" onClick={getData}/>
+                <button className="submit" onClick={getData}>Submit</button>
             </form>
             <Link className="btn-question" to='/question-1'>Show Question</Link>
             <Link className="btn-question" to='/arrange-questions'>Arrange Questions</Link>
