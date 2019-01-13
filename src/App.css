@@ -36,41 +36,70 @@ body {
 .index {
   width: 100%;
   height: 100%;
-  background: #79a5ea;
+  /* background: #79a5ea; */
+  /* animation: moveInLeft 1s ease-out; */
+  transition: background-image 1s;
+  background-image: linear-gradient(90deg, #f0e892 50%, #2f295e 50%);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+@keyframes toggleOpacity {
+  0% {
+    /* transform: translateY(-10%); */
+    transform: scale(0.1);
+    opacity: 0;
+  }
+
+  /* 80% {
+    transform: translateY(10%);
+  } */
+
+  100% {
+    /* transform: translateY(0%); */
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .form {
+  animation: toggleOpacity 1s ease-in-out;
   width: 40%;
   height: 40%;
-  background: #faa937;
+  background: transparent;
   display: grid;
   grid-template-rows: 1fr repeat(5, 1.5fr);
   grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: .5rem;
-  grid-row-gap: .5rem;
+  grid-column-gap: .7rem;
+  grid-row-gap: .7rem;
   border-radius: .5rem;
-  box-shadow: 6px 6px 5px 2px rgba(117, 18, 33,0.4);
+  /* box-shadow: 6px 6px 5px 2px rgba(117, 18, 33,0.4); */
   padding: .5rem;
+  transition: all .3s;
 }
 
+/* .form:hover {
+  background: #faa937;
+} */
+
 .form > * {
-  background: #751221;
+  background: rgba(254, 183, 52, .95);
   border-radius: .5rem;
 }
 
 .form > *::placeholder {
-  color: #faa937;
+  /* color: #2f295e; */
   font-family: 'Thasadith', sans-serif;
   font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .title {
-  /* background: #fff; */
-  color: #faa937;
-  font-size: 2rem;
+  color: #fff;
+  background-image: linear-gradient(90deg, #2f295e 50%, #f0e892 50%);
+  font-size: 2.5rem;
+  font-weight: bold;
   grid-area: 1 / 1 / 2 / -1;
   margin: 0;
   padding: 15px;
@@ -78,9 +107,14 @@ body {
 }
 
 .question {
+  background: #2f295e;
   grid-area: 2 / 1 / -1 / 1;
   border: none;
   text-align: center;
+}
+
+.question::placeholder {
+  color: #f0e892;
 }
 
 .submit {
@@ -92,8 +126,8 @@ body {
   width: 100%;
   text-transform: uppercase;
   border: 2px solid currentColor;
-  color: rgb(117, 18, 33);
-  background: rgba(117, 18, 33,0.4);
+  color: #f0e892 ;
+  background: rgba(240, 232, 146, 0.4);
   padding: 1.3rem;
   font-size: 1.5rem;
   cursor: pointer;
@@ -125,8 +159,7 @@ body {
 }
 
 .submit:hover {
-  color: #faa937;
-  background: #751221;
+  color: #2f295e; 
 }
 
 .submit:hover:before {
@@ -142,7 +175,12 @@ body {
 }
 
 .answer {
+  background: #f0e892;
   border: none;
+}
+
+.answer::placeholder {
+  color: #2f295e;
 }
 
 .correct {
