@@ -1,13 +1,15 @@
 import React,  { Component } from "react";
 import { Link } from 'react-router-dom';
+import Icon from './Icon';
 
 class Form extends Component {
     render() {
         const {hideWarning, getData} = this.props // props object destructuring
         return(
         <div className="index" ref="index">
+            <Icon/>
             <form className="form" onChange={hideWarning}>
-                <h2 className="title">?uestion-air</h2>
+                <h2 className="title">Question Form</h2>
                 <input className="question" type="text" placeholder="Enter Question Here..."/>
                 <input className="answer correct" type="text" placeholder="Enter CORRECT Answer Here..."/>
                 <input className="answer" type="text" placeholder="Enter Answer Here..."/>
