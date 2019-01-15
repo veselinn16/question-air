@@ -36,28 +36,46 @@ body {
 .index {
   width: 100%;
   height: 100%;
-  /* background: #79a5ea; */
-  /* animation: moveInLeft 1s ease-out; */
   transition: background-image 1s;
   background-image: linear-gradient(90deg, #f0e892 50%, #2f295e 50%);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+@keyframes toggleScale {
+  0% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: .5rem 0 0 .5rem;
+  width: 4rem;
+  height: 4rem;
+  fill: #2f295e;
+  animation: toggleScale 1s ease-in;
+}
+
 @keyframes toggleOpacity {
   0% {
-    /* transform: translateY(-10%); */
     transform: scale(0.1);
     opacity: 0;
   }
 
-  /* 80% {
-    transform: translateY(10%);
-  } */
-
   100% {
-    /* transform: translateY(0%); */
     transform: scale(1);
     opacity: 1;
   }
@@ -65,8 +83,8 @@ body {
 
 .form {
   animation: toggleOpacity 1s ease-in-out;
-  width: 40%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
   background: transparent;
   display: grid;
   grid-template-rows: 1fr repeat(5, 1.5fr);
@@ -79,26 +97,22 @@ body {
   transition: all .3s;
 }
 
-/* .form:hover {
-  background: #faa937;
-} */
-
 .form > * {
-  background: rgba(254, 183, 52, .95);
   border-radius: .5rem;
+  font-family: 'Thasadith', sans-serif;
+  font-size: 1.5rem;
 }
 
 .form > *::placeholder {
-  /* color: #2f295e; */
-  font-family: 'Thasadith', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 .title {
-  color: #fff;
+  color: #000;
   background-image: linear-gradient(90deg, #2f295e 50%, #f0e892 50%);
   font-size: 2.5rem;
+  letter-spacing: .25rem;
   font-weight: bold;
   grid-area: 1 / 1 / 2 / -1;
   margin: 0;
@@ -111,6 +125,14 @@ body {
   grid-area: 2 / 1 / -1 / 1;
   border: none;
   text-align: center;
+  color: #f0e892;
+  transition: background .7s;
+  position: relative;
+}
+
+.question:focus {
+  background: red;
+  color: #fff;
 }
 
 .question::placeholder {
@@ -128,8 +150,10 @@ body {
   border: 2px solid currentColor;
   color: #f0e892 ;
   background: rgba(240, 232, 146, 0.4);
-  padding: 1.3rem;
+  padding: .5rem;
   font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: .5rem;
   cursor: pointer;
 }
 
@@ -145,16 +169,16 @@ body {
 }
 
 .submit:before {
-  right: -5rem;
-  border-right: 5rem solid transparent;
-  border-bottom: 5rem solid rgba(0, 0, 0, 0.2);
+  right: -6rem;
+  border-right: 6rem solid transparent;
+  border-bottom: 6rem solid rgba(0, 0, 0, 0.2);
   transform: translateX(-100%);
 }
 
 .submit:after {
-  left: -5rem;
-  border-left: 5rem solid transparent;
-  border-top: 5rem solid rgba(0, 0, 0, 0.2);
+  left: -6rem;
+  border-left: 6rem solid transparent;
+  border-top: 6rem solid rgba(0, 0, 0, 0.2);
   transform: translateX(100%);
 }
 
@@ -177,6 +201,12 @@ body {
 .answer {
   background: #f0e892;
   border: none;
+  transition: background .7s;
+}
+
+.answer:focus {
+  background: red;
+  color: #fff;
 }
 
 .answer::placeholder {
@@ -190,6 +220,82 @@ body {
 
 .btn-question {
   display: none;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.warning {
+  animation: opacity .8s ease;
+  border-radius: .5rem;
+  background: #bc1a0e;
+  transition: opacity .8s;
+  padding: .2rem .5rem;
+  color: #fff;
+}
+
+@keyframes moveInRight {
+  0% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+} 
+
+.footer {
+  animation: moveInRight .8s ease;
+  width: 12%;
+  position: absolute;
+  top: 92%;
+  left: 44%; 
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: .2rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.instagram, .facebook {
+  fill: #2f295e;
+  transition: fill .5s;
+}
+
+.instagram:hover {
+  fill: #000;
+}
+
+.facebook:hover {
+  fill: #000;
+}
+
+.github, .linkedin {
+  fill: #f0e892;
+  transition: fill .5s;
+}
+
+.github:hover {
+  fill: #fff;
+}
+
+.linkedin:hover {
+  fill: #fff;
+}
+
+.copyright {
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  grid-area: 2 / 1 / 2 / 5;
 }
 
 /* /////// Question Route /////// */
