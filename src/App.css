@@ -23,7 +23,11 @@ body {
 }
 
 :root {
-  --color-border: 2px solid #bc1a0e;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-primary-1: #2f295e;
+  --color-primary-2: #f0e892;
+
 }
 
 .App {
@@ -37,7 +41,7 @@ body {
   width: 100%;
   height: 100%;
   transition: background-image 1s;
-  background-image: linear-gradient(90deg, #f0e892 50%, #2f295e 50%);
+  background-image: linear-gradient(90deg, var(--color-primary-2) 50%, var(--color-primary-1) 50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,7 +69,7 @@ body {
   margin: .5rem 0 0 .5rem;
   width: 4rem;
   height: 4rem;
-  fill: #2f295e;
+  fill: var(--color-primary-1);
   animation: toggleScale 1s ease-in;
 }
 
@@ -109,8 +113,8 @@ body {
 }
 
 .title {
-  color: #000;
-  background-image: linear-gradient(90deg, #2f295e 50%, #f0e892 50%);
+  color: var(--color-black);
+  background-image: linear-gradient(90deg, var(--color-primary-1) 50%, var(--color-primary-2) 50%);
   font-size: 2.5rem;
   letter-spacing: .25rem;
   font-weight: bold;
@@ -121,22 +125,22 @@ body {
 }
 
 .question {
-  background: #2f295e;
+  background: var(--color-primary-1);
   grid-area: 2 / 1 / -1 / 1;
   border: none;
   text-align: center;
-  color: #f0e892;
+  color: var(--color-primary-2);
   transition: background .7s;
   position: relative;
 }
 
 .question:focus {
   background: red;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .question::placeholder {
-  color: #f0e892;
+  color: var(--color-primary-2);
 }
 
 .submit {
@@ -148,7 +152,7 @@ body {
   width: 100%;
   text-transform: uppercase;
   border: 2px solid currentColor;
-  color: #f0e892 ;
+  color: var(--color-primary-2);
   background: rgba(240, 232, 146, 0.4);
   padding: .5rem;
   font-size: 1.5rem;
@@ -183,7 +187,7 @@ body {
 }
 
 .submit:hover {
-  color: #2f295e; 
+  color: var(--color-primary-1); 
 }
 
 .submit:hover:before {
@@ -199,18 +203,18 @@ body {
 }
 
 .answer {
-  background: #f0e892;
+  background: var(--color-primary-2);
   border: none;
   transition: background .7s;
 }
 
 .answer:focus {
   background: red;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .answer::placeholder {
-  color: #2f295e;
+  color: var(--color-primary-1);
 }
 
 .correct {
@@ -238,7 +242,7 @@ body {
   background: #bc1a0e;
   transition: opacity .8s;
   padding: .2rem .5rem;
-  color: #fff;
+  color: var(--color-white);
 }
 
 @keyframes moveInRight {
@@ -266,33 +270,33 @@ body {
 }
 
 .instagram, .facebook {
-  fill: #2f295e;
+  fill: var(--color-primary-1);
   transition: fill .5s;
 }
 
 .instagram:hover {
-  fill: #000;
+  fill: var(--color-black);
 }
 
 .facebook:hover {
-  fill: #000;
+  fill: var(--color-black);
 }
 
 .github, .linkedin {
-  fill: #f0e892;
+  fill: var(--color-primary-2);
   transition: fill .5s;
 }
 
 .github:hover {
-  fill: #fff;
+  fill: var(--color-white);
 }
 
 .linkedin:hover {
-  fill: #fff;
+  fill: var(--color-white);
 }
 
 .copyright {
-  color: #fff;
+  color: var(--color-white);
   text-align: center;
   font-weight: bold;
   grid-area: 2 / 1 / 2 / 5;
