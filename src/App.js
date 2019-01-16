@@ -37,20 +37,27 @@ class App extends Component {
   }
 
   displayButton = () => {
-    const questionButton = [].slice.call(document.querySelectorAll('.btn-question'));
-    questionButton.forEach(el => el.style.opacity = '1');
+    let buttons = [];
+    const questionButton = document.querySelector('.btn-question');
+    const arrangeButton = document.querySelector('.btn-arrange');
+    buttons.push(questionButton, arrangeButton);
+
+    buttons.forEach(el => {
+      el.style.pointerEvents = 'auto'
+      el.style.opacity = '1';
+    });
 
     this.emptyFormFields();
   }
 
   validateQuestion = question => {
-    let result;
+    let result = 0;
     const array = [question.question, ...question.answersArray]; // add question to array of questions
     array.forEach(element => {
       result += (element.length > 0 ? ' 0 ' : ' -1 '); // if there is an empty form field return -1 and display warning later
     });
-
-    result.includes('-1') ? this.showWarning('Please make sure to fill out all the form elements', '.index') : this.registerQuestion(question); // prepend warning or register question
+ 
+    result.includes('-1') ? this.showWarning('Please make sure to fill out all the form elements', '.index') : this.registerQuestion(question); // prepend warning or register question     
   }
 
   shuffleAnswers = array => {
@@ -74,7 +81,7 @@ class App extends Component {
   }
 
   getData = e => {
-    // prevent default behabior of submit button
+    // prevent default behavior of submit button
     e.preventDefault();
 
     // extract text from HTML nodes
@@ -91,7 +98,7 @@ class App extends Component {
       response: null // user's answer
     }
 
-    this.validateQuestion(questionObj)  
+    this.validateQuestion(questionObj);  
   }
 
   submitAnswer = (index, answer) => {
@@ -110,7 +117,10 @@ class App extends Component {
   hideWarning = () => {
     // removes warning if there is any
     const warning = document.querySelector('.warning');
-    warning && warning.parentElement.removeChild(warning); // if there is a warning, remove it
+    warning && (warning.style.opacity = '0'); // animate opacity
+    setTimeout(() => {
+      warning && warning.parentElement.removeChild(warning); // if there is a warning, remove it
+    }, 800);
   }
 
   render() {
