@@ -279,7 +279,7 @@ body {
    50% { background-position: 100% 50%; }
 }
 
-.btn-question, .btn-arrange, .btn-questions {
+.btn-question, .btn-arrange {
   opacity: 0;
   pointer-events: none;
   position: absolute; /* nope */
@@ -460,21 +460,21 @@ body {
   background-image: linear-gradient(90deg, #d4c1f2 50%, #7ea078 50%);
 }
 
-.right, .left {
+.left {
+  width: 50%;
+  padding: 8rem 0 4rem 8.5%;
+}
+
+.right {
+  width: 50%;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  width: 50%;
   padding: 8rem 0 4rem 0;
 }
 
-/* justify-content: space-around;
-align-content: space-between;
-align-items: flex-start; */
-
 .container-arrange {
   position: relative;
-  cursor: -webkit-grab;  
+  cursor: -webkit-grab;
   width: 40%;
   display: table;
   height: max-content;
@@ -504,12 +504,36 @@ align-items: flex-start; */
 }
 
 .btn-questions {
-  opacity: 1;
+  position: absolute; /* nope */
+  left: 45%;
+  top: 50%; /* nope */
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  padding-top: 8rem;
   width: 10%;
-  /* position: relative; */
-  align-self: flex-end;
-  top: 0;
-  left: 0;
+  height: 10%;
+  min-height: 200px;
+  background-size: 1600% 1600%;
+  box-shadow: inset 0px -20px 100px rgba(255, 255, 255, 0.6);
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transition: opacity .8s;
+  perspective: 1000px;
+  animation: 
+    movement 40s ease-in-out infinite both,
+    shade 60s linear infinite both;
+  color: var(--color-primary-1);
+  background: linear-gradient(
+                180deg,
+                #feffc3,
+                #fdf9a3,
+                #fffa88,
+                #fdf769,
+                #fff26d
+              );
+  animation: transform2 50s ease-in-out infinite both alternate
 }
 
 /* Original order of questions menu */
