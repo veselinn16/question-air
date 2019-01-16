@@ -1,13 +1,14 @@
 import React,  { Component } from "react";
 import { Link } from 'react-router-dom';
 import Icon from './Icon';
+import Social from './Social';
 
 class Form extends Component {
     render() {
         const {hideWarning, getData} = this.props // props object destructuring
         return(
         <div className="index" ref="index">
-            <Icon/>
+            <Icon dims='640' type='logo' class="logo"/>
             <form className="form" onChange={hideWarning}>
                 <h2 className="title">Question Form</h2>
                 <input className="question" type="text" placeholder="Enter Question Here..."/>
@@ -18,7 +19,8 @@ class Form extends Component {
                 <button className="submit" onClick={getData}>Submit</button>
             </form>
             <Link className="btn-question" to='/question-1'>Show Question</Link>
-            <Link className="btn-question" to='/arrange-questions'>Arrange Questions</Link>
+            <Link className="btn-arrange" to='/arrange-questions'>Arrange Questions</Link>
+            <Social/>
         </div>
         )
     }
