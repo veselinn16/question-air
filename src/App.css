@@ -279,20 +279,19 @@ body {
    50% { background-position: 100% 50%; }
 }
 
-.btn-question, .btn-arrange {
-  opacity: 0;
-  pointer-events: none;
+.btn-question, .btn-arrange, .btn-questions {
+  /* opacity: 0; */
+  /* pointer-events: none; */
   position: absolute; /* nope */
-  top: 45%; /* nope */
+  /* top: 45%; nope */
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
   padding-top: 8rem;
-  width: 3rem;
-  height: 3rem;
+  width: 10%;
+  height: 10%;
   min-height: 200px;
-  min-width: 200px;
   background-size: 1600% 1600%;
   box-shadow: inset 0px -20px 100px rgba(255, 255, 255, 0.6);
   transform-origin: 50% 50%;
@@ -302,6 +301,12 @@ body {
   animation: 
     movement 40s ease-in-out infinite both,
     shade 60s linear infinite both;
+}
+
+.btn-question, .btn-arrange {
+  opacity: 0;
+  pointer-events: none;
+  top: 45%;
 }
 
 .btn-question, .btn-questions {
@@ -324,6 +329,9 @@ body {
 
 .btn-arrange {
   left: 80%;
+}
+
+.btn-arrange, .btn-questions {
   color: var(--color-primary-1);
   background: linear-gradient(
                 180deg,
@@ -336,7 +344,7 @@ body {
   animation: transform2 50s ease-in-out infinite both alternate
 }
 
-.btn-question:focus {
+.btn-question:focus, .btn-questions:focus {
   background: var(--color-primary-2); 
 }
 
@@ -504,36 +512,36 @@ body {
 }
 
 .btn-questions {
-  position: absolute; /* nope */
   left: 45%;
-  top: 50%; /* nope */
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  padding-top: 8rem;
-  width: 10%;
-  height: 10%;
-  min-height: 200px;
-  background-size: 1600% 1600%;
-  box-shadow: inset 0px -20px 100px rgba(255, 255, 255, 0.6);
-  transform-origin: 50% 50%;
-  transform-style: preserve-3d;
+  top: 50%;
+}
+
+.btn-questions:after, .btn-arrange:after, .btn-question:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  box-shadow:  0px 0px 100px rgba(255, 0, 0, 0.9);
   transition: opacity .8s;
-  perspective: 1000px;
   animation: 
     movement 40s ease-in-out infinite both,
     shade 60s linear infinite both;
-  color: var(--color-primary-1);
-  background: linear-gradient(
-                180deg,
-                #feffc3,
-                #fdf9a3,
-                #fffa88,
-                #fdf769,
-                #fff26d
-              );
-  animation: transform2 50s ease-in-out infinite both alternate
+  animation: transform2 50s ease-in-out infinite both alternate;
+}
+
+.btn-question:hover::after {
+  opacity: 1;
+}
+
+.btn-arrange:hover::after {
+  opacity: 1;
+}
+
+.btn-questions:hover::after {
+  opacity: 1;
 }
 
 /* Original order of questions menu */
