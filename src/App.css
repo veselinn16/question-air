@@ -32,7 +32,10 @@ body {
   --color-white: #fff;
   --color-primary-1: #2f295e;
   --color-primary-2: #f0e892;
+  --color-primary-3: #d4c1f2;
+  --color-primary-4: #7ea078;
 
+  --color-text-1: #d31515;
 }
 
 .App {
@@ -74,9 +77,16 @@ body {
   margin: .5rem 0 0 .5rem;
   width: 4rem;
   height: 4rem;
-  fill: var(--color-primary-1);
   animation: toggleScale 1s ease-in;
   transition: fill .5s;
+}
+
+.logo-1 {
+  fill: var(--color-primary-1);
+}
+
+.logo-2 {
+  fill: var(--color-primary-4);
 }
 
 .logo:hover {
@@ -418,22 +428,32 @@ body {
   justify-items: center;
 }
 
-.instagram, .facebook {
+/* for form route */
+.instagram-1, .facebook-1 {
   fill: var(--color-primary-1);
   transition: fill .5s;
 }
 
-.instagram:hover, .facebook:hover {
+/* for arrange route */
+.instagram-2, .facebook-2 {
+  fill: var(--color-primary-4);
+  transition: fill .5s;
+}
+
+.instagram:hover, .facebook:hover, .github:hover, .linkedin:hover {
   fill: var(--color-white);
 }
 
-.github, .linkedin {
+/* for form route */
+.github-1, .linkedin-1 {
   fill: var(--color-primary-2);
   transition: fill .5s;
 }
 
-.github:hover, .linkedin:hover {
-  fill: var(--color-white);
+/* for arrange route */
+.github-2, .linkedin-2 {
+  fill: var(--color-primary-3);
+  transition: fill .5s;
 }
 
 .copyright {
@@ -492,7 +512,7 @@ body {
   height: 100%;
   /* padding: 8rem 0 4rem 0; */
   display: flex;
-  background-image: linear-gradient(90deg, #d4c1f2 50%, #7ea078 50%);
+  background-image: linear-gradient(90deg, var(--color-primary-3) 50%, var(--color-primary-4) 50%);
 }
 
 .left {
@@ -528,19 +548,19 @@ body {
 
 .item-content {
   height: 90%;
-  border-radius: 4px;
-  color: #d31515;
-  line-height: 90px;
+  border-radius: .4rem;
+  color: var(--color-text-1);
+  line-height: 7.5rem; /* 90px */
   padding: 0 3.2rem;
   font-size: 2.4rem;
   font-weight: 400;
-  background-color: #fff;
+  background-color: var(--color-white);
   box-shadow: rgba(0,0,0,0.2) 0px 1px 2px 0px;
 }
 
 .btn-questions {
   left: 45%;
-  top: 50%;
+  top: 60%;
 }
 
 .btn-question:hover::after {
@@ -565,7 +585,7 @@ body {
   text-decoration: none;
   background: #d2f8db;
   border-radius: .5rem .5rem 0 0;
-  box-shadow: 0px 0px 8px 3px rgba(55, 74, 50, .25);
+  box-shadow: 0 0 .5rem 0 rgba(55, 74, 50, .25); 
   transition: background .5s;
 }
 
@@ -604,7 +624,7 @@ body {
 /* when menu IS hovered over */
 .menu:hover { 
   background: #374a32;
-  box-shadow: 0px 0px 8px 3px rgba(210,248,219, 0.25);
+  /* box-shadow: 0px 0px 8px 3px rgba(210,248,219, 0.25); */
 }
 
 .menu:hover > .questions_heading:before {
@@ -674,7 +694,7 @@ body {
   transition:
     0.5s padding,
     0.5s background;
-  box-shadow: 0px 0px 8px 3px rgba(210,248,219,0.25);
+  box-shadow: 0 0 .5rem 0 rgba(210,248,219,0.25);
   border-radius: 1px;
 }
 
@@ -696,7 +716,7 @@ body {
   overflow: hidden;
   padding: .7rem 1rem;
   height: max-content;
-  color: #d31515;
+  color: var(--color-text-1);
   font-size: 1.5rem;
   background: rgba(0,0,0,0);
   white-space: nowrap;

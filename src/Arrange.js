@@ -37,7 +37,7 @@ class Arrange extends Component {
             questions.length > 0 ?
             <div className="route">
                 <section className="left">
-                    <Icon dims='640' type='logo' class="logo"/>
+                    <Icon dims='640' type='logo' class="logo logo-2"/>
                     <div className="container-arrange" ref={container => this.dom.container = container}>
                         {questions.map((question, i) => {
                         return <div className="list-item" key={i} ref={question => this.dom.listQuestions[i] = question}>
@@ -51,7 +51,7 @@ class Arrange extends Component {
                     <Questions questions={questions}></Questions> 
                 </section>
                 <Link className="btn btn-questions" to='/question-1'>Show Questions</Link>
-                <Social className="social-2"/>
+                <Social inst="2"/>
             </div>
             : <h1>Enter questions please!</h1>
         )
