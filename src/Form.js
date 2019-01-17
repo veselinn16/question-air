@@ -18,8 +18,8 @@ class Form extends Component {
                 <input className="answer" type="text" placeholder="Enter Answer Here..."/>
                 <button className="submit" onClick={getData}>Submit</button>
             </form>
-            <Link className="btn-question" to='/question-1'>Show Question</Link>
-            <Link className="btn-arrange" to='/arrange-questions'>Arrange Questions</Link>
+            <Link className="btn btn-question" to='/question-1'>Show Question</Link>
+            <Link className="btn btn-arrange" to='/arrange-questions'>Arrange Questions</Link>
             <Social/>
         </div>
         )

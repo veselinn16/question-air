@@ -279,11 +279,8 @@ body {
    50% { background-position: 100% 50%; }
 }
 
-.btn-question, .btn-arrange, .btn-questions {
-  /* opacity: 0; */
-  /* pointer-events: none; */
-  position: absolute; /* nope */
-  /* top: 45%; nope */
+.btn {
+  position: absolute;
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
@@ -291,13 +288,13 @@ body {
   padding-top: 8rem;
   width: 10%;
   height: 10%;
-  min-height: 200px;
+  min-height: 16.7rem; /* 200px */
   background-size: 1600% 1600%;
-  box-shadow: inset 0px -20px 100px rgba(255, 255, 255, 0.6);
+  /* box-shadow: inset 0 -2rem 10rem rgba(255, 255, 255, 0.6); */
   transform-origin: 50% 50%;
   transform-style: preserve-3d;
   transition: opacity .8s;
-  perspective: 1000px;
+  perspective: 100rem;
   animation: 
     movement 40s ease-in-out infinite both,
     shade 60s linear infinite both;
@@ -309,16 +306,17 @@ body {
   top: 45%;
 }
 
-.btn-question, .btn-questions {
-  left: 10%; /* nope */
+.btn-question {
+  left: 10%;
   color: var(--color-primary-2);
+  box-shadow: inset 0 -2rem 10rem rgba(73, 35, 111, 0.6);
   background: linear-gradient(
                 270deg,
-                #deb7ff,
-                #c785ec,
-                #a86add,
-                #8549a7,
-                #634087
+                #49236f,
+                #4c2574,
+                #502978,
+                #593183,
+                #653d90
               );
   animation: transform1 50s ease-in-out infinite both alternate
 }
@@ -333,6 +331,7 @@ body {
 
 .btn-arrange, .btn-questions {
   color: var(--color-primary-1);
+  box-shadow: inset 0 -2rem 10rem rgba(255, 255, 255, 0.6);
   background: linear-gradient(
                 180deg,
                 #feffc3,
@@ -346,6 +345,34 @@ body {
 
 .btn-question:focus, .btn-questions:focus {
   background: var(--color-primary-2); 
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity .8s;
+  animation: 
+    movement 40s ease-in-out infinite both,
+    shade 60s linear infinite both;
+  box-shadow:  0 0 5rem rgba(255, 0, 0, 0.9);
+}
+
+.btn-question:after {
+  /* box-shadow:  0px 0px 5rem rgba(47, 41, 94, 0.9); */
+  animation: 
+    movement 40s ease-in-out infinite both,
+    shade 60s linear infinite both;
+  animation: transform1 50s ease-in-out infinite both alternate;
+}
+
+.btn-arrange:after, .btn-questions:after {
+  /* box-shadow:  0px 0px 5rem rgba(240, 232, 146, 0.9);   */
+  animation: transform2 50s ease-in-out infinite both alternate;
 }
 
 @keyframes opacity {
@@ -514,22 +541,6 @@ body {
 .btn-questions {
   left: 45%;
   top: 50%;
-}
-
-.btn-questions:after, .btn-arrange:after, .btn-question:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  box-shadow:  0px 0px 100px rgba(255, 0, 0, 0.9);
-  transition: opacity .8s;
-  animation: 
-    movement 40s ease-in-out infinite both,
-    shade 60s linear infinite both;
-  animation: transform2 50s ease-in-out infinite both alternate;
 }
 
 .btn-question:hover::after {
