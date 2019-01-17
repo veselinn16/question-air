@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Icon from './Icon';
+import Social from './Social';
 
 class Question extends Component {
     state = {
@@ -45,21 +47,28 @@ class Question extends Component {
         const {numberOfQuestion} = this.state; // state object destructuring
         return(                
             questions.length > 0 ? questions[numberOfQuestion] ?
-            <div className="question-container" ref='question'>
-                <p>{this.props.score}</p> 
-                <h1 className="question">{questions[numberOfQuestion].question}</h1>
-                <form className="answers" ref="answers" onClick={this.props.hideWarning}>
-                    {questions[numberOfQuestion].answersArray.map((answer, i) => {
-                    return (
-                    <label>
-                        <input className="ans" type="radio" key={i} name="answer" defaultValue={answer}/>
-                    {answer}
-                    </label>
-                    )                
-                })}
-                </form>
-                <button className="answer-btn" onClick={this.getRadioVal}>Submit Answer</button>
-            </div> : <Link to="/results" className="answer-btn2">See Results</Link> : <h1>Please Enter a Question!</h1>            
+            <div className="questions-route">
+                <Icon dims='640' type='logo' classes="logo logo-3"/> 
+                <div className="question-container" ref='question'>
+                    {/* <p>{this.props.score}</p>  */}
+                    <h1 className="question-text">{questions[numberOfQuestion].question}</h1>
+                </div>
+                <div className="answers-container">
+                    <form className="answers" ref="answers" onClick={this.props.hideWarning}>
+                        {questions[numberOfQuestion].answersArray.map((answer, i) => {
+                        return (
+                        <label className="answer-container">
+                            <input className="question-answer" type="radio" key={i} name="answer" defaultValue={answer}/>
+                        {answer}
+                        </label>
+                        )                
+                    })}
+                    </form>
+                    <button className="btn btn-answer" onClick={this.getRadioVal}>Submit Answer</button>
+                    <Social id="footer-2"/>
+                </div>
+            </div>            
+             : <Link to="/results" className="answer-btn2">See Results</Link> : <h1>Please Enter a Question!</h1>            
         )
         // return (
         //  <div className="question-container">

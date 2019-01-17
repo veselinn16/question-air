@@ -89,6 +89,10 @@ body {
   fill: var(--color-primary-4);
 }
 
+.logo-3 {
+  fill: #293658;
+}
+
 .logo:hover {
   fill: var(--color-white);
 }
@@ -729,5 +733,72 @@ body {
 }
 
 /* /////// Questions Route /////// */
+.questions-route {
+  width: 100%;
+  height: 100%;
+}
 
+.question-container {
+  height: 40%;
+  width: 100%;
+  background: #6c5e82; /*#cb031d*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.question-text {
+  width: 80%;
+  text-align: center;
+  /* height: 23.33%; */
+}
+
+.answers-container {
+  height: 60%;
+  width: 100%;
+  background: #de97b0;
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.answers {
+  width: 90%;
+  height: 15%;
+}
+
+.answer-container {
+  width: 24%;
+}
+
+.question-answer {
+  height: 100%;
+}
+
+.btn-answer {
+  padding-top: 1.5rem;
+  border: none;
+  font-family: inherit;
+  position: relative;
+  top: 0;
+  left: 0;
+  color: var(--color-primary-2);
+  box-shadow: inset 0 -2rem 10rem rgba(73, 35, 111, 0.6);
+  background: linear-gradient(
+                270deg,
+                #49236f,
+                #4c2574,
+                #502978,
+                #593183,
+                #653d90
+              );
+  animation: transform1 50s ease-in-out infinite both alternate
+}
+
+.footer-2 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
