@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from './Icon';
 import Social from './Social';
+import Answer from './Answer';
 
 class Question extends Component {
     state = {
@@ -57,15 +58,12 @@ class Question extends Component {
                     <form className="answers" ref="answers" onClick={this.props.hideWarning}>
                         {questions[numberOfQuestion].answersArray.map((answer, i) => {
                         return (
-                        <label className="answer-container">
-                            <input className="question-answer" type="radio" key={i} name="answer" defaultValue={answer}/>
-                        {answer}
-                        </label>
+                            <Answer i={i} answer={answer} key={i}/>
                         )                
                     })}
                     </form>
                     <button className="btn btn-answer" onClick={this.getRadioVal}>Submit Answer</button>
-                    <Social id="footer-2"/>
+                    <Social inst="3"/>
                 </div>
             </div>            
              : <Link to="/results" className="answer-btn2">See Results</Link> : <h1>Please Enter a Question!</h1>            
