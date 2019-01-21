@@ -810,7 +810,7 @@ body {
 }
 
 .btn-radio svg path.inner {
-  stroke-width: 20; /* 6 */
+  stroke-width: 10; /* 6 */
   stroke-dasharray: 123.5; /* 19 */ /* 114 */ /* 123.5 */
   stroke-dashoffset: 123.5; /* 19 */ /* 114 */ /* 123.5 */
 }
@@ -826,18 +826,20 @@ body {
   display: none;
 }
 
-.btn-radio input:checked + svg path {
-  transition: all .9s ease; /* .4s */
-}
+/* .btn-radio input:checked + svg path {
+  transition: all 1s ease; 
+} */
 
 
 .btn-radio input:checked + svg path.inner {
   stroke-dashoffset: 247; /* 38 */ /* 228 */
-  transition-delay: .3s;
+  transition-delay: 2s;
+  transition: all .8s ease;
 }
 
 .btn-radio input:checked + svg path.outer {
   stroke-dashoffset: 0;
+  transition: all 1.7s ease-out;
 }
 
 .btn-radio span {
