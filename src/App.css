@@ -781,7 +781,7 @@ body {
 }
 
 /* RADIO GROUP */
-
+/* label */
 .btn-radio {
   cursor: pointer;
   display: inline-block;
@@ -791,60 +791,63 @@ body {
   color: #ccc;
 }
 
-/* .btn-radio:not(:first-child) {
-  margin-left: 20px;
-} */
+/* input */
+.radio {
+  display: none;
+}
 
-.btn-radio svg {
+/* svg */
+.btn-canvas {
   fill: none;
   vertical-align: middle;
 }
-
-.btn-radio svg circle {
-  stroke-width: 2;
-  stroke: #c8ccd4;
-}
-
-.btn-radio svg path {
+/* circle */
+.btn-shape {
+  stroke-width: 1;
   stroke: #f7d943;
+  /* box-shadow:  10px 10px 5px 0px rgba(255, 0, 0, 0.9); */
 }
 
-.btn-radio svg path.inner {
-  stroke-width: 10; /* 6 */
+/* inner svg path */
+.inner {
+  stroke: #dde4e3;
+  stroke-width: 15; /* 6 */
   stroke-dasharray: 123.5; /* 19 */ /* 114 */ /* 123.5 */
   stroke-dashoffset: 123.5; /* 19 */ /* 114 */ /* 123.5 */
 }
 
-.btn-radio svg path.outer {
-  stroke: #2f295e;
+/* outer svg path */
+.outer {
+  stroke: #dde4e3;
   stroke-width: 2; /* 2 */
   stroke-dasharray: 342; /* 57 */ /* 342 */
   stroke-dashoffset: 342; /* 57 */ /* 342 */
 }
 
-.btn-radio input {
-  display: none;
+/* span - text of answer */
+.btn-answer-text {
+  /* color: #f7d943; */
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 1s;
 }
 
-/* .btn-radio input:checked + svg path {
-  transition: all 1s ease; 
-} */
-
-
-.btn-radio input:checked + svg path.inner {
+/*  when answer is checked, select inner svg path */
+.radio:checked + .btn-canvas .inner {
   stroke-dashoffset: 247; /* 38 */ /* 228 */
   transition-delay: 2s;
   transition: all .8s ease;
 }
 
-.btn-radio input:checked + svg path.outer {
-  stroke-dashoffset: 0;
-  transition: all 1.7s ease-out;
+.radio:checked ~ * {
+  color: #dde4e3;
+  font-size: 2.6rem;
 }
 
-.btn-radio span {
-  display: inline-block;
-  vertical-align: middle;
+/* when answer is checked, select outer svg path */
+.radio:checked + .btn-canvas .outer {
+  stroke-dashoffset: 0;
+  transition: all 1.7s ease-out;
 }
 
 /* .answer-container {
