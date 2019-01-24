@@ -18,9 +18,10 @@ class Question extends Component {
     getRadioVal = () => {
         let answer;
         // get list of radio buttons with specified name
-        let radios = this.refs.answers.elements['answer']; //RadioNodeList
+        let radios = this.refs.answers.elements.namedItem('radio-group'); //RadioNodeList
+
         radios.forEach(el => {
-            (el.checked) && (answer = el.value) // sets the answer variable equal to the value of the checked by the user radio
+            (el.checked) && (answer = el.nextSibling.nextSibling.innerText) // sets the answer variable equal to the value of the checked by the user radio
         });
         
         (!answer) ? this.props.showWarning('Please select an answer!', '.question-container') : this.checkAnswer(answer); // show warning or check answer submitted by the user (string)
@@ -63,7 +64,7 @@ class Question extends Component {
                     })}
                     </form>
                     <button className="btn btn-answer" onClick={this.getRadioVal}>Submit Answer</button>
-                    <Social inst="3"/>
+                    <Social inst="3" class="footer-2"/>
                 </div>
             </div>            
              : <Link to="/results" className="answer-btn2">See Results</Link> : <h1>Please Enter a Question!</h1>            
