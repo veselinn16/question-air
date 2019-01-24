@@ -37,6 +37,10 @@ body {
   --color-primary-4: #7ea078;
 
   --color-text-1: #d31515;
+  --color-bg-1: #352b52; /* #6b2d41 */
+  --color-bg-2: #8c355f; /* #efce99 */
+  --color-1: #f25e59; /* #d4787b */
+  --color-2: #ffaca1; /* #fb9701 */
 }
 
 .App {
@@ -91,7 +95,7 @@ body {
 }
 
 .logo-3 {
-  fill: #6b2d41;
+  fill: var(--color-1);
 }
 
 .logo:hover {
@@ -306,7 +310,6 @@ body {
   min-height: 16.7rem; /* 200px */
   background-size: 1600% 1600%;
   cursor: pointer;
-  /* box-shadow: inset 0 -2rem 10rem rgba(255, 255, 255, 0.6); */
   transform-origin: 50% 50%;
   transform-style: preserve-3d;
   transition: opacity .8s;
@@ -314,6 +317,10 @@ body {
   animation: 
     movement 40s ease-in-out infinite both,
     shade 60s linear infinite both;
+}
+
+.btn:focus {
+  outline: none;
 }
 
 .btn-question, .btn-arrange {
@@ -375,19 +382,22 @@ body {
   animation: 
     movement 40s ease-in-out infinite both,
     shade 60s linear infinite both;
-  box-shadow:  0 0 5rem rgba(255, 0, 0, 0.9);
+  /* box-shadow:  0 0 5rem rgba(255, 0, 0, 0.9); */
 }
 
 .btn-question:after, .btn-answer:after {
-  /* box-shadow:  0px 0px 5rem rgba(47, 41, 94, 0.9); */
   animation: 
     movement 40s ease-in-out infinite both,
     shade 60s linear infinite both;
   animation: transform1 50s ease-in-out infinite both alternate;
 }
 
+.btn-question:after {
+  box-shadow:  0 0 5rem rgba(255, 0, 0, 0.9);
+}
+
 .btn-arrange:after, .btn-questions:after {
-  /* box-shadow:  0px 0px 5rem rgba(240, 232, 146, 0.9);   */
+  box-shadow:  0 0 5rem rgba(255, 0, 0, 0.9);
   animation: transform2 50s ease-in-out infinite both alternate;
 }
 
@@ -420,18 +430,21 @@ body {
   }
 } 
 
-.footer {
+.footer-1, .footer-2 {
   animation: moveInRight .8s ease;
-  width: 12%;
-  position: absolute;
-  top: 92%;
-  left: 44%; 
+  width: 12%; 
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: .2rem;
   align-items: center;
   justify-items: center;
+}
+
+.footer-1 {
+  position: absolute;
+  top: 92%;
+  left: 44%;
 }
 
 /* for form route */
@@ -747,8 +760,8 @@ body {
 .question-container {
   height: 40%;
   width: 100%;
-  background: #f7d943; /*#eee7db #cb031d*/
-  color: #6b2d41;
+  background: var(--color-bg-1); /*#eee7db #cb031d*/
+  color: var(--color-1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -757,14 +770,13 @@ body {
 .question-text {
   width: 80%;
   text-align: center;
-  /* height: 23.33%; */
+  font-weight: 100;
 }
 
 .answers-container {
   height: 60%;
   width: 100%;
-  background: #bf91c8; /*#549d75*/
-  color: #394931;
+  background: var(--color-bg-2); /*#bf91c8*/
   padding-top: 2%;
   display: flex;
   flex-direction: column;
@@ -801,16 +813,16 @@ body {
   fill: none;
   vertical-align: middle;
 }
+
 /* circle */
 .btn-shape {
   stroke-width: 1;
-  stroke: #f7d943;
-  /* box-shadow:  10px 10px 5px 0px rgba(255, 0, 0, 0.9); */
+  stroke: var(--color-2); 
 }
 
 /* inner svg path */
 .inner {
-  stroke: #dde4e3;
+  stroke: var(--color-bg-1);
   stroke-width: 15; /* 6 */
   stroke-dasharray: 123.5; /* 19 */ /* 114 */ /* 123.5 */
   stroke-dashoffset: 123.5; /* 19 */ /* 114 */ /* 123.5 */
@@ -818,7 +830,7 @@ body {
 
 /* outer svg path */
 .outer {
-  stroke: #dde4e3;
+  stroke: var(--color-bg-1);
   stroke-width: 2; /* 2 */
   stroke-dasharray: 342; /* 57 */ /* 342 */
   stroke-dashoffset: 342; /* 57 */ /* 342 */
@@ -826,7 +838,7 @@ body {
 
 /* span - text of answer */
 .btn-answer-text {
-  /* color: #f7d943; */
+  color: var(--color-2);
   display: inline-block;
   vertical-align: middle;
   transition: all 1s;
@@ -840,8 +852,7 @@ body {
 }
 
 .radio:checked ~ * {
-  color: #dde4e3;
-  font-size: 2.6rem;
+  color: var(--color-bg-1);
 }
 
 /* when answer is checked, select outer svg path */
@@ -850,16 +861,6 @@ body {
   transition: all 1.7s ease-out;
 }
 
-/* .answer-container {
-  width: 24%;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.question-answer {
-  height: 100%;
-} */
-
 .btn-answer {
   padding-top: 1.5rem;
   border: none;
@@ -867,17 +868,21 @@ body {
   position: relative;
   top: 0;
   left: 0;
-  color: #6b2d41;
-  box-shadow: inset 0 -2rem 10rem rgba(247, 217, 67, 0.6);
+  color: var(--color-bg-2);
+  box-shadow: inset 0 -2rem 10rem rgba(254, 173, 163, 0.6);
   background: linear-gradient(
                 270deg,
-                #f7d943,
-                #f7dc55,
-                #f8e068,
-                #f9e47b,
-                #fae88e
+                #feada3,
+                #ffb4aa,
+                #ffbcb3,
+                #ffc4bd,
+                #ffcdc6
               );
-  animation: transform1 50s ease-in-out infinite both alternate
+  animation: transform1 50s ease-in-out infinite both alternate;
+}
+
+.btn-answer:after {
+  box-shadow: 0 0 5rem rgba(228, 113, 165, 0.9);
 }
 
 .footer-2 {
@@ -887,5 +892,6 @@ body {
 }
 
 .instagram-3, .facebook-3, .github-3, .linkedin-3 {
-  fill: #f7d943;
+  fill: var(--color-2);
+  transition: fill .6s;
 }
