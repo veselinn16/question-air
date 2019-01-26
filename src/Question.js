@@ -3,12 +3,40 @@ import { Link } from 'react-router-dom';
 import Icon from './Icon';
 import Social from './Social';
 import Answer from './Answer';
+import initBt2 from './resultsBtn';
 
 class Question extends Component {
     state = {
         numberOfQuestion: 0,
-        questions: []
+        questions: [],
+        hidden: false
     }
+
+    initiateButton = () => {
+        let btn = document.querySelector('#component-2');
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+
+        initBt2(btn);
+        console.log('eee')
+    }
+
+    componentDidMount() {
+        console.log('lifecycle')
+        document.querySelector('#component-2') && this.initiateButton();
+    }
+
+    // componentWillReceiveProps() {
+    //     console.log('props')
+    //     document.querySelector('#component-2') && this.initiateButton();
+    // }
+
+    // componentWillUpdate() {
+    //     console.log('update')
+    //     document.querySelector('#component-2') && this.initiateButton();
+    // }
 
     emptyOutRadios = radios => {
         // unchecks all radio buttons
@@ -27,6 +55,11 @@ class Question extends Component {
         (!answer) ? this.props.showWarning('Please select an answer!', '.question-container') : this.checkAnswer(answer); // show warning or check answer submitted by the user (string)
         
         this.emptyOutRadios(radios); // removes checked radio buttons
+    }
+
+    getLink = () => {
+        return <button>WOOOOOOOOOO</button>
+        // <Link to="/results" ref='btnResults' className="answer-btn2" onClick={e => e.preventDefault()}>See Results</Link> 
     }
 
     changeQuestion = () => {
@@ -67,7 +100,22 @@ class Question extends Component {
                     <Social inst="3" class="footer-2"/>
                 </div>
             </div>            
-             : <Link to="/results" className="answer-btn2">See Results</Link> : <h1>Please Enter a Question!</h1>            
+             :  <h1>Please Enter a Question!</h1> : <section className="results-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className="svg-filters">
+                        <defs>
+                            <filter id="filter-goo-2">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+                                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                <feComposite in="SourceGraphic" in2="goo" />
+                            </filter>
+                        </defs>
+                    </svg>
+                    <button id="component-2" className="button button--2" style={{
+                        filter: 'url(\'#filter-goo-2\')'}}>
+                            Click me
+                        <span className="button__bg"></span>
+                    </button>
+                </section>             
         )
         // return (
         //  <div className="question-container">
