@@ -385,7 +385,7 @@ body {
   /* box-shadow:  0 0 5rem rgba(255, 0, 0, 0.9); */
 }
 
-.btn-question:after, .btn-answer:after {
+.btn-question:after, .btn-results:after {
   animation: 
     movement 40s ease-in-out infinite both,
     shade 60s linear infinite both;
@@ -594,7 +594,7 @@ body {
   opacity: 1;
 }
 
-.btn-answer:hover::after {
+.btn-results:hover::after {
   opacity: 1;
 }
 
@@ -861,8 +861,104 @@ body {
   transition: all 1.7s ease-out;
 }
 
-.btn-answer {
-  padding-top: 1.5rem;
+/* Answer Button */
+.svg-filters {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+}
+
+.btn-bg, .btn-gooey {
+  content: "";
+  background: rgb(255, 172, 161);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  cursor: pointer;
+  border: none;
+  border-radius: .3rem;
+  text-decoration: none;
+  user-select: none;
+  letter-spacing: .1rem;
+  color: var(--color-bg-2);
+  padding: 2rem 4rem;
+  text-transform: uppercase;
+  transition: color .4s ease;
+}
+
+.btn-gooey:hover {
+  color: var(--color-bg-1);
+}
+
+.btn-gooey {
+  outline: 35rem solid transparent;
+  position: relative;
+  z-index: 0;
+  background: transparent;
+}
+
+.lefty, .righty {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1.5rem;
+  background-color: var(--color-2);
+  transition: background-color 0.1s ease-out;
+  top: 50%;
+  margin-top: -1.2rem;
+  z-index: -2; 
+}
+    
+.lefty {
+  left: 0; 
+}
+
+.righty {
+  right: 0; 
+}
+
+.btn-gooey:hover {
+  background-color: transparent; 
+}
+
+.btn-gooey:hover:before, .btn-gooey:hover span {
+  /* background-color: var(--color-bg-1);  */
+}
+
+@keyframes hue-rotate {
+  0% {
+    -webkit-filter: hue-rotate(0);
+    -moz-filter: hue-rotate(0);
+    -ms-filter: hue-rotate(0);
+    filter: hue-rotate(0);
+  }
+
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+    -moz-filter: hue-rotate(360deg);
+    -ms-filter: hue-rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+.footer-2 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.instagram-3, .facebook-3, .github-3, .linkedin-3 {
+  fill: var(--color-2);
+  transition: fill .6s;
+}
+
+/* Results button */
+.btn-results {
+  padding-top: 7rem;
   border: none;
   font-family: inherit;
   position: relative;
@@ -881,118 +977,6 @@ body {
   animation: transform1 50s ease-in-out infinite both alternate;
 }
 
-.btn-answer:after {
+.btn-results:after {
   box-shadow: 0 0 5rem rgba(228, 113, 165, 0.9);
-}
-
-.footer-2 {
-  position: relative;
-  top: 0;
-  left: 0;
-}
-
-.instagram-3, .facebook-3, .github-3, .linkedin-3 {
-  fill: var(--color-2);
-  transition: fill .6s;
-}
-
-/* RESULTS SECTION */
-.results-link {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* RESULTS BUTTON */
-.svg-filters {
-  position: absolute;
-  visibility: hidden;
-  width: 1px;
-  height: 1px;
-  border-radius: 50%;
-}
-
-.button__bg, .button--2 {
-  content: "";
-  background: #222;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  -webkit-font-smoothing: antialiased;
-  background-color: #222;
-  border: none;
-  display: inline-block;
-  font-weight: 700;
-  text-decoration: none;
-  user-select: none;
-  letter-spacing: .1rem;
-  color: white;
-  padding: 2rem 4rem;
-  text-transform: uppercase;
-  -webkit-transition: background-color 0.1s ease-out;
-  -moz-transition: background-color 0.1s ease-out;
-  transition: background-color 0.1s ease-out;
-}
-
-.button__bg:hover, .button--2:hover {
-  background-color: #2CD892;
-  color: #fff;
-}
-
-.button--2 {
-  outline: 35rem solid transparent !important;
-  position: relative;
-  z-index: 0;
-  background-color: transparent; 
-}
-
-.lefty, .righty {
-  position: absolute;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 1.5rem;
-  background: #222;
-  -webkit-transition: background 0.1s ease-out;
-  -moz-transition: background 0.1s ease-out;
-  transition: background 0.1s ease-out;
-  top: 50%;
-  margin-top: -1.2rem;
-  z-index: -2; 
-}
-    
-.lefty {
-  left: 0; 
-}
-
-.righty {
-  right: 0; 
-}
-
-.button--2:hover {
-  background-color: transparent; 
-}
-
-.button--2:hover:before, .button--2:hover span {
-  background-color: #2CD892; 
-}
-
-@keyframes hue-rotate {
-  0% {
-    -webkit-filter: hue-rotate(0);
-    -moz-filter: hue-rotate(0);
-    -ms-filter: hue-rotate(0);
-    filter: hue-rotate(0);
-  }
-
-  100% {
-    -webkit-filter: hue-rotate(360deg);
-    -moz-filter: hue-rotate(360deg);
-    -ms-filter: hue-rotate(360deg);
-    filter: hue-rotate(360deg);
-  }
 }
