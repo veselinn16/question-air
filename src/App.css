@@ -773,6 +773,10 @@ body {
   font-weight: 100;
 }
 
+.question-text, .btn-answer-text ,.answers {
+  animation: opacity .8s ease;
+}
+
 .answers-container {
   height: 60%;
   width: 100%;

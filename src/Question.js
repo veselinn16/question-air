@@ -43,10 +43,26 @@ class Question extends Component {
         this.emptyOutRadios(radios); // removes checked radio buttons
     }
 
+    applyAnimation = () => {
+        let elements = document.querySelectorAll('.question-text, .btn-answer-text, .answers');
+
+        elements.forEach(el => {
+            el.style.opacity = '0'
+        })
+
+        setTimeout(() => {
+            elements.forEach(el => {
+                el.style.opacity = '1';
+            })
+        }, 450);
+    }
+
     changeQuestion = () => {
         this.setState( prevState => ({
             numberOfQuestion: prevState.numberOfQuestion + 1
         }));
+
+        this.applyAnimation()
     }
 
     checkAnswer = answer => {
