@@ -7,9 +7,7 @@ import initBt2 from './resultsBtn';
 
 class Question extends Component {
     state = {
-        numberOfQuestion: 0,
-        questions: [],
-        hidden: false
+        numberOfQuestion: 0
     }
 
     initiateButton = () => {
@@ -43,35 +41,46 @@ class Question extends Component {
         this.emptyOutRadios(radios); // removes checked radio buttons
     }
 
-    applyAnimation = () => {
-        let elements = document.querySelectorAll('.question-text, .btn-answer-text, .answers');
+    applyAnimation = (type) => {
+        const elements = document.querySelectorAll('.question-text, .btn-answer-text, .answers');
 
-        elements.forEach(el => {
-            el.style.opacity = '0'
+        // if there are more questions(type = 1), hide all elements
+        elements.forEach((el, i) => {
+            type === 1 ? el.style.opacity = '0' :
+            i !== 0 ? el.style.opacity = '0' : el.style.animation = 'moveDown .6s ease-out'
         })
 
-        setTimeout(() => {
+        // if there are no more questions, change the text of the question-text element
+        type !== 1 && (elements[0].innerText = 'That\'s all !')
+
+        // if there are more questions(type = 1), show all elements again
+        type === 1  && setTimeout(() => {
             elements.forEach(el => {
                 el.style.opacity = '1';
             })
         }, 450);
     }
 
-    changeQuestion = () => {
-        this.setState( prevState => ({
-            numberOfQuestion: prevState.numberOfQuestion + 1
-        }));
+    changeQuestion = (timeout, type) => {
+        // add timeout to change of question if it is the last question, so animation of button can finish
+        setTimeout(() => {
+                this.setState( prevState => ({
+                    numberOfQuestion: prevState.numberOfQuestion + 1
+                }))
+            }, timeout);
 
-        this.applyAnimation()
+        this.applyAnimation(type)
     }
 
     checkAnswer = answer => {
         // checks value of radios against correct answer and updates score and submits answer
         (answer === this.props.questions[this.state.numberOfQuestion].answer) && this.props.increaseScore();
 
-        this.props.submitAnswer(this.state.numberOfQuestion, answer) // submits answer into state object's questions array
+        // submits answer into state object's questions array
+        this.props.submitAnswer(this.state.numberOfQuestion, answer) 
         
-        this.changeQuestion();
+        // if this is the last question add timeout to the changeQuestion function
+        this.props.questions.length - 1 === this.state.numberOfQuestion ? this.changeQuestion(1200) : this.changeQuestion(0, 1);
     } 
 
     render() {
