@@ -110,7 +110,10 @@ class Question extends Component {
                     <Social inst="3" class="footer-2"/>
                 </div>
             </div>            
-             :  <Link to="/results" className="btn btn-results">See Results</Link> : <h1>Please Enter a Question!</h1>            
+             : <div className="results-section">
+                <Link to="/results" className="btn-results"></Link>
+               </div> 
+             : <h1>Please Enter a Question!</h1>            
         )
     }
 }
