@@ -970,25 +970,31 @@ body {
   transition: fill .6s;
 }
 
+/* Results section */
 .results-section {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #abaaba;
+}
+
+.logo-4 {
+  fill: #dce4a1;
 }
 
 /* Results button */
 .btn-results {
-  background-image: linear-gradient(120deg, #cf5381 0%, #c7d9cc 100%);
+  background-image: linear-gradient(120deg, #dce4e5 0%, #f3d8ee 100%);
   border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-  width: 10%;
-  height: 20%;
+  width: 15%;
+  height: 30%;
   display: block;
   text-align: center;
   text-decoration: none;
   font-size: 2.1rem;
-  color: red;
+  color: #abaaba;
   animation: morph 3s linear infinite; 
   transform-style: preserve-3d;
   outline: 1px solid transparent;
@@ -1004,10 +1010,10 @@ body {
   left: 0; 
   top: 0;
   border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-  box-shadow: 5px 5px 89px rgba(11, 131, 175, 0.21);
+  box-shadow: .5rem .5rem 9rem rgba(197, 214, 64, 0.21);
   will-change: border-radius, transform, opacity;
   animation-delay: 200ms;
-  background-image: linear-gradient(120deg, rgba(230,229,220,.55) 0%, rgba(0,103,255,.89) 100%);
+  background-image: linear-gradient(120deg, rgba(220, 228, 161, .55) 0%, rgba(220, 228, 229, .69) 100%);
 }
 
 .btn-results:before {
@@ -1019,12 +1025,12 @@ body {
 
 .btn-results:after {
   content: 'See results';
-  padding: 2.8rem 0 0 .6rem;
+  padding: 10.5rem 0 0 1rem;
+  font-weight: 2rem;
   animation: morph 3s linear infinite;
   animation-delay: 400ms;
   opacity: .89;
-  line-height: 120px;
-  text-indent: -21px;
+  text-indent: -2rem;
 }
 
 @keyframes morph {

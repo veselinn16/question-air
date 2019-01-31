@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Icon from './Icon';
 import Social from './Social';
 import Answer from './Answer';
-import initBt2 from './resultsBtn';
+import initBtn from './answerBtn';
 
 class Question extends Component {
     state = {
@@ -14,7 +14,7 @@ class Question extends Component {
         // sets up tween on results button
         let btn = document.querySelector('.btn-gooey');
 
-        initBt2(btn);
+        initBtn(btn);
     }
 
     componentDidMount() {
@@ -120,6 +120,7 @@ class Question extends Component {
                 </div>
             </div>            
              : <div className="results-section">
+                <Icon dims='640' type='logo' classes="logo logo-4"/>
                 <Link to="/results" className="btn-results"></Link>
                </div> 
              : <h1>Please Enter a Question!</h1>            
