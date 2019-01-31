@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 
-import Form from './Form';
-import Question from './Question';
-import Arrange from './Arrange';
-import Results from './Results';
+import Form from './components/Form';
+import Question from './components/Question';
+import Arrange from './components/Arrange';
+import Results from './components/Results';
 
 class App extends Component {
   state = {
@@ -118,10 +118,51 @@ class App extends Component {
     // removes warning if there is any
     const warning = document.querySelector('.warning');
     warning && (warning.style.opacity = '0'); // animate opacity
-    setTimeout(() => {
+    // setTimeout(() => {
       warning && warning.parentElement.removeChild(warning); // if there is a warning, remove it
-    }, 800);
+    // }, 600);
   }
+
+  // q = () => {
+  //   return [
+  //     {
+  //       answer: 'Real Madrid',
+  //       answersArray: ['Manchester United', 'Chelsea', 'Real Madrid', 'Liverpool'],
+  //       question: 'Who won the 2018 Champions League final?',
+  //       response: null
+  //     },
+  //     {
+  //       answer: '681',
+  //       answersArray: ['681', '43', '921', '1500'],
+  //       question: 'When was Bulgaria established?',
+  //       response: null
+  //     },
+  //     {
+  //       answer: '4',
+  //       answersArray: ['2', '5', '1', '4'],
+  //       question: 'How many tires does a car have?',
+  //       response: null
+  //     },
+  //     {
+  //       answer: 'Real Madrid',
+  //       answersArray: ['Manchester United', 'Chelsea', 'Real Madrid', 'Liverpool'],
+  //       question: 'Who won the 2018 Champions League final?',
+  //       response: null
+  //     },
+  //     {
+  //       answer: 'Kim Kardashian',
+  //       answersArray: ['Amber Rose', 'Dua Lipa', 'Kim Kardashian', 'Beyonce'],
+  //       question: 'Who is Kanye West\'s wife?',
+  //       response: null
+  //     },
+  //     {
+  //       answer: '2017',
+  //       answersArray: ['2016', '2017', '2015', '2018'],
+  //       question: 'When was Frank Ocean\'s Blonde released?',
+  //       response: null
+  //     }
+  //   ]
+  // }
 
   render() {
     const {questions, score} = this.state // state object destructuring
