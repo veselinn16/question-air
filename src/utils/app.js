@@ -10,7 +10,7 @@
  */
 
 // import hasTouch from 'utils/hasTouch';
-import './base.css';
+// import './base.css';
 
 class App {
   constructor() {

@@ -1,6 +1,6 @@
 import { Vector3 } from 'three';
 
-import app from 'App'; // FIX THIS
+import app from './app'; // FIX THIS
 
 export default (cameraAmpl = { x: 5, y: 5 }, velocity = 0.1, lookAt = new Vector3()) =>
   (Target) => class HandleCameraOrbit extends Target {

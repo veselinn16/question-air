@@ -1,14 +1,10 @@
-import React , { Component } from 'react';
-
-import './base.css';
-// import './style.styl';
-
 import { Color, Vector3 } from 'three';
 import Engine from './EngineForResults';
-import AnimatedText3D from './AnimatedText3D';
+import AnimatedText3D from './Animated3DText';
 import LineGenerator from './LineGenerator';
 
-import random from './getRandomNums';
+import getRandomFloat from './getRandomFloat';
+import getRandomItem from './getRandomItem';
 
 import HandleCameraOrbit from './HandleCameraOrbit';
 import FullScreenInBackground from './FullScreenInBackground';
@@ -17,8 +13,8 @@ import { TimelineLite, Power3 } from 'gsap';
 
 import app from './app';
 
-
-/**
+export default function releaseConfetti(score) {
+    /**
  * * *******************
  * * ENGINE
  * * *******************
@@ -37,7 +33,7 @@ const engine = new CustomEngine();
  * * *******************
  */
 
-const text = new AnimatedText3D('Confetti', { color: '#0f070a', size: app.isMobile ? 0.5 : 0.8 });
+const text = new AnimatedText3D(score, { color: '#0f070a', size: app.isMobile ? 0.5 : 0.8 });
 text.position.x -= text.basePosition * 0.5;
 // text.position.y -= 0.5;
 engine.add(text);
@@ -67,25 +63,25 @@ class CustomLineGenerator extends LineGenerator {
 
   addLine() {
     super.addLine({
-      length: random.getRandomFloat(8, 15),
-      visibleLength: random.getRandomFloat(0.05, 0.2),
+      length: getRandomFloat(8, 15),
+      visibleLength: getRandomFloat(0.05, 0.2),
       position: new Vector3(
         (Math.random() - 0.5) * 1.5,
         Math.random() - 1,
         (Math.random() - 0.5) * 2,
-      ).multiplyScalar(random.getRandomFloat(5, 20)),
+      ).multiplyScalar(getRandomFloat(5, 20)),
       turbulence: new Vector3(
-        random.getRandomFloat(-2, 2),
-        random.getRandomFloat(0, 2),
-        random.getRandomFloat(-2, 2),
+        getRandomFloat(-2, 2),
+        getRandomFloat(0, 2),
+        getRandomFloat(-2, 2),
       ),
       orientation: new Vector3(
-        random.getRandomFloat(-0.8, 0.8),
+        getRandomFloat(-0.8, 0.8),
         1,
         1,
       ),
-      speed: random.getRandomFloat(0.004, 0.008),
-      color: random.getRandomItem(COLORS),
+      speed: getRandomFloat(0.004, 0.008),
+      color: getRandomItem(COLORS),
     });
   }
 }
@@ -116,16 +112,4 @@ app.onHide((onComplete) => {
   tlHide.add(lineGenerator.stop);
   tlHide.to('.overlay', 0.5, { autoAlpha: 1, onComplete }, '-=1.5');
 });
-
-class Results extends Component {
-    render() {
-        return (
-            <div className="results-container">
-                <div className="overlay"></div>
-                <main>
-                    <div className="frame"></div>
-                </main>
-            </div>    
-        )
-    }
 }
