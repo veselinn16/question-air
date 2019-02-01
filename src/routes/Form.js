@@ -1,7 +1,7 @@
 import React,  { Component } from "react";
 import { Link } from 'react-router-dom';
-import Icon from './Icon';
-import Social from './Social';
+import Icon from '../components/Icon';
+import Social from '../components/Social';
 
 class Form extends Component {
     render() {

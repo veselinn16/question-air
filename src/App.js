@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 
-import Form from './components/Form';
-import Question from './components/Question';
-import Arrange from './components/Arrange';
-import Results from './components/Results';
+import Form from './routes/Form';
+import Question from './routes/Question';
+import Arrange from './routes/Arrange';
+import Results from './routes/Results';
 
 class App extends Component {
   state = {

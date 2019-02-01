@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import animation from '../sample';
-import Questions from './Questions';
-import Icon from './Icon';
-import Social from './Social';
+import animation from '../utils/sample';
+import Questions from '../components/Questions';
+import Icon from '../components/Icon';
+import Social from '../components/Social';
 
 class Arrange extends Component {
     constructor(props) {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Icon from './Icon';
-import Social from './Social';
-import Answer from './Answer';
-import initBtn from '../utils/answerBtn';
+import Icon from '../components/Icon';
+import Social from '../components/Social';
+import Answer from '../components/Answer';
+import initBtn from '../utils/AnswerBtn';
 
 class Question extends Component {
     state = {
@@ -12,7 +12,7 @@ class Question extends Component {
 
     initiateButton = () => {
         // sets up tween on results button
-        let btn = document.querySelector('.btn-gooey');
+        const btn = document.querySelector('.btn-gooey');
 
         initBtn(btn);
     }
