@@ -44,8 +44,9 @@ engine.add(text);
  * * LIGNES
  * * *******************
  */
-
-const COLORS = ['#4062BB', '#52489C', '#59C3C3', '#F45B69', '#F45B69'].map((col) => new Color(col));
+// ['#fd7690', '#ceea8a', '#f4ff88', '#aae4b7', '#f0caca']
+// ['#0084ff', '#44bec7', '#ffc300', '#fa4f5d', '#d696bb'] ['#d4def3', '#e3f4f2', '#ffdfdf', '#d5ecd2', '#d4c3e6']
+const COLORS = ['#d4def3', '#e3f4f2', '#ffdfdf', '#d5ecd2', '#dcf0ad'].map((col) => new Color(col));
 const STATIC_PROPS = {
   width: 0.1,
   nbrOfPoints: 5,
