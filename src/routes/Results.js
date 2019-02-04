@@ -1,5 +1,6 @@
 import React , { Component } from 'react';
 import releaseConfetti from '../utils/initiateConfetti';
+import {Link} from 'react-router-dom';
 
 class Results extends Component {
   componentDidMount() {
@@ -13,6 +14,7 @@ class Results extends Component {
         <main>
             <div className="frame"></div>
         </main>
+        <Link to="/answers" className="btn-answers" onClick={e => e.preventDefault()}>See answers</Link>
       </div>    
     )
   }
