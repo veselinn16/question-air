@@ -1082,3 +1082,27 @@ body {
 .btn-answers:focus {
   transform: scale(.90);
 }
+
+.answers-section {
+  width: 100%;
+  height: 100%;
+  background: midnightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.answers-table {
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.heading {
+  padding: .5rem 1rem;
+}
+
+.cell {
+  padding: .5rem 1.5rem;
+  text-align: center;
+}
