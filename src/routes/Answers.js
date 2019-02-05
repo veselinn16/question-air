@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Icon from '../components/Icon';
+import Social from '../components/Social';
 
 class Answers extends Component {
     render() {
         return (
             <div className="answers-section">
-                
+                <Icon dims='640' type='logo' classes="logo logo-4"/>
                 <table className="answers-table">
                     <thead>
                         <tr>
@@ -14,8 +16,8 @@ class Answers extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.questions.map(question => {
-                            return <tr>
+                        {this.props.questions.map((question, i) => {
+                            return <tr key={i}>
                                         <td className="cell">{question.question}</td>
                                         <td className="cell">{question.answer}</td>
                                         <td className="cell">{question.response}</td>
@@ -23,6 +25,7 @@ class Answers extends Component {
                         })}
                     </tbody>
                 </table>
+                <Social inst="4" class="footer-1"/>
             </div>
         )
     }
