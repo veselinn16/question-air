@@ -3,10 +3,30 @@ import Icon from '../components/Icon';
 import Social from '../components/Social';
 
 class Answers extends Component {
+    componentDidMount() {
+        const left  = Array.prototype.slice.call(this.refs.left.children);
+        const right = Array.prototype.slice.call(this.refs.right.children);
+
+        left.forEach((el, i) => {
+            el.classList.add(`bubble-${i + 1}`);
+        });
+
+        right.forEach((el, i) => {
+            el.classList.add(`bubble-${i + 6}`);
+        });
+    }    
+
     render() {
         return (
             <div className="answers-section">
                 <Icon dims='640' type='logo' classes="logo logo-4"/>
+                <div className="bubbles-left" ref="left">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <table className="answers-table">
                     <thead>
                         <tr>
@@ -25,6 +45,14 @@ class Answers extends Component {
                         })}
                     </tbody>
                 </table>
+                <div className="bubbles-right" ref="right">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <Social inst="4" class="footer-1"/>
             </div>
         )
