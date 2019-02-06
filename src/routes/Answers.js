@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import Icon from '../components/Icon';
 import Social from '../components/Social';
+import initBubbles from '../utils/bubbles';
 
 class Answers extends Component {
     componentDidMount() {
         const left  = Array.prototype.slice.call(this.refs.left.children);
         const right = Array.prototype.slice.call(this.refs.right.children);
 
-        left.forEach((el, i) => {
-            el.classList.add(`bubble-${i + 1}`);
-        });
-
-        right.forEach((el, i) => {
-            el.classList.add(`bubble-${i + 6}`);
-        });
+        initBubbles(left, right);
     }    
 
     render() {
