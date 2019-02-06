@@ -1102,6 +1102,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .answers-table {
@@ -1121,4 +1123,103 @@ body {
 
 .logo-4 {
   fill: #e28f71;
+}
+
+.bubbles-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 5%;
+  height: 90%;
+}
+
+.bubbles-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5%;
+  height: 100%;
+}
+
+.bubble {
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: inset 0 0 1rem 1rem rgba(226, 143, 113, 0.5);
+}
+
+.bubble-1 {
+  left: -5rem;
+  width: 15rem;
+  height: 15rem;
+}
+
+.bubble-2 {
+  top: 8rem;
+  left: -8rem;
+  width: 25rem;
+  height: 25rem;
+}
+
+.bubble-3 {
+  top: 25rem;
+  left: -5rem;
+  width: 15rem;
+  height: 15rem;
+}
+
+.bubble-4 {
+  top: 38rem;
+  left: -4rem;
+  width: 16rem;
+  height: 16rem;
+}
+
+.bubble-5 {
+  top: 50rem;
+  left: -5rem;
+  width: 25rem;
+  height: 25rem;
+}
+
+.bubble-6 {
+  top: -5rem;
+  left: -5rem;
+  width: 15rem;
+  height: 15rem;
+}
+
+.bubble-7 {
+  top: 6rem;
+  left: -8rem;
+  width: 25rem;
+  height: 25rem;
+}
+
+.bubble-8 {
+  top: 25rem;
+  left: -5rem;
+  width: 18rem;
+  height: 18rem;
+}
+
+.bubble-9 {
+  top: 38rem;
+  left: -4rem;
+  width: 16rem;
+  height: 16rem;
+}
+
+.bubble-10 {
+  top: 50rem;
+  left: 1rem;
+  width: 15rem;
+  height: 15rem;
+}
+
+.bubble-11 {
+  top: 60rem;
+  left: -5rem;
+  width: 25rem;
+  height: 25rem;
 }
