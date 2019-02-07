@@ -1,23 +1,33 @@
 import React, { Component } from 'react';
 import Icon from '../components/Icon';
 import Social from '../components/Social';
+import { Link } from 'react-router-dom';
 import initBubbles from '../utils/bubbles';
 
 class Answers extends Component {
+    toggleButtonVisibility = () => {
+        this.refs.message.style.display = 'none';
+    }
+
     componentDidMount() {
         const left  = Array.prototype.slice.call(this.refs.left.children);
         const right = Array.prototype.slice.call(this.refs.right.children);
 
         initBubbles(left, right);
+
+        setTimeout(() => {
+            this.toggleButtonVisibility()
+        }, 4000);
     }    
 
     render() {
         return (
             <div className="answers-section">
                 <Icon dims='640' type='logo' classes="logo logo-4"/>
-                <div className="message-container">
+                <div className="message-container" ref="message">
                     <h1 className="message">Thank you for playing!</h1>
                 </div>
+                <Link to="/" className="btn-again" ref="btn-again">Play Again</Link>
                 <div className="bubbles-left" ref="left">
                     <span></span>
                     <span></span>
