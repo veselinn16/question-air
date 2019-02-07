@@ -15,6 +15,9 @@ class Answers extends Component {
         return (
             <div className="answers-section">
                 <Icon dims='640' type='logo' classes="logo logo-4"/>
+                <div className="message-container">
+                    <h1 className="message">Thank you for playing!</h1>
+                </div>
                 <div className="bubbles-left" ref="left">
                     <span></span>
                     <span></span>
@@ -48,7 +51,7 @@ class Answers extends Component {
                     <span></span>
                     <span></span>
                 </div>
-                <Social inst="4" class="footer-1"/>
+                <Social inst="4" class="footer-4"/>
             </div>
         )
     }
