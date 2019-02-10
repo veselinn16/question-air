@@ -6,30 +6,36 @@ import initBubbles from '../utils/bubbles';
 
 class Answers extends Component {
     removeMessage = () => {
-        this.refs.message.style.display = 'none';
+        setTimeout(() => {
+            this.refs.message.style.display = 'none';
+        }, 4000);
+    }
+
+    setUpBubbleClasses = () => {
+        const left  = Array.prototype.slice.call(this.refs.left.children);
+        const right = Array.prototype.slice.call(this.refs.right.children);
+
+        this.removeMessage();
+
+        initBubbles(left, right);
     }
 
     componentDidMount() {
         console.log('Thank you for playing!');
-        const left  = Array.prototype.slice.call(this.refs.left.children);
-        const right = Array.prototype.slice.call(this.refs.right.children);
-
-        initBubbles(left, right);
-
-        setTimeout(() => {
-            this.removeMessage();
-        }, 4000);
+        
+        this.props.questions.length > 0 && this.setUpBubbleClasses();
+        //this.props.emptyStateObject
     }    
 
     render() {
         return (
-            <div className="answers-section">
+            this.props.questions.length > 0 ? 
+            <div className="answers-section">     
                 <Icon dims='640' type='logo' classes="logo logo-4"/>
                 <div className="message-container" ref="message">
                     <h1 className="message">Thank you for playing!</h1>
                 </div>
-                <Link to="/" className="btn-again" ref="btn-again">
-                Play Again</Link>
+                <Link to='/' className='btn-again' onClick={this.props.emptyStateObject}>Play Again</Link>
                 <div className="bubbles-left" ref="left">
                     <span></span>
                     <span></span>
@@ -63,8 +69,8 @@ class Answers extends Component {
                     <span></span>
                     <span></span>
                 </div>
-                <Social inst="4" class="footer-4"/>
-            </div>
+                <Social inst="4" class="footer-4"/> 
+            </div> : <h1> Please enter questions and answer them for answers!</h1>            
         )
     }
 }
