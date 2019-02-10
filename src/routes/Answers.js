@@ -10,6 +10,7 @@ class Answers extends Component {
     }
 
     componentDidMount() {
+        console.log('Thank you for playing!');
         const left  = Array.prototype.slice.call(this.refs.left.children);
         const right = Array.prototype.slice.call(this.refs.right.children);
 
@@ -27,7 +28,8 @@ class Answers extends Component {
                 <div className="message-container" ref="message">
                     <h1 className="message">Thank you for playing!</h1>
                 </div>
-                <Link to="/" className="btn-again" ref="btn-again">Play Again</Link>
+                <Link to="/" className="btn-again" ref="btn-again">
+                Play Again</Link>
                 <div className="bubbles-left" ref="left">
                     <span></span>
                     <span></span>
@@ -36,14 +38,14 @@ class Answers extends Component {
                     <span></span>
                 </div>
                 <table className="answers-table">
-                    <thead>
+                    <thead className="answers-table-head">
                         <tr>
                             <th className="heading">Question</th>
                             <th className="heading">Right Answer</th>
                             <th className="heading">Your Answer</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="answers-table-body">
                         {this.props.questions.map((question, i) => {
                             return <tr key={i}>
                                         <td className="cell">{question.question}</td>
