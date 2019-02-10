@@ -14,7 +14,7 @@ class Results extends Component {
         <main>
             <div className="frame"></div>
         </main>
-        <Link to="/answers" className="btn-answers" onClick={e => e.preventDefault()}>See answers</Link>
+        <Link to="/answers" className="btn-answers">See answers</Link>
       </div>    
     )
   }
