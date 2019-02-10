@@ -11,45 +11,15 @@ import Answers from './routes/Answers';
 
 class App extends Component {
   state = {
-    questions: [
-      {
-        answer: 'Real Madrid',
-        answersArray: ['Manchester United', 'Chelsea', 'Real Madrid', 'Liverpool'],
-        question: 'Who won the 2018 Champions League final?',
-        response: 'Chelsea'
-      },
-      {
-        answer: '681',
-        answersArray: ['681', '43', '921', '1500'],
-        question: 'When was Bulgaria established?',
-        response: '43'
-      },
-      {
-        answer: '4',
-        answersArray: ['2', '5', '1', '4'],
-        question: 'How many tires does a car have?',
-        response: '1'
-      },
-      {
-        answer: 'Real Madrid',
-        answersArray: ['Manchester United', 'Chelsea', 'Real Madrid', 'Liverpool'],
-        question: 'Who won the 2018 Champions League final?',
-        response: 'Real Madrid'
-      },
-      {
-        answer: 'Kim Kardashian',
-        answersArray: ['Amber Rose', 'Dua Lipa', 'Kim Kardashian', 'Beyonce'],
-        question: 'Who is Kanye West\'s wife?',
-        response: 'Amber Rose'
-      },
-      {
-        answer: '2017',
-        answersArray: ['2016', '2017', '2015', '2018'],
-        question: 'When was Frank Ocean\'s Blonde released?',
-        response: '2017'
-      }
-    ],
+    questions: [],
     score: 0
+  }
+
+  emptyStateObject = () => {
+    this.setState({
+      questions: [],
+      score: 0
+    });
   }
 
   createWarning = (text, el) => {
@@ -210,7 +180,7 @@ class App extends Component {
         <Route path='/arrange-questions' render={() => <Arrange questions={questions}/>}/>
         <Route path='/question-1' render={() => <Question questions={questions} score={score} increaseScore={this.increaseScore} submitAnswer={this.submitAnswer} showWarning={this.showWarning} hideWarning={this.hideWarning}/>}/>
         <Route path='/results' render={() => <Results score={score} questions={questions}/>}/>
-        <Route path='/answers' render={() => <Answers score={score} questions={questions}/>}/>
+        <Route path='/answers' render={() => <Answers score={score} questions={questions} emptyStateObject={this.emptyStateObject}/>}/>
       </div>
     );
   }
