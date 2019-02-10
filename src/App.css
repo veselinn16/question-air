@@ -282,8 +282,7 @@ body {
 }
 
 
-@keyframes movement
-{
+@keyframes movement {
     0%,
   100% { transform: none; }
    50% { transform: translateY(20%) rotateY(10deg); }
@@ -1132,17 +1131,30 @@ body {
 }
 
 .btn-again {
-  font-size: 2rem;
-  font-weight: 600;
+  text-transform: uppercase;
   text-decoration: none;
-  background: #edb11a;
-  color: #ca3c31;
-  padding: .5rem;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: .2rem;
-  border-bottom-left-radius: .2rem;
-  border-bottom-right-radius: 1rem;
-  animation: opacity 3s ease;
+  padding: 1.5rem 3rem;
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative;
+  font-size: 2rem;
+  box-shadow: 0 2rem 3rem rgba(0, 0, 0, .2), inset 0 0 3rem 0 rgba(237, 177, 26, 1);
+  color: #edb11a;
+  animation: opacity 4s ease-out;
+}
+
+.btn-again:hover {
+  transform: translateY(-.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0,.2), inset 0 0 3rem 0 rgba(237, 177, 26, 1);
+}
+
+.btn-again:focus,
+.btn-again:active {
+  outline: none;
+  transform: translateY(-.1rem);
+  box-shadow: 0 5px 1rem rgba(0, 0, 0, .2);
 }
 
 .answers-table {
@@ -1160,6 +1172,39 @@ body {
   text-align: center;
 }
 
+.answers-table-head {
+  animation-delay: 10s;
+  animation: moveInTop 2s ease;
+}
+
+.answers-table-body {
+  animation: moveInBottom 2s ease;
+}
+
+@keyframes moveInTop {
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+
+  0% {
+    transform: translateY(-5rem);
+    opacity: 0;
+  }
+}
+
+@keyframes moveInBottom {
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+
+  0% {
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+}
+
 .logo-4 {
   fill: #edb11a;
 }
@@ -1170,14 +1215,6 @@ body {
   left: 0;
   width: 5%;
   height: 90%;
-}
-
-/* .bubbles-left > * {
-  animation: trnasformy 25s ease-in-out infinite both alternate, lol 25s ease-in-out infinite both alternate;
-} */
-
-.bubbles-right > * {
-  /* animation: trnasformy 25s ease-in-out infinite both alternate, lol1 25s ease-in-out infinite both alternate; */
 }
 
 .bubbles-right {
@@ -1192,15 +1229,14 @@ body {
   display: inline-block;
   position: absolute;
   border-radius: 50%; /* if you remove this, it's still cool ;) */
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(237, 177, 26, 1);
-  
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(237, 177, 26, 1); 
 }
 
 .bubble-1 {
   left: -5rem;
   width: 15rem;
   height: 15rem;
-  animation: bubbleMorph2 50s ease-in-out alternate, bubbleMove1 20s ease-in-out alternate;
+  animation: bubbleMove1 20s ease-out infinite both alternate;
 }
 
 .bubble-2 {
@@ -1208,7 +1244,7 @@ body {
   left: -8rem;
   width: 25rem;
   height: 25rem;
-  animation: bubbleMorph1 50s ease-in-out alternate, bubbleMove3 20s ease-in-out alternate;
+  animation: bubbleMove3 20s ease-out infinite both alternate;
 }
 
 
@@ -1217,7 +1253,7 @@ body {
   left: -5rem;
   width: 15rem;
   height: 15rem;
-  animation: bubbleMorph2 50s ease-in-out alternate, bubbleMove2 20s ease-in-out alternate;
+  animation: bubbleMove2 20s ease-out infinite both alternate;
 }
 
 .bubble-4 {
@@ -1225,7 +1261,7 @@ body {
   left: -4rem;
   width: 16rem;
   height: 16rem;
-  animation: bubbleMorph1 50s ease-in-out alternate, bubbleMove1 20s ease-in-out alternate;
+  animation: bubbleMove1 20s ease-out infinite both alternate;
 }
 
 .bubble-5 {
@@ -1233,17 +1269,16 @@ body {
   left: -5rem;
   width: 25rem;
   height: 25rem;
-  animation: bubbleMorph2 50s ease-in-out alternate, bubbleMove2 20s ease-in-out alternate;
+  animation: bubbleMove2 20s ease-out infinite both alternate;
 }
 
 /* right */
-
 .bubble-6 {
   top: -5rem;
   left: -5rem;
   width: 15rem;
   height: 15rem;
-  animation: bubbleMorph2 50s ease-in-out alternate, bubbleMove6 20s ease-in-out alternate;
+  animation: bubbleMove6 20s ease-in-out infinite both alternate;
 }
 
 .bubble-7 {
@@ -1251,7 +1286,7 @@ body {
   left: -8rem;
   width: 25rem;
   height: 25rem;
-  animation: bubbleMorph1 50s infinite, bubbleMove5 15s infinite;
+  animation: bubbleMove5 20s ease-in-out infinite both alternate;
 }
 
 .bubble-8 {
@@ -1259,7 +1294,7 @@ body {
   left: -5rem;
   width: 18rem;
   height: 18rem;
-  animation: bubbleMorph2 50s ease-in-out infinite, bubbleMove4 20s ease-in-out infinite;
+  animation: bubbleMove4 20s ease-in-out infinite both alternate;
 }
 
 .bubble-9 {
@@ -1267,7 +1302,7 @@ body {
   left: -4rem;
   width: 16rem;
   height: 16rem;
-  animation: bubbleMorph1 50s ease-in-out infinite, bubbleMove6 15s ease-in-out infinite;
+  animation: bubbleMove6 20s ease-in-out infinite both alternate;
 }
 
 .bubble-10 {
@@ -1275,7 +1310,7 @@ body {
   left: 1rem;
   width: 15rem;
   height: 15rem;
-  animation: bubbleMorph2 50s ease-in-out infinite, bubbleMove5 20s ease-in-out infinite;
+  animation: bubbleMove5 20s ease-in-out infinite both alternate;
 }
 
 .bubble-11 {
@@ -1283,10 +1318,10 @@ body {
   left: -5rem;
   width: 25rem;
   height: 25rem;
-  animation: bubbleMorph2 50s ease-in-out infinite, bubbleMove4 15s ease-in-out infinite;
+  animation: bubbleMove4 20s ease-in-out infinite both alternate;
 }
 
-@keyframes bubbleMorph1 {
+/* @keyframes bubbleMorph1 {
   0%,
  100% { border-radius: 50%; } 
  14% { border-radius: 45% 57% 54% 50% / 42% 55% 59% 51%; } 
@@ -1306,7 +1341,7 @@ body {
  56% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; } 
  70% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; } 
  84% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 
-}
+} */
 
 @keyframes bubbleMove1 {
   0%,
