@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import initBubbles from '../utils/bubbles';
 
 class Answers extends Component {
-    toggleButtonVisibility = () => {
+    removeMessage = () => {
         this.refs.message.style.display = 'none';
     }
 
@@ -16,7 +16,7 @@ class Answers extends Component {
         initBubbles(left, right);
 
         setTimeout(() => {
-            this.toggleButtonVisibility()
+            this.removeMessage();
         }, 4000);
     }    
 
@@ -67,4 +67,4 @@ class Answers extends Component {
     }
 }
 
-export default Answers
+export default Answers;
