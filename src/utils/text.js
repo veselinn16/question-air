@@ -1,10 +1,8 @@
 import AnimatedText3D from './Animated3DText';
 
-const createText = (text1) => {
-    const text = new AnimatedText3D(text1, { color: '#0f070a', size: 0.8 });
-    text.position.x -= text.basePosition * 0.5;
+export const createText = (text) => {
+    const animatedText = new AnimatedText3D(text, { color: '#0f070a', size: 0.8 });
+    animatedText.position.x -= animatedText.basePosition * 0.5;
 
-    return text;
+    return animatedText;
 }
-
-export default createText;
