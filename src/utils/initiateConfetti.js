@@ -20,11 +20,6 @@ const staticProps = {
 };
 
 export default function releaseConfetti(text) {
-  /**
-   * * *******************
-   * * ENGINE
-   * * *******************
-   */
 
   @FullScreenInBackground
   @HandleCameraOrbit({ x: 4, y: 4 })
@@ -32,30 +27,12 @@ export default function releaseConfetti(text) {
 
   const engine = new CustomEngine();
 
-
-  /**
-   * * *******************
-   * * TITLE
-   * * *******************
-   */
   engine.add(text);
-
-  /**
-   * * *******************
-   * * LIGNES
-   * * *******************
-   */
 
   const lineGenerator = createLineGenerator();
 
   engine.add(lineGenerator);
 
-  /**
-   * * *******************
-   * * START
-   * * *******************
-   */
-  // Show
   engine.start();
 
   texto(text, engine, lineGenerator);
