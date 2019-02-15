@@ -8,7 +8,7 @@ class Answers extends Component {
     removeMessage = () => {
         setTimeout(() => {
             this.refs.message.style.display = 'none';
-        }, 4000);
+        }, 2000);
     }
 
     setUpBubbleClasses = () => {
@@ -24,7 +24,8 @@ class Answers extends Component {
         console.log('Thank you for playing!');
         
         this.props.questions.length > 0 && this.setUpBubbleClasses();
-        //this.props.emptyStateObject
+        // this.props.emptyStateObject
+        // console.log(this.props.questions)
     }    
 
     render() {
