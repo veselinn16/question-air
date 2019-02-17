@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import animation from '../utils/sample';
+import animation from '../utils/sortableItem';
 import Questions from '../components/Questions';
 import Icon from '../components/Icon';
 import Social from '../components/Social';
