@@ -1219,6 +1219,27 @@ body {
   left: 0;
   width: 5%;
   height: 90%;
+  animation: moveInRight 4s ease;
+}
+
+@keyframes moveInRight {
+  0% {
+    transform: translateX(-15rem);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    transform: translateX(15rem);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .bubbles-right {
@@ -1227,6 +1248,7 @@ body {
   right: 0;
   width: 5%;
   height: 100%;
+  animation: moveInLeft 4s ease;
 }
 
 .bubble {
