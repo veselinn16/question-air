@@ -14,26 +14,12 @@ class App extends Component {
     questions: [],
     score: 0,
     round: 1,
-    results: {
-      engine: null,
-      text: null
-    }
+    engine: null
   }
 
-  setEngineAndText(engine, text) {
+  setEngine(engine) {
     this.setState({
-      results: {
-        engine,
-        text
-      }
-    })
-  }
-
-  changeResultsText(text) {
-    this.setState({
-      results: {
-        text
-      }
+      engine
     })
   }
 
@@ -44,7 +30,7 @@ class App extends Component {
     }))
   }
 
-  emptyStateObject = () => {
+  emptyStateObject() {
     this.setState({
       questions: [],
       score: 0
@@ -208,7 +194,7 @@ class App extends Component {
         <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
         <Route path='/arrange-questions' render={() => <Arrange questions={questions}/>}/>
         <Route path='/question-1' render={() => <Question questions={questions} score={score} increaseScore={this.increaseScore} submitAnswer={this.submitAnswer} showWarning={this.showWarning} hideWarning={this.hideWarning}/>}/>
-        <Route path='/results' render={() => <Results score={score} questions={questions} round={this.state.round} updateRound={this.updateRound.bind(this)} setEngineAndText={this.setEngineAndText.bind(this)} engine={this.state.results.engine} changeResultsText={this.changeResultsText.bind(this)} text={this.state.results.text}/>}/>
+        <Route path='/results' render={() => <Results score={score} questions={questions} round={this.state.round} updateRound={this.updateRound.bind(this)} setEngine={this.setEngine.bind(this)} engine={this.state.engine}/>}/>
         <Route path='/answers' render={() => <Answers score={score} questions={questions} emptyStateObject={this.emptyStateObject}/>}/>
       </div>
     );
