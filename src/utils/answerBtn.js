@@ -7,7 +7,7 @@ function getRandom(min, max){
 export default function initBtn(button) {
   const filter = document.querySelectorAll('#filter-goo feGaussianBlur')[0];
   const particleCount = 12;
-  const colors = ['#de8aa0', '#8aaede', '#ffb300', '#60c7da']
+  const colors = ['#fa9b05', '#91f174', '#f9fe34', '#60c7da']
 
   button.addEventListener('click', function() {
     let particles = [];

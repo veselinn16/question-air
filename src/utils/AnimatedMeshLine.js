@@ -1,8 +1,7 @@
 import { Mesh, Vector3, SplineCurve, Geometry, Color } from 'three';
 import { MeshLine, MeshLineMaterial } from 'three.meshline';
   
-import getRandomFloat from './getRandomFloat';
-  
+import randomFunctions from './getRandomNumbers';  
   
 export default class AnimatedMeshLine extends Mesh {
     constructor({
@@ -35,9 +34,9 @@ export default class AnimatedMeshLine extends Mesh {
           currentPoint.add(segment);
           // Add turbulence to the current point
           linePoints.push(currentPoint.clone().set(
-            currentPoint.x + getRandomFloat(-turbulence.x, turbulence.x),
-            currentPoint.y + getRandomFloat(-turbulence.y, turbulence.y),
-            currentPoint.z + getRandomFloat(-turbulence.z, turbulence.z),
+            currentPoint.x + randomFunctions.getRandomFloat(-turbulence.x, turbulence.x),
+            currentPoint.y + randomFunctions.getRandomFloat(-turbulence.y, turbulence.y),
+            currentPoint.z + randomFunctions.getRandomFloat(-turbulence.z, turbulence.z),
           ));
         }
         // Finish the curve to the correct point without turbulence

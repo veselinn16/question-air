@@ -2,8 +2,7 @@ import { Color, Vector3 } from 'three';
 import Engine from './EngineForResults';
 import LineGenerator from './LineGenerator';
 
-import getRandomFloat from './getRandomFloat';
-import getRandomItem from './getRandomItem';
+import randomFunctions from './getRandomNumbers';
 
 import HandleCameraOrbit from './HandleCameraOrbit';
 import FullScreenInBackground from './FullScreenInBackground';
@@ -44,25 +43,25 @@ function createLineGenerator() {
   class CustomLineGenerator extends LineGenerator {
     addLine() {
       super.addLine({
-        length: getRandomFloat(8, 15),
-        visibleLength: getRandomFloat(0.05, 0.2),
+        length: randomFunctions.getRandomFloat(8, 15),
+        visibleLength: randomFunctions.getRandomFloat(0.05, 0.2),
         position: new Vector3(
           (Math.random() - 0.5) * 1.5,
           Math.random() - 1,
           (Math.random() - 0.5) * 2,
-        ).multiplyScalar(getRandomFloat(5, 20)),
+        ).multiplyScalar(randomFunctions.getRandomFloat(5, 20)),
         turbulence: new Vector3(
-          getRandomFloat(-2, 2),
-          getRandomFloat(0, 2),
-          getRandomFloat(-2, 2),
+          randomFunctions.getRandomFloat(-2, 2),
+          randomFunctions.getRandomFloat(0, 2),
+          randomFunctions.getRandomFloat(-2, 2),
         ),
         orientation: new Vector3(
-          getRandomFloat(-0.8, 0.8),
+          randomFunctions.getRandomFloat(-0.8, 0.8),
           1,
           1,
         ),
-        speed: getRandomFloat(0.004, 0.008),
-        color: getRandomItem(colors),
+        speed: randomFunctions.getRandomFloat(0.004, 0.008),
+        color: randomFunctions.getRandomItem(colors),
       });
     }
   }
