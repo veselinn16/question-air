@@ -5,24 +5,27 @@ import { createText } from '../utils/text';
 
 class Results extends Component {
   addNewText() {
-    this.props.updateRound();
-
+    // creates the text
     return createText(`You got ${this.props.score} out of ${this.props.questions.length}`);
   }
 
-  initiateConfetti() {    
+  initiateConfetti() {
+    // creates the scene and unleashes confetti
     const engine = releaseConfetti(this.addNewText());
     
+    // sets the state engine variable, so it can be removed on later rounds
     this.props.setEngine(engine);
   }
 
   hidePreviousEngine() {
+    // hide the previous engine and initiate confetti
     this.props.engine.dom.hidden = true;
 
     this.initiateConfetti();
   }
 
   componentDidMount() {
+    // if there are questions submitted and the round is 1, initiate confetti. If there are questions submitted and the round is not 1, remove previous text and intitiate confetti. If there are no questions submitted, log this to the console
     this.props.questions.length > 0 ? this.props.round === 1 ? this.initiateConfetti() : this.hidePreviousEngine() : console.log('No questions submitted!');
   }
 
