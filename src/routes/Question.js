@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Icon from '../components/Icon';
 import Social from '../components/Social';
 import Answer from '../components/Answer';
+import Error from '../routes/Error';
 import initBtn from '../utils/AnswerBtn';
 
 class Question extends Component {
@@ -123,7 +124,7 @@ class Question extends Component {
                 <Icon dims='640' type='logo' classes="logo logo-4"/>
                 <Link to="/results" className="btn-results"></Link>
                </div> 
-             : <h1>Please Enter a Question!</h1>            
+             : <Error text='No Questions Found!' recommendation='Enter questions, please!' />            
         )
     }
 }

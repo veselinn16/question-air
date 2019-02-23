@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Icon from '../components/Icon';
 import Social from '../components/Social';
+import Error from '../routes/Error';
 import { Link } from 'react-router-dom';
 import initBubbles from '../utils/bubbles';
 
@@ -71,7 +72,7 @@ class Answers extends Component {
                     <span></span>
                 </div>
                 <Social inst="4" class="footer-4"/> 
-            </div> : <h1> Please enter questions and answer them for answers!</h1>            
+            </div> : <Error text='No Questions Found!' recommendation='Enter questions and answer them, please!' />            
         )
     }
 }

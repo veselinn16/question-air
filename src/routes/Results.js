@@ -2,6 +2,7 @@ import React , { Component } from 'react';
 import releaseConfetti from '../utils/initiateConfetti';
 import {Link} from 'react-router-dom';
 import { createText } from '../utils/text';
+import Error from './Error';
 
 class Results extends Component {
   addNewText() {
@@ -39,7 +40,7 @@ class Results extends Component {
         </main>
         <Link to="/answers" className="btn-answers">See answers</Link>
       </div>
-      : <h1>Please Enter Questions and answer them!</h1>
+      : <Error text='No Questions Found!' recommendation='Enter questions and answer them, please!' />
     )
   }
 }

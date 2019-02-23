@@ -4,6 +4,7 @@ import animation from '../utils/sortableItem';
 import Questions from '../components/Questions';
 import Icon from '../components/Icon';
 import Social from '../components/Social';
+import Error from '../routes/Error';
 
 class Arrange extends Component {
     constructor(props) {
@@ -26,14 +27,6 @@ class Arrange extends Component {
     render() {
         const { questions } = this.props // props object destructuring
         return (
-            // this.props.questions.length > 0 ?
-            //  <div className="q_container">
-            //     <ol className='qs'>
-            //         {this.props.questions.map((question, i) => {
-            //           return <li key={i} className='q' draggable='true'>{i + 1} {question.question}</li>  
-            //         })}
-            //     </ol>                
-            // </div> : <h1>Enter questions please!</h1>
             questions.length > 0 ?
             <div className="route">
                 <section className="left">
@@ -50,10 +43,10 @@ class Arrange extends Component {
                 <section className="right">
                     <Questions questions={questions}></Questions> 
                 </section>
-                <Link className="btn btn-questions" to='/question-1'>Show Questions</Link>
+                <Link className="btn btn-questions" to='/question'>Show Questions</Link>
                 <Social inst="2" class="footer-1"/>
             </div>
-            : <h1>Enter questions please!</h1>
+            : <Error text='No Questions Found!' recommendation='Enter questions, please!' />
         )
     }
 }
