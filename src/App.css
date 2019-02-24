@@ -1513,27 +1513,32 @@ body {
 }
 
 /* 404 */
-.four-oh-four {
+.four-oh-four-container {
   width: 100vw;
   height: 100vh;
   background: #3C3C3E;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.four-oh-four-message {
+.four-oh-four-status {
   color: #fff;
   font-family: Raleway, sans-serif;
   text-transform: uppercase;
   text-align: center;
-  font-size: 20rem;
+  font-size: 30rem;
   font-weight: 900;
+  position: relative;
 }
 
-.distortion-effect {
+.four-oh-four-status:after {
+  content: '404';
   position: absolute;
   top: 0;
   left: -2px;
   width: 100%;
-  color: #222222;
   text-shadow: 2px 0 #222, -1px 0 #ffff00, -2px 0 #008000;
   overflow: hidden;
   animation: clip 2s infinite linear alternate-reverse;
@@ -1541,36 +1546,40 @@ body {
 
 @keyframes clip {
   0% {
-    clip: rect(9rem, 9999rem, 17rem, 0);
+    clip: rect(13.5rem, 9999rem, 25.5rem, 0);
   }
   10% {
-    clip: rect(23rem, 9999rem, 14rem, 0);
+    clip: rect(34.5rem, 9999rem, 21rem, 0);
   }
   20% {
-    clip: rect(13rem, 9999rem, 12rem, 0);
+    clip: rect(19.5rem, 9999rem, 18rem, 0);
   }
   30% {
-    clip: rect(8rem, 9999rem, 11.5rem, 0);
+    clip: rect(18rem, 9999rem, 17.25rem, 0);
   }
   40% {
-    clip: rect(12rem, 9999rem, 15rem, 0);
+    clip: rect(19rem, 9999rem, 22.5rem, 0);
   }
   50% {
-    clip: rect(13rem, 9999rem, 16rem, 0);
+    clip: rect(20.5rem, 9999rem, 24rem, 0);
   }
   60% {
-    clip: rect(15rem, 9999rem, 17rem, 0);
+    clip: rect(22.5rem, 9999rem, 25.5rem, 0);
   }
   70% {
-    clip: rect(9rem, 9999rem, 14rem, 0);
+    clip: rect(13.5rem, 9999rem, 21rem, 0);
   }
   80% {
-    clip: rect(15rem, 9999rem, 19rem, 0);
+    clip: rect(22.5rem, 9999rem, 28.5rem, 0);
   }
   90% {
-    clip: rect(10rem, 9999rem, 17rem, 0);
+    clip: rect(15rem, 9999rem, 25.5rem, 0);
   }
   100% {
-    clip: rect(14rem, 9999rem, 18rem, 0);
+    clip: rect(21rem, 9999rem, 27rem, 0);
   }
+}
+
+.four-oh-four-message {
+
 }
