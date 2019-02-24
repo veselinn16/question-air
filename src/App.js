@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Form from './routes/Form';
 import Question from './routes/Question';
 import Arrange from './routes/Arrange';
 import Results from './routes/Results';
 import Answers from './routes/Answers';
+import { FourOhFour } from './routes/FourOhFour';
 
 class App extends Component {
   state = {
     questions: [],
     score: 0,
-    round: 1,
+    round: 0,
     engine: null
   }
 
   setEngine(engine) {
+    // sets engine
     this.setState({
       engine
     })
   }
 
   updateRound() {
+    // updates round
     this.setState( prevState => ({
       ...prevState,
       round: prevState.round + 1
@@ -31,6 +34,7 @@ class App extends Component {
   }
 
   emptyStateObject() {
+    // resets user data
     this.setState({
       questions: [],
       score: 0
@@ -39,6 +43,7 @@ class App extends Component {
 
   createWarning = (text, el) => {
     const warning = document.createElement('p'); // CHANGE WITH REACT.CREATEELEMENT() !!!!!!!!
+
     warning.className = 'warning'
 
     const warningText = document.createTextNode(text)
@@ -141,61 +146,25 @@ class App extends Component {
     // removes warning if there is any
     const warning = document.querySelector('.warning');
     warning && (warning.style.opacity = '0'); // animate opacity
-    // setTimeout(() => {
-      warning && warning.parentElement.removeChild(warning); // if there is a warning, remove it
-    // }, 600);
+    warning && warning.parentElement.removeChild(warning); // if there is a warning, remove it
   }
 
-  // q = () => {
-  //   return [
-  //     {
-  //       answer: 'Real Madrid',
-  //       answersArray: ['Manchester United', 'Chelsea', 'Real Madrid', 'Liverpool'],
-  //       question: 'Who won the 2018 Champions League final?',
-  //       response: null
-  //     },
-  //     {
-  //       answer: '681',
-  //       answersArray: ['681', '43', '921', '1500'],
-  //       question: 'When was Bulgaria established?',
-  //       response: null
-  //     },
-  //     {
-  //       answer: '4',
-  //       answersArray: ['2', '5', '1', '4'],
-  //       question: 'How many tires does a car have?',
-  //       response: null
-  //     },
-  //     {
-  //       answer: 'Real Madrid',
-  //       answersArray: ['Manchester United', 'Chelsea', 'Real Madrid', 'Liverpool'],
-  //       question: 'Who won the 2018 Champions League final?',
-  //       response: null
-  //     },
-  //     {
-  //       answer: 'Kim Kardashian',
-  //       answersArray: ['Amber Rose', 'Dua Lipa', 'Kim Kardashian', 'Beyonce'],
-  //       question: 'Who is Kanye West\'s wife?',
-  //       response: null
-  //     },
-  //     {
-  //       answer: '2017',
-  //       answersArray: ['2016', '2017', '2015', '2018'],
-  //       question: 'When was Frank Ocean\'s Blonde released?',
-  //       response: null
-  //     }
-  //   ]
-  // }
+  componentDidMount() {
+    this.updateRound();
+  }
 
   render() {
     const {questions, score} = this.state // state object destructuring
     return (
       <div className="App">
-        <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
-        <Route path='/arrange-questions' render={() => <Arrange questions={questions}/>}/>
-        <Route path='/question-1' render={() => <Question questions={questions} score={score} increaseScore={this.increaseScore} submitAnswer={this.submitAnswer} showWarning={this.showWarning} hideWarning={this.hideWarning}/>}/>
-        <Route path='/results' render={() => <Results score={score} questions={questions} round={this.state.round} updateRound={this.updateRound.bind(this)} setEngine={this.setEngine.bind(this)} engine={this.state.engine}/>}/>
-        <Route path='/answers' render={() => <Answers score={score} questions={questions} emptyStateObject={this.emptyStateObject}/>}/>
+        <Switch>
+          <Route exact path="/" render={() => <Form getData={this.getData} hideWarning={this.hideWarning}/>} />
+          <Route path='/arrange-questions' render={() => <Arrange questions={questions}/>}/>
+          <Route path='/question' render={() => <Question questions={questions} score={score} increaseScore={this.increaseScore} submitAnswer={this.submitAnswer} showWarning={this.showWarning} hideWarning={this.hideWarning}/>}/>
+          <Route path='/results' render={() => <Results score={score} questions={questions} round={this.state.round} updateRound={this.updateRound.bind(this)} setEngine={this.setEngine.bind(this)} engine={this.state.engine}/>}/>
+          <Route path='/answers' render={() => <Answers score={score} questions={questions} emptyStateObject={this.emptyStateObject}/>}/>
+          <Route component={FourOhFour} />
+        </Switch>
       </div>
     );
   }
