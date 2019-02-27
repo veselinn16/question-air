@@ -1521,65 +1521,55 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  
 }
 
 .four-oh-four-status {
-  color: #fff;
-  font-family: Raleway, sans-serif;
-  text-transform: uppercase;
-  text-align: center;
   font-size: 30rem;
-  font-weight: 900;
-  position: relative;
+  color: #fff;
+  font-family:"Trebuchet MS";
+  text-shadow: 3px 2px 2px rgba(251, 12, 12,1), 0px -1px 3px rgba(12, 79, 251,.5),-3px 0px 2px rgba(52, 251, 12, 1);
+  animation: chromaticMove 4.5s ease infinite, pulse ease .2s  infinite;
 }
 
-.four-oh-four-status:after {
-  content: '404';
-  position: absolute;
-  top: 0;
-  left: -2px;
-  width: 100%;
-  text-shadow: 2px 0 #222, -1px 0 #ffff00, -2px 0 #008000;
-  overflow: hidden;
-  animation: clip 2s infinite linear alternate-reverse;
-}
-
-@keyframes clip {
+@keyframes pulse { 
   0% {
-    clip: rect(13.5rem, 9999rem, 25.5rem, 0);
+    opacity:.9;
+    transform: skewX(.2deg);
   }
-  10% {
-    clip: rect(34.5rem, 9999rem, 21rem, 0);
-  }
-  20% {
-    clip: rect(19.5rem, 9999rem, 18rem, 0);
-  }
-  30% {
-    clip: rect(18rem, 9999rem, 17.25rem, 0);
-  }
-  40% {
-    clip: rect(19rem, 9999rem, 22.5rem, 0);
+  25% {
+    opacity:1;
   }
   50% {
-    clip: rect(20.5rem, 9999rem, 24rem, 0);
+    opacity:.9;
   }
-  60% {
-    clip: rect(22.5rem, 9999rem, 25.5rem, 0);
-  }
-  70% {
-    clip: rect(13.5rem, 9999rem, 21rem, 0);
-  }
-  80% {
-    clip: rect(22.5rem, 9999rem, 28.5rem, 0);
-  }
-  90% {
-    clip: rect(15rem, 9999rem, 25.5rem, 0);
+  75% {
+    opacity:1;
+    transform:skewX(.2deg);
   }
   100% {
-    clip: rect(21rem, 9999rem, 27rem, 0);
+    opacity:.9;
+  }
+}
+
+@keyframes chromaticMove { 
+  0% {
+    text-shadow: 3px 2px 2px rgba(251, 12, 12,1), 0px -1px 3px rgba(12, 79, 251,.5),0px 0px -2px rgba(52, 251, 12, 1);
+  }
+  25% {
+    text-shadow: 3px 2px 2px rgba(251, 12, 12,1), 0px -1px 3px rgba(12, 79, 251,.5),-1px 1px 1px rgba(52, 251, 12, 1);
+  }
+  50% {
+    text-shadow: 3px 2px 2px rgba(251, 12, 12,1), 0px -1px 3px rgba(12, 79, 251,.5),-3px 2px 3px rgba(52, 251, 12, 1);
+  }
+  75% {
+    text-shadow: 3px 2px 2px rgba(251, 12, 12,1), 0px -1px 3px rgba(12, 79, 251,.5), 1px 0 3px rgba(52, 251, 12, 1);
+  }
+  100% {
+    text-shadow: 3px 2px 2px rgba(251, 12, 12,1), 0px -1px 3px rgba(12, 79, 251,.5),2px -1px 2px rgba(52, 251, 12, 1);
   }
 }
 
 .four-oh-four-message {
-
+  
 }
