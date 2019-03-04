@@ -1608,28 +1608,26 @@ body {
   text-decoration: none;
 }
 
-.link-404-text:after {
+.link-404-text:after, .link-404-text:before {
 	content: 'Go Home';
   padding: 1.5rem 2rem;
 	width: 17rem;
 	position: absolute;
-	opacity: .7;
+  opacity: .7;
+  top: -2px;
+	left: -2px;
 }
 
 .link-404-text:before {
-  border: 2px solid #0ff;
+  border: 2px solid rgba(251, 12, 12,1);
 	z-index: -2;
-  color: #0ff;
-  top: 0px;
-	left: 0px;
+  color: rgba(251, 12, 12,1);
 }
 
 .link-404-text:after {
-	border: 2px solid #f0f;
+	border: 2px solid rgba(52, 251, 12, 1);
 	z-index: -2;
-  color: #f0f;
-  top: -2px;
-	left: -2px;
+  color: rgba(52, 251, 12, 1);
 }
 
 .link-404:hover .link-404-text:first-child:after {
