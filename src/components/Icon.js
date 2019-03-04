@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-
-
 class Icon extends Component {
   choosePath = (type) => {
     switch(type) {
