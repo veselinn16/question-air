@@ -117,7 +117,7 @@ class Question extends Component {
                             Submit Answer
                         <span className="btn-bg"></span>
                     </button>
-                    <Social inst="3" class="footer-2"/>
+                    <Social inst="3" clazz="footer-2"/>
                 </div>
             </div>            
              : <div className="results-section">

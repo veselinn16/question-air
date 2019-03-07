@@ -44,7 +44,7 @@ class Arrange extends Component {
                     <Questions questions={questions}></Questions> 
                 </section>
                 <Link className="btn btn-questions" to='/question'>Show Questions</Link>
-                <Social inst="2" class="footer-1"/>
+                <Social inst="2" clazz="footer-1"/>
             </div>
             : <Error text='No Questions Found!' recommendation='Enter questions, please!' />
         )

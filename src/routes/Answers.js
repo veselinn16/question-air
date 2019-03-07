@@ -25,8 +25,6 @@ class Answers extends Component {
         console.log('Thank you for playing!');
         
         this.props.questions.length > 0 && this.setUpBubbleClasses();
-        // this.props.emptyStateObject
-        // console.log(this.props.questions)
     }    
 
     render() {
@@ -71,7 +69,7 @@ class Answers extends Component {
                     <span></span>
                     <span></span>
                 </div>
-                <Social inst="4" class="footer-4"/> 
+                <Social inst="4" clazz="footer-4"/> 
             </div> : <Error text='No Questions Found!' recommendation='Enter questions and answer them, please!' />            
         )
     }

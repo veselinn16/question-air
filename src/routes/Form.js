@@ -20,7 +20,7 @@ class Form extends Component {
             </form>
             <Link className="btn btn-question" to='/question'>Show Questions</Link>
             <Link className="btn btn-arrange" to='/arrange-questions'>Arrange Questions</Link>
-            <Social inst="1" class="footer-1"/>
+            <Social inst="1" clazz="footer-1"/>
         </div>
         )
     }
