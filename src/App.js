@@ -44,10 +44,10 @@ class App extends Component {
   createWarning = (text, el) => {
     const warning = document.createElement('p'); // CHANGE WITH REACT.CREATEELEMENT() !!!!!!!!
 
-    warning.className = 'warning'
+    warning.className = 'warning';
 
-    const warningText = document.createTextNode(text)
-    warning.appendChild(warningText)
+    const warningText = document.createTextNode(text);
+    warning.appendChild(warningText);
 
     document.querySelector(el).prepend(warning);
   }
@@ -85,7 +85,7 @@ class App extends Component {
       result += (element.length > 0 ? ' 0 ' : ' -1 '); // if there is an empty form field return -1 and display warning later
     });
  
-    result.includes('-1') ? this.showWarning('Please make sure to fill out all the form elements', '.index') : this.registerQuestion(question); // prepend warning or register question     
+    result.includes('-1') ? this.showWarning('Please make sure to fill out all the form elements', '.form-container') : this.registerQuestion(question); // prepend warning or register question     
   }
 
   shuffleAnswers = array => {
