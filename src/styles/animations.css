@@ -1,0 +1,69 @@
+/* for .logo */
+@keyframes toggleScale {
+  0% {
+    transform: scale(.1);
+  }
+
+  50%, 100% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.5);
+  }
+}
+
+/* for .form */
+@keyframes toggleOpacity {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* for .btn-question */
+@keyframes transform1 {
+  0%,
+ 100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 
+ 14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 
+ 28% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; } 
+ 42% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; } 
+ 56% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; } 
+ 70% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; } 
+ 84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; } 
+}
+
+/* for .btn-arrange */
+@keyframes transform2 {
+  0%,
+ 100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 
+ 14% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; } 
+ 28% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; } 
+ 42% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; } 
+ 56% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; } 
+ 70% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; } 
+ 84% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 
+}
+
+/* for .btn .btn-question */
+@keyframes movement {
+  0%, 100% { transform: none; }
+  50% { transform: translateY(20%) rotateY(10deg); }
+}
+
+/* for .btn .btn-question */
+@keyframes shade {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* for .footer-1 */
+@keyframes moveInRight {
+  0% { transform: translateX(20px); }
+  100% { transform: translateX(0); }
+} 
