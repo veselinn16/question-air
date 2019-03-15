@@ -1,0 +1,206 @@
+.answers-section {
+  width: 100%;
+  height: 100%;
+  background: var(--color-answers-1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-5 {
+  fill: var(--color-answers-2);
+}
+
+.message-container {
+  animation: opacityOut 4s ease;
+  width: 19%;
+  position: absolute;
+  left: 40.5%;
+  top: 10%;
+  text-align: center;
+}
+
+.message {
+  font-size: 3.5rem;
+  color: var(--color-answers-2);
+}
+
+.btn-again {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 3rem;
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative;
+  font-size: 2rem;
+  box-shadow: 0 2rem 3rem rgba(0, 0, 0, .2), inset 0 0 3rem 0 var(--color-answers-2);
+  color: var(--color-answers-2);
+  background: none;
+  animation: opacity 4s ease-out;
+}
+
+.btn-again:hover {
+  transform: translateY(-.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0,.2), inset 0 0 3rem 0 var(--color-answers-2);
+}
+
+.btn-again:focus,
+.btn-again:active {
+  outline: none;
+  transform: translateY(-.1rem);
+  box-shadow: 0 5px 1rem rgba(0, 0, 0, .2);
+}
+
+.bubbles-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 5%;
+  height: 90%;
+  animation: moveInRight 4s ease;
+}
+
+.bubble {
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%; /* if you remove this, it's still cool ;) */
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px var(--color-answers-2); 
+}
+
+/* left */
+.bubble-1 {
+  left: -5rem;
+  width: 15rem;
+  height: 15rem;
+  animation: bubbleMove1 20s ease-out infinite both alternate;
+}
+
+.bubble-2 {
+  top: 8rem;
+  left: -8rem;
+  width: 25rem;
+  height: 25rem;
+  animation: bubbleMove3 20s ease-out infinite both alternate;
+}
+
+
+.bubble-3 {
+  top: 25rem;
+  left: -5rem;
+  width: 15rem;
+  height: 15rem;
+  animation: bubbleMove2 20s ease-out infinite both alternate;
+}
+
+.bubble-4 {
+  top: 38rem;
+  left: -4rem;
+  width: 16rem;
+  height: 16rem;
+  animation: bubbleMove1 20s ease-out infinite both alternate;
+}
+
+.bubble-5 {
+  top: 50rem;
+  left: -5rem;
+  width: 25rem;
+  height: 25rem;
+  animation: bubbleMove2 20s ease-out infinite both alternate;
+}
+
+.answers-table {
+  color: var(--color-answers-2);
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.answers-table-head {
+  animation-delay: 10s;
+  animation: moveInTop 2s ease;
+}
+
+.heading {
+  padding: .5rem 1rem;
+}
+
+.answers-table-body {
+  animation: moveInBottom 2s ease;
+}
+
+.cell {
+  padding: .5rem 1.5rem;
+  text-align: center;
+}
+
+.bubbles-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5%;
+  height: 100%;
+  animation: moveInLeft 4s ease;
+}
+
+/* right */
+.bubble-6 {
+  top: -5rem;
+  left: -5rem;
+  width: 15rem;
+  height: 15rem;
+  animation: bubbleMove6 20s ease-in-out infinite both alternate;
+}
+
+.bubble-7 {
+  top: 6rem;
+  left: -8rem;
+  width: 25rem;
+  height: 25rem;
+  animation: bubbleMove5 20s ease-in-out infinite both alternate;
+}
+
+.bubble-8 {
+  top: 25rem;
+  left: -5rem;
+  width: 18rem;
+  height: 18rem;
+  animation: bubbleMove4 20s ease-in-out infinite both alternate;
+}
+
+.bubble-9 {
+  top: 38rem;
+  left: -4rem;
+  width: 16rem;
+  height: 16rem;
+  animation: bubbleMove6 20s ease-in-out infinite both alternate;
+}
+
+.bubble-10 {
+  top: 50rem;
+  left: 1rem;
+  width: 15rem;
+  height: 15rem;
+  animation: bubbleMove5 20s ease-in-out infinite both alternate;
+}
+
+.bubble-11 {
+  top: 60rem;
+  left: -5rem;
+  width: 25rem;
+  height: 25rem;
+  animation: bubbleMove4 20s ease-in-out infinite both alternate;
+}
+
+.footer-4 {
+  transform: translateY(7rem);
+  animation: none;
+}
+
+.instagram-4, .facebook-4, .github-4, .linkedin-4 {
+  fill: var(--color-answers-2);
+  transition: fill .5s;
+}
