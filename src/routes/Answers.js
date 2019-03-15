@@ -31,7 +31,7 @@ class Answers extends Component {
         return (
             this.props.questions.length > 0 ? 
             <div className="answers-section">     
-                <Icon dims='640' type='logo' classes="logo logo-4"/>
+                <Icon dims='640' type='logo' classes="logo logo-5"/>
                 <div className="message-container" ref="message">
                     <h1 className="message">Thank you for playing!</h1>
                 </div>
