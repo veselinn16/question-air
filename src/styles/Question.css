@@ -3,6 +3,10 @@
   height: 100%;
 }
 
+.logo-3 {
+  fill: var(--color-questions-3);
+}
+
 .question-container {
   height: 40%;
   width: 100%;
@@ -159,6 +163,26 @@
   border: 0;
 }
 
+.lefty, .righty {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1.5rem;
+  background-color: var(--color-questions-4);
+  transition: background-color 0.1s ease-out;
+  top: 50%;
+  margin-top: -1.2rem;
+  z-index: -2; 
+}
+    
+.lefty {
+  left: 0; 
+}
+
+.righty {
+  right: 0; 
+}
+
 .footer-2 {
   animation: moveInRight .8s ease;
   width: 12%; 
@@ -186,6 +210,10 @@
   justify-content: center;
   align-items: center;
   background: var(--color-questions-5);
+}
+
+.logo-4 {
+  fill: var(--color-results-btn-1);
 }
 
 /* RESULTS BUTTON - RENDERED WHEN ALL QUESTIONS ARE ANSWERED*/
