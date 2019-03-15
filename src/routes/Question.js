@@ -89,10 +89,9 @@ class Question extends Component {
         const {numberOfQuestion} = this.state; // state object destructuring
         return(                
             questions.length > 0 ? questions[numberOfQuestion] ?
-            <div className="questions-route">
+            <div className="questions-container">
                 <Icon dims='640' type='logo' classes="logo logo-3"/> 
                 <div className="question-container" ref='question'>
-                    {/* <p>{this.props.score}</p>  */}
                     <h1 className="question-text">{questions[numberOfQuestion].question}</h1>
                 </div>
                 <div className="answers-container">
