@@ -82,7 +82,7 @@
 }
 
 .question:focus {
-    background: #7d5697;
+    background: var(--color-form-5);
     color: var(--color-white);
     outline: none;
 }
@@ -106,7 +106,7 @@
 }
 
 .answer:focus {
-  background: #f1fec5;
+  background: var(--color-form-6);
   outline: none;
 }
 
@@ -118,7 +118,6 @@
     transition: .5s ease-in-out;
     text-align: center;
     position: relative;
-    /* display: block; */
     overflow: hidden;
     width: 100%;
     text-transform: uppercase;
@@ -153,7 +152,7 @@
     left: 0;
   right: -6rem;
   border-right: 6rem solid transparent;
-  border-bottom: 6rem solid rgba(0, 0, 0, .2);
+  border-bottom: 6rem solid var(--color-form-7);
   transform: translateX(-100%);
 }
 
@@ -165,7 +164,7 @@
     left: -6rem;
     right: 0;
     border-left: 6rem solid transparent;
-    border-top: 6rem solid rgba(0, 0, 0, .2);
+    border-top: 6rem solid var(--color-form-7);
     transform: translateX(100%);
 }
 
@@ -233,6 +232,10 @@
   animation: transform1 50s ease-in-out infinite both alternate;
 }
 
+.btn-question:hover::after {
+    opacity: 1;
+}
+
 .btn-question:after {
     animation: 
         movement 40s ease-in-out infinite both,
@@ -241,7 +244,7 @@
 }
 
 .btn-question:after {
-    box-shadow:  0 0 5rem rgba(255, 0, 0, .9);
+    box-shadow:  0 0 5rem var(--color-form-4);
 }
 
 .btn-question:focus {
@@ -268,7 +271,7 @@
 }
 
 .btn-arrange:after {
-    box-shadow:  0 0 5rem rgba(255, 0, 0, .9);
+    box-shadow:  0 0 5rem var(--color-form-4);
     animation: transform2 50s ease-in-out infinite both alternate;
 }
   
@@ -279,7 +282,7 @@
 .warning {
   animation: opacity .8s ease;
   border-radius: .5rem;
-  background: #bc1a0e;
+  background: var(--color-form-3);
   transition: opacity .8s;
   padding: .2rem .5rem;
   color: var(--color-white);
