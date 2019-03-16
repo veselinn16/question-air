@@ -264,3 +264,7 @@
   opacity: .89;
   text-indent: -2rem;
 }
+
+/* .btn-results:hover::after {
+  opacity: 1;
+} */
