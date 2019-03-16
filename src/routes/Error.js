@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Error = ({text, recommendation}) => (
     <div className="error-container">
-        <div className="content-container">
+        <div className="error-content-container">
             <div className="error-illustration-container">
                 <img className="error-illustration" src="../undraw_questions_75e0.svg" alt="No Questions Illustration"/>
             </div>
