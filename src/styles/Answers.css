@@ -196,8 +196,14 @@
 }
 
 .footer-4 {
-  transform: translateY(7rem);
-  animation: none;
+  animation: moveInRight .8s ease;
+  width: 12%; 
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: .2rem;
+  align-items: center;
+  justify-items: center;
 }
 
 .instagram-4, .facebook-4, .github-4, .linkedin-4 {
