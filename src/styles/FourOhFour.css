@@ -1,0 +1,76 @@
+.four-oh-four-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(
+    to bottom,
+    var(--color-black),
+    var(--color-black) 50%,
+    var(--color-404-3) 50%,
+    var(--color-404-3)
+  );
+  background-size: 100% 4px;
+  animation: aberration .2s ease infinite;
+}
+
+.four-oh-four-status {
+  font-size: 30rem;
+  color: var(--color-white);
+  font-family:"Trebuchet MS";
+  text-shadow: 3px 2px 2px var(--color-404-1), 0px -1px 3px rgba(12, 79, 251,.5),-3px 0px 2px var(--color-404-2);
+  animation: chromaticMove 4.5s ease infinite, pulse ease .2s  infinite;
+}
+
+.four-oh-four-message {
+  color: var(--color-white);
+  font-size: 4rem;
+  font-weight: 100;
+  text-shadow: 3px 2px 2px var(--color-404-1), 0px -1px 3px rgba(12, 79, 251,.5),-3px 0px 2px var(--color-404-2);
+  animation: chromaticMove 4.5s ease infinite, pulse ease .2s  infinite;
+}
+
+.link-404 {
+  border: 2px solid var(--color-white);
+	color: var(--color-white);
+	padding: 1.5rem 2rem;
+	width: 17rem;
+  text-align: center;
+	position: relative;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.link-404-text:after, .link-404-text:before {
+	content: 'Go Home';
+  padding: 1.5rem 2rem;
+	width: 17rem;
+	position: absolute;
+  opacity: .7;
+  top: -2px;
+	left: -2px;
+}
+
+.link-404-text:before {
+  border: 2px solid var(--color-404-1);
+	z-index: -2;
+  color: var(--color-404-1);
+}
+
+.link-404-text:after {
+	border: 2px solid var(--color-404-2);
+	z-index: -2;
+  color: var(--color-404-2);
+}
+
+.link-404:hover .link-404-text:first-child:after {
+  animation: shake .3s cubic-bezier(.25, .46, .45, .94) both infinite;
+  z-index: 0;
+}
+
+.link-404:hover .link-404-text:first-child:before {
+  animation: shake .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
+  z-index: 0;
+}
