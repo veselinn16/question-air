@@ -108,6 +108,24 @@ class App extends Component {
     question.focus(); // set focus on question field after emptying text
   }
 
+  checkForCommonAnswers = array => {
+    let answerCount = [];
+    array.forEach(el => {
+      // returns new array with number of times answer is found in array
+      let s = array.filter(element => el === element).length;
+      // push the number of times it is found
+      answerCount.push(s);
+    });
+
+    // for every method
+    function checkForSameAnswer(val) {
+      return val === 1;
+    }
+
+    // returns true if answers are unique and false if there are duplicate answers
+    return answerCount.every(checkForSameAnswer);
+  }
+
   getData = e => {
     // prevent default behavior of submit button
     e.preventDefault();
@@ -118,6 +136,7 @@ class App extends Component {
     let answerArray = [].slice.call(document.querySelectorAll('.answer')); // convert nodelist to array
     let answersArr = answerArray.map(answer => answer.value); // extract text
     let answersArray = this.shuffleAnswers(answersArr); // randomize order of answers
+    let answerCheck = this.checkForCommonAnswers(answersArray);
 
     let questionObj = {
       question,
@@ -126,7 +145,8 @@ class App extends Component {
       response: null // user's answer
     }
 
-    this.validateQuestion(questionObj);  
+    // if there all answers are unique, validate questions. If not, show warning 
+    answerCheck ? this.validateQuestion(questionObj) : this.showWarning('There are answers, which are the same!', '.form-container');
   }
 
   submitAnswer = (index, answer) => {
