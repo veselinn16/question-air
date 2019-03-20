@@ -131,10 +131,10 @@ class App extends Component {
     e.preventDefault();
 
     // extract text from HTML nodes
-    let question = document.querySelector('.question').value;
-    let answer = document.querySelector('.correct').value;
+    let question = document.querySelector('.question').value.trim();
+    let answer = document.querySelector('.correct').value.trim();
     let answerArray = [].slice.call(document.querySelectorAll('.answer')); // convert nodelist to array
-    let answersArr = answerArray.map(answer => answer.value); // extract text
+    let answersArr = answerArray.map(answer => answer.value.trim()); // extract text
     let answersArray = this.shuffleAnswers(answersArr); // randomize order of answers
     let answerCheck = this.checkForCommonAnswers(answersArray);
 
