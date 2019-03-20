@@ -2,13 +2,14 @@
   --color-black: #000;
   --color-white: #fff;
   
-  --color-form-1: #2f295e;
-  --color-form-2: #f0e892;
+  --color-form-1: #6377da; /*#8ecaf4*/
+  --color-form-2: #fadcac; /*#f0e892 #29587a*/
   --color-form-3: #bc1a0e;
-  --color-form-4: rgba(255, 0, 0, .9);
-  --color-form-5: #7d5697;
-  --color-form-6: #f1fec5;
-  --color-form-7: rgba(0, 0, 0, .2);
+  --color-form-4: rgba(250, 220, 172, .9);
+  --color-form-5: rgba(99, 119, 218, .9);
+  --color-form-6: #7d5697;
+  --color-form-7: #f1fec5;
+  --color-form-8: rgba(0, 0, 0, .2);
   
   --color-arrange-1: #d4c1f2;
   --color-arrange-2: #7ea078;
