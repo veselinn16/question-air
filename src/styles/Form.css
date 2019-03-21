@@ -82,7 +82,7 @@
 }
 
 .question:focus {
-    background: var(--color-form-5);
+    background: var(--color-form-6);
     color: var(--color-white);
     outline: none;
 }
@@ -106,7 +106,7 @@
 }
 
 .answer:focus {
-  background: var(--color-form-6);
+  background: var(--color-form-7);
   outline: none;
 }
 
@@ -152,7 +152,7 @@
     left: 0;
   right: -6rem;
   border-right: 6rem solid transparent;
-  border-bottom: 6rem solid var(--color-form-7);
+  border-bottom: 6rem solid var(--color-form-8);
   transform: translateX(-100%);
 }
 
@@ -164,12 +164,12 @@
     left: -6rem;
     right: 0;
     border-left: 6rem solid transparent;
-    border-top: 6rem solid var(--color-form-7);
+    border-top: 6rem solid var(--color-form-8);
     transform: translateX(100%);
 }
 
 .submit:hover:after {
-    transform: translateX(50%);
+    transform: translateX(50.04%);
 }
 
 .btn {
@@ -220,16 +220,17 @@
 .btn-question {
   left: 10%;
   color: var(--color-form-2);
-  box-shadow: inset 0 -2rem 10rem rgba(73, 35, 111, .6);
+  box-shadow: inset 0 -2rem 10rem rgba(99, 119, 218, .6);
   background: linear-gradient(
                 270deg,
-                #49236f,
-                #4c2574,
-                #502978,
-                #593183,
-                #653d90
+                #6377da,
+                #7284dd,
+                #8292e1,
+                #919fe5,
+                #a1ade8
               );
   animation: transform1 50s ease-in-out infinite both alternate;
+  transition: font-size .2s;
 }
 
 .btn-question:hover::after {
@@ -241,27 +242,24 @@
         movement 40s ease-in-out infinite both,
         shade 60s linear infinite both;    
     animation: transform1 50s ease-in-out infinite both alternate;
-}
-
-.btn-question:after {
-    box-shadow:  0 0 5rem var(--color-form-4);
+    box-shadow:  0 0 5rem var(--color-form-5);
 }
 
 .btn-question:focus {
-  background: var(--color-form-1); 
+  background: var(--color-form-6);
 }
 
 .btn-arrange {
     left: 80%;
     color: var(--color-form-1);
-    box-shadow: inset 0 -2rem 10rem rgba(255, 255, 255, .6);
+    box-shadow: inset 0 -2rem 10rem rgba(250, 220, 172, .6);
     background: linear-gradient(
                   180deg,
-                  #feffc3,
-                  #fdf9a3,
-                  #fffa88,
-                  #fdf769,
-                  #fff26d
+                  #fadcac,
+                  #fadfb4,
+                  #fbe3bc,
+                  #fbe6c4,
+                  #fceacd
                 );
     animation: transform2 50s ease-in-out infinite both alternate
 }
@@ -274,10 +272,10 @@
     box-shadow:  0 0 5rem var(--color-form-4);
     animation: transform2 50s ease-in-out infinite both alternate;
 }
-  
-.btn-question:focus {
-    background: var(--color-form-2); 
-}
+
+.btn-arrange:focus {
+    background: var(--color-form-7);
+  }
 
 .warning {
   animation: opacity .8s ease;
