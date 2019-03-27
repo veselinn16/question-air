@@ -7,8 +7,8 @@
   --color-form-3: #bc1a0e;
   --color-form-4: rgba(250, 220, 172, .9);
   --color-form-5: rgba(99, 119, 218, .9);
-  --color-form-6: #7d5697;
-  --color-form-7: #f1fec5;
+  --color-form-6: #3a53d0;
+  --color-form-7: #f7c87c;
   --color-form-8: rgba(0, 0, 0, .2);
   
   --color-arrange-1: #d4c1f2;
@@ -24,10 +24,10 @@
   --color-questions-2: #8c355f; /* #efce99 */
   --color-questions-3: #f25e59; /* #d4787b */
   --color-questions-4: #ffaca1; /* #fb9701 */
-  --color-questions-5: #abaaba;
-
-  --color-results-btn-1: #dce4e5;
-  --color-results-btn-2: #f3d8ee;
+  
+  --color-results: #611551;
+  --color-results-btn-1: #611551;
+  --color-results-btn-2: #d154c7;
 
   --color-answers-1: #ca4c31;
   --color-answers-2: #edb11a;
