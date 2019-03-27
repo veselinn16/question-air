@@ -83,7 +83,6 @@
 
 .question:focus {
     background: var(--color-form-6);
-    color: var(--color-white);
     outline: none;
 }
 
@@ -135,8 +134,10 @@
     color: var(--color-form-1); 
 }
 
-.submit:focus {
+.submit:focus,
+.submit:active {
     outline: none;
+    transform: scale(.95);
     background: rgba(240, 232, 146, .6);
 }
 
@@ -275,7 +276,7 @@
 
 .btn-arrange:focus {
     background: var(--color-form-7);
-  }
+}
 
 .warning {
   animation: opacity .8s ease;
