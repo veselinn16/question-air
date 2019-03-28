@@ -47,7 +47,7 @@ class Answers extends Component {
                     <thead className="answers-table-head">
                         <tr>
                             <th className="heading">Question</th>
-                            <th className="heading">Right Answer</th>
+                            <th className="heading">Correct Answer</th>
                             <th className="heading">Your Answer</th>
                         </tr>
                     </thead>
