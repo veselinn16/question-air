@@ -209,11 +209,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--color-questions-5);
+  background: var(--color-results);
 }
 
 .logo-4 {
-  fill: var(--color-results-btn-1);
+  fill: var(--color-results-btn-2);
 }
 
 /* RESULTS BUTTON - RENDERED WHEN ALL QUESTIONS ARE ANSWERED*/
@@ -242,10 +242,10 @@
   left: 0; 
   top: 0;
   border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-  box-shadow: .5rem .5rem 9rem rgba(197, 214, 64, 0.21);
+  box-shadow: .5rem .5rem 9rem rgba(125, 50, 119, 0.21);
   will-change: border-radius, transform, opacity;
   animation-delay: 200ms;
-  background-image: linear-gradient(120deg, rgba(220, 228, 161, .55) 0%, rgba(220, 228, 229, .69) 100%);
+  background-image: linear-gradient(120deg, rgba(209, 84, 199, .55) 0%, rgba(222, 135, 215, .69) 100%);
 }
 
 .btn-results:before {
