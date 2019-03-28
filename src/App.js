@@ -78,16 +78,6 @@ class App extends Component {
     this.emptyFormFields();
   }
 
-  validateQuestion = question => {
-    let result = 0;
-    const array = [question.question, ...question.answersArray]; // add question to array of questions
-    array.forEach(element => {
-      result += (element.length > 0 ? ' 0 ' : ' -1 '); // if there is an empty form field return -1 and display warning later
-    });
- 
-    result.includes('-1') ? this.showWarning('Please make sure to fill out all the form elements', '.form-container') : this.registerQuestion(question); // prepend warning or register question     
-  }
-
   shuffleAnswers = array => {
     // shuffles the order of the elements of the answers array using the Durstenfeld shuffle algorithm
     for (let i = array.length - 1; i > 0; i--) {
@@ -96,6 +86,7 @@ class App extends Component {
       array[i] = array[j];
       array[j] = temp;
     }
+
     return array;
   }
 
@@ -108,7 +99,23 @@ class App extends Component {
     question.focus(); // set focus on question field after emptying text
   }
 
-  checkForCommonAnswers = array => {
+  checkAnswers = array => {
+    const isEmptyString = this.checkForEmptyAnswer(array);
+
+    return isEmptyString;
+  }
+
+  checkForEmptyAnswer = array => {
+    let isEmptyString = false;
+    
+    array.forEach(el => {
+      (el.length === 0) && (isEmptyString = true);
+    });
+
+    return isEmptyString;
+  }
+
+  checkForCommonAnswers = array => { 
     let answerCount = [];
     array.forEach(el => {
       // returns new array with number of times answer is found in array
@@ -117,13 +124,8 @@ class App extends Component {
       answerCount.push(s);
     });
 
-    // for every method
-    function checkForSameAnswer(val) {
-      return val === 1;
-    }
-
-    // returns true if answers are unique and false if there are duplicate answers
-    return answerCount.every(checkForSameAnswer);
+    // returns false if answers are unique and true if there are duplicate answers
+    return !answerCount.every(val => val === 1);
   }
 
   getData = e => {
@@ -135,8 +137,14 @@ class App extends Component {
     let answer = document.querySelector('.correct').value.trim();
     let answerArray = [].slice.call(document.querySelectorAll('.answer')); // convert nodelist to array
     let answersArr = answerArray.map(answer => answer.value.trim()); // extract text
+    const inputsArray = answersArr.map(el => el);
+    inputsArray.push(question);
+
+    const isEmptyAnswer = this.checkAnswers(inputsArray); // returns true if there is an empty answer
+
+    const areDuplicateAnswers = this.checkForCommonAnswers(inputsArray); // returns true if there are duplicate answers
+
     let answersArray = this.shuffleAnswers(answersArr); // randomize order of answers
-    let answerCheck = this.checkForCommonAnswers(answersArray);
 
     let questionObj = {
       question,
@@ -145,8 +153,8 @@ class App extends Component {
       response: null // user's answer
     }
 
-    // if there all answers are unique, validate questions. If not, show warning 
-    answerCheck ? this.validateQuestion(questionObj) : this.showWarning('There are answers, which are the same!', '.form-container');
+    // first it checks if all answers are entered, then if they are all unique and if both conditions are met, registers question
+    isEmptyAnswer ? this.showWarning('Please make sure you fill all form elements!', '.form-container') : areDuplicateAnswers ? this.showWarning('Please make sure there are no duplicate form elements!', '.form-container') : this.registerQuestion(questionObj)
   }
 
   submitAnswer = (index, answer) => {
