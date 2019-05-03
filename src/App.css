@@ -1,11 +1,13 @@
-@import './styles/base.css';
-@import './styles/variables.css';
-@import './styles/animations.css';
+@import "./styles/base.css";
+@import "./styles/variables.css";
+@import "./styles/animations.css";
 
-@import './styles/Form.css';
-@import './styles/Arrange.css';
-@import './styles/Question.css';
-@import './styles/Results.css';
-@import './styles/Answers.css';
-@import './styles/Error.css';
-@import './styles/FourOhFour.css';
+@import "./styles/Form.css";
+@import "./styles/Arrange.css";
+@import "./styles/Question.css";
+@import "./styles/Results.css";
+@import "./styles/Answers.css";
+@import "./styles/Error.css";
+@import "./styles/FourOhFour.css";
+
+@import "./styles/mediaQueries.css";
