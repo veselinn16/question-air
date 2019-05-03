@@ -1,0 +1,27 @@
+@media only screen and (max-width: 1366px) {
+  .form {
+    width: 56%;
+    height: 60%;
+  }
+
+  .btn {
+    width: 12%;
+    min-height: 17.7rem;
+  }
+
+  .btn-question {
+    left: 6%;
+  }
+
+  .btn-arrange {
+    left: 83%;
+  }
+
+  .footer-1 {
+    top: 88.8%;
+  }
+
+  svg {
+    width: 29px;
+  }
+}
