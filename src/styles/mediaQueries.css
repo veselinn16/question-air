@@ -1,4 +1,5 @@
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 1550px) {
+  /* Form Route */
   .form {
     width: 56%;
     height: 60%;
@@ -21,7 +22,22 @@
     top: 88.8%;
   }
 
-  svg {
+  .footer-1 svg {
+    width: 29px;
+  }
+
+  /* Arrange Route */
+  .list-item {
+    min-width: 40rem;
+  }
+
+  /* Question Route */
+  .footer-2 svg {
+    width: 29px;
+  }
+
+  /* Answers Route */
+  .footer-4 svg {
     width: 29px;
   }
 }
