@@ -26,6 +26,21 @@
     width: 29px;
   }
 
+  .submit:before {
+    border-bottom: 6.1rem solid var(--color-form-8);
+    border-right: 6.1rem solid transparent;
+  }
+
+  .submit:hover:before {
+    transform: translate(-49.61%);
+  }
+
+  .submit:after {
+    /* top: 1px; */
+    border-top: 6.1rem solid var(--color-form-8);
+    border-left: 6.1rem solid transparent;
+  }
+
   /* Arrange Route */
   .list-item {
     min-width: 40rem;
