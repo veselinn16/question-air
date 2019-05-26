@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import logo from './logo.svg';
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 
@@ -18,12 +17,12 @@ class App extends Component {
     engine: null
   };
 
-  setEngine(engine) {
+  setEngine = engine => {
     // sets engine
     this.setState({
       engine
     });
-  }
+  };
 
   updateRound() {
     // updates round
@@ -42,7 +41,7 @@ class App extends Component {
   }
 
   createWarning = (text, el) => {
-    const warning = document.createElement("p"); // CHANGE WITH REACT.CREATEELEMENT() !!!!!!!!
+    const warning = document.createElement("p");
 
     warning.className = "warning";
 
@@ -54,6 +53,15 @@ class App extends Component {
 
   showWarning = (text, el) => {
     !document.querySelector(".warning") && this.createWarning(text, el); // If there is no warning on the page, create and display warning
+  };
+
+  hideWarning = () => {
+    // removes warning if there is any
+    const warning = document.querySelector(".warning");
+    warning && (warning.style.opacity = "0"); // animate opacity
+    setTimeout(() => {
+      warning && warning.parentElement.removeChild(warning); // if there is a warning, remove it
+    }, 400);
   };
 
   registerQuestion = question => {
@@ -74,17 +82,6 @@ class App extends Component {
   };
 
   displayButton = button => {
-    // let buttons = [];
-    // const questionButton = document.querySelector('.btn-question');
-    // const arrangeButton = document.querySelector('.btn-arrange');
-
-    // buttons.push(questionButton, arrangeButton);
-
-    // buttons.forEach(el => {
-    //   el.style.pointerEvents = 'auto'
-    //   el.style.opacity = '1';
-    // });
-
     button.style.pointerEvents = "auto";
     button.style.opacity = "1";
 
@@ -193,13 +190,6 @@ class App extends Component {
     this.setState({ score: newScore });
   };
 
-  hideWarning = () => {
-    // removes warning if there is any
-    const warning = document.querySelector(".warning");
-    warning && (warning.style.opacity = "0"); // animate opacity
-    warning && warning.parentElement.removeChild(warning); // if there is a warning, remove it
-  };
-
   componentDidMount() {
     this.updateRound();
   }
@@ -241,7 +231,7 @@ class App extends Component {
                 questions={questions}
                 round={this.state.round}
                 updateRound={this.updateRound.bind(this)}
-                setEngine={this.setEngine.bind(this)}
+                setEngine={this.setEngine}
                 engine={this.state.engine}
               />
             )}
