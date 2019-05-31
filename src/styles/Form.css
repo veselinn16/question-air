@@ -239,7 +239,7 @@
     #a1ade8
   );
   animation: transform1 50s ease-in-out infinite both alternate;
-  transition: font-size 0.2s;
+  transition: all 0.2s;
 }
 
 .btn-question:hover::after {
@@ -285,14 +285,26 @@
   background: var(--color-form-7);
 }
 
-.warning {
-  font-size: 1.3rem;
-  animation: opacity 0.8s ease;
+.feedback {
+  font-size: 1.5rem;
   border-radius: 0.5rem;
-  background: var(--color-form-3);
-  transition: opacity 0.8s;
-  padding: 0.2rem 0.5rem;
   color: var(--color-white);
+  position: fixed;
+  top: 13%;
+  opacity: 0;
+  padding: 0.2rem 0.5rem;
+}
+
+.success {
+  background: var(--color-arrange-menu-3);
+  animation: opacity 0.4s ease;
+  transition: opacity 0.8s;
+}
+
+.warning {
+  background: var(--color-form-3);
+  animation: opacity 0.4s ease;
+  transition: opacity 0.8s;
 }
 
 .footer-1 {
