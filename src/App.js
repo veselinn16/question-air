@@ -40,28 +40,30 @@ class App extends Component {
     });
   }
 
-  createWarning = (text, el) => {
-    const warning = document.createElement("p");
+  createFeedback = (text, type) => {
+    const feedback = document.querySelector(".feedback");
 
-    warning.className = "warning";
+    feedback.className = `feedback ${type}`;
 
-    const warningText = document.createTextNode(text);
-    warning.appendChild(warningText);
+    feedback.innerText = text;
 
-    document.querySelector(el).prepend(warning);
+    feedback.style.opacity = "1";
+
+    // hide text for successfully submitted question after 700
+    type === "success" &&
+      setTimeout(() => {
+        this.hideFeedback();
+      }, 700);
   };
 
-  showWarning = (text, el) => {
-    !document.querySelector(".warning") && this.createWarning(text, el); // If there is no warning on the page, create and display warning
+  showWarning = text => {
+    this.createFeedback(text, "warning"); // If there is no warning on the page, create and display warning
   };
 
-  hideWarning = () => {
+  hideFeedback = () => {
     // removes warning if there is any
-    const warning = document.querySelector(".warning");
-    warning && (warning.style.opacity = "0"); // animate opacity
-    setTimeout(() => {
-      warning && warning.parentElement.removeChild(warning); // if there is a warning, remove it
-    }, 400);
+    const feedback = document.querySelector(".feedback");
+    feedback.style.opacity = "0"; // remove opacity to hide element
   };
 
   registerQuestion = question => {
@@ -69,10 +71,10 @@ class App extends Component {
       questions: [...prevState.questions, question]
     }));
 
-    this.decideButton(); // make question button visible
+    this.decideButtonToDisplay(); // decide which button to display
   };
 
-  decideButton = () => {
+  decideButtonToDisplay = () => {
     const questionButton = document.querySelector(".btn-question");
     const arrangeButton = document.querySelector(".btn-arrange");
 
@@ -107,6 +109,8 @@ class App extends Component {
     [question, ...answerArray].forEach(el => (el.value = ""));
 
     question.focus(); // set focus on question field after emptying text
+
+    this.createFeedback("Question Submitted Successfully!", "success"); // shows message to user that he has submitted a question successfully
   };
 
   checkAnswers = array => {
@@ -165,14 +169,10 @@ class App extends Component {
 
     // first it checks if all answers are entered, then if they are all unique and if both conditions are met, registers question
     isEmptyAnswer
-      ? this.showWarning(
-          "Please make sure you fill all form elements!",
-          ".form-container"
-        )
+      ? this.showWarning("Please make sure you fill all form elements!")
       : areDuplicateAnswers
       ? this.showWarning(
-          "Please make sure there are no duplicate form elements!",
-          ".form-container"
+          "Please make sure there are no duplicate form elements!"
         )
       : this.registerQuestion(questionObj);
   };
@@ -203,7 +203,7 @@ class App extends Component {
             exact
             path="/"
             render={() => (
-              <Form getData={this.getData} hideWarning={this.hideWarning} />
+              <Form getData={this.getData} hideFeedback={this.hideFeedback} />
             )}
           />
           <Route
@@ -219,7 +219,7 @@ class App extends Component {
                 increaseScore={this.increaseScore}
                 submitAnswer={this.submitAnswer}
                 showWarning={this.showWarning}
-                hideWarning={this.hideWarning}
+                hideFeedback={this.hideFeedback}
               />
             )}
           />
