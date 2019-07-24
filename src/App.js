@@ -24,13 +24,13 @@ class App extends Component {
     });
   };
 
-  updateRound() {
+  updateRound = () => {
     // updates round
     this.setState(prevState => ({
       ...prevState,
       round: prevState.round + 1
     }));
-  }
+  };
 
   emptyStateObject() {
     // resets user data
@@ -230,7 +230,7 @@ class App extends Component {
                 score={score}
                 questions={questions}
                 round={this.state.round}
-                updateRound={this.updateRound.bind(this)}
+                updateRound={this.updateRound}
                 setEngine={this.setEngine}
                 engine={this.state.engine}
               />
