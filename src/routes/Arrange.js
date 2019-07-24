@@ -26,6 +26,13 @@ class Arrange extends Component {
     }
   }
 
+  displayQuestion(question) {
+    // truncate the question if it's too big to fit into space
+    return question.length > 35
+      ? question.replace(question.slice(35, question.length), "...")
+      : question;
+  }
+
   render() {
     const { questions } = this.props; // props object destructuring
     return questions.length > 0 ? (
@@ -44,7 +51,8 @@ class Arrange extends Component {
                   ref={question => (this.dom.listQuestions[i] = question)}
                 >
                   <div className="item-content">
-                    <span className="order">{i + 1}</span>. {question.question}
+                    <span className="order">{i + 1}</span>.{" "}
+                    {this.displayQuestion(question.question)}
                   </div>
                 </div>
               );
