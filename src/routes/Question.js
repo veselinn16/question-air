@@ -4,7 +4,7 @@ import Icon from "../components/Icon";
 import Social from "../components/Social";
 import Answer from "../components/Answer";
 import Error from "../routes/Error";
-import initBtn from "../utils/answerBtn";
+import initBtn from "../utils/AnswerBtn";
 
 class Question extends Component {
   state = {
