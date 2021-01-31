@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import Icon from "../components/Icon";
 import Social from "../components/Social";
 
+const showTip = ({ target }) => {
+  target.insertAdjacentHTML("afterend", '<span class="popup">Cool</span>');
+};
+
 const Form = ({ hideFeedback, getData }) => (
   <div className="form-container">
-    <Icon dims="640" type="logo" classes="logo logo-1" />
+    <Icon dims="640" type="logo" classes="logo logo-1" showTip={showTip} />
     <p className="feedback">d</p>
     <form className="form" onChange={hideFeedback} onSubmit={getData}>
       <h2 className="title">Question Form</h2>

@@ -32,6 +32,26 @@
   fill: var(--color-form-1);
 }
 
+.popup {
+  width: 200px;
+  top: 10px;
+  left: 55px;
+  height: 200px;
+  background-color: white;
+  position: absolute;
+}
+
+.popup:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid white;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-top: 8px solid transparent;
+}
+
 .form {
   animation: toggleOpacity 1s ease-in-out;
   width: 50%;
