@@ -72,7 +72,7 @@
   ],
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.3.0",
-    "gsap": "^2.0.2"
+    "gsap": "^3.6.0"
   },
   "jest": {
     "collectCoverageFrom": [
